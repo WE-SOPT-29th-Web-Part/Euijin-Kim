@@ -23,6 +23,24 @@ header h1 {
   margin: 0;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+nav > button {
+  border: 0;
+  outline: 0;
+  margin-right: 15px;
+  cursor: pointer;
+  background-color: lightsalmon;
+}
+
+nav > button:nth-child(3) {
+  margin-right: 0;
+}
+
 main {
   flex: 1;
   width: 100%;
