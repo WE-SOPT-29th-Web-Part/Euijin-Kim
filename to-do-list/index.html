@@ -9,6 +9,45 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <header>Shopping List</header>
+    <header>
+      <h1>Shopping List</h1>
+    </header>
+    <nav>
+      <button class="nav__today">오늘만 보기</button>
+      <button class="nav__tomorrow">내일만 보기</button>
+      <button class="nav__together">함께 보기</button>
+      <!-- querySelectorAll로 할지 하나하나 가지고 올지 -->
+    </nav>
+    <main>
+      <section class="todo todo__today">
+        <h2>오늘 할 일</h2>
+        <ul>
+          <li>
+            <span>HTML 공부</span>
+            <span>X</span>
+          </li>
+          <li>
+            <span>CSS 공부</span>
+            <span>X</span>
+          </li>
+        </ul>
+        <button>+</button>
+      </section>
+      <section class="todo todo__tomorrow">
+        <h2>내일 할 일</h3>
+        <ul>
+          <li>
+            <span>JavaScript 공부</span>
+            <span>X</span>
+          </li>
+          <li>
+            <span>React 공부</span>
+            <span>X</span>
+          </li>
+        </ul>
+        <button>+</button>
+      </section>
+    </main>
+    <footer>SOPT 29th Web Part</footer>
   </body>
 </html>
