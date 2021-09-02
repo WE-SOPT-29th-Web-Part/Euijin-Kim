@@ -54,13 +54,14 @@ main {
   align-items: center;
   transition: all ease-in 300ms;
   width: 0px;
-  margin: 0;
-  opacity: 0;
+  visibility: hidden;
+  /* opacity 로 하면 tab하여 입력할 수 있는 문제 */
+  /* display: none으로 하면 애니메이션이 발생하지 않는 문제 */
 }
 
 .todo.open {
   width: 100%;
-  opacity: 1;
+  visibility: visible;
   transition: all ease-in 300ms;
 }
 
