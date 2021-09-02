@@ -35,7 +35,7 @@ plusBtns.forEach((btn, index) =>
 );
 inputs.forEach((input, index) =>
   input.addEventListener("keyup", (e) => {
-    if (e.key == "Enter" && input.value !== "") {
+    if (e.key == "Enter") {
       onAdd(index);
     }
   })
@@ -60,8 +60,10 @@ function createItem(text, index) {
 }
 
 function onAdd(index) {
-  console.log(`inputs[index].value`, inputs[index].value);
-  const item = createItem(inputs[index].value, index);
+  const text = inputs[index].value;
+  if (!text) return;
+
+  const item = createItem(text, index);
   items[index].appendChild(item);
   inputs[index].value = "";
   inputs[index].focus();
