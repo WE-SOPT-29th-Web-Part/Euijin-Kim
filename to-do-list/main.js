@@ -8,6 +8,30 @@
 const inputs = document.querySelectorAll("input");
 const plusBtns = document.querySelectorAll(".plusBtn");
 const items = document.querySelectorAll(".todo__items");
+const nav = document.querySelector("nav");
+const navBtn = document.querySelectorAll("nav > button");
+const todos = document.querySelectorAll(".todo");
+
+nav.addEventListener("click", (e) => {
+  if (e.target.tagName !== "BUTTON") return;
+  switch (e.target.className) {
+    case "nav__today":
+      todos[0].classList.add("open");
+      todos[1].classList.remove("open");
+      console.log(`e.target.innerText`, e.target.innerText);
+      break;
+    case "nav__tomorrow":
+      todos[0].classList.remove("open");
+      todos[1].classList.add("open");
+      console.log(`e.target.innerText`, e.target.innerText);
+      break;
+    case "nav__together":
+      todos[0].classList.add("open");
+      todos[1].classList.add("open");
+      console.log(`e.target.innerText`, e.target.innerText);
+      break;
+  }
+});
 
 plusBtns.forEach((btn, index) =>
   btn.addEventListener("click", () => onAdd(index))
