@@ -18,17 +18,14 @@ nav.addEventListener("click", (e) => {
     case "nav__today":
       todos[0].classList.add("open");
       todos[1].classList.remove("open");
-      console.log(`e.target.innerText`, e.target.innerText);
       break;
     case "nav__tomorrow":
       todos[0].classList.remove("open");
       todos[1].classList.add("open");
-      console.log(`e.target.innerText`, e.target.innerText);
       break;
     case "nav__together":
       todos[0].classList.add("open");
       todos[1].classList.add("open");
-      console.log(`e.target.innerText`, e.target.innerText);
       break;
   }
 });
