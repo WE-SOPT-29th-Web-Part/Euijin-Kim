@@ -14,6 +14,9 @@ const todos = document.querySelectorAll(".todo");
 
 nav.addEventListener("click", (e) => {
   if (e.target.tagName !== "BUTTON") return;
+  // nav의 빈 공간을 눌렀을 때는 아무 일이 발생하지 않도록 한다.
+
+  // 3가지 버튼의 클릭 결과를 하나의 함수에 넣기 위해 switch 함수를 사용한다.
   switch (e.target.className) {
     case "nav__today":
       todos[0].classList.add("open");
@@ -30,9 +33,12 @@ nav.addEventListener("click", (e) => {
   }
 });
 
+// plusBtn 버튼을 눌렀을 때 onAdd 함수 실행
 plusBtns.forEach((btn, index) =>
   btn.addEventListener("click", () => onAdd(index))
 );
+
+// enter를 눌렀을 때 onAdd 함수 실행
 inputs.forEach((input, index) =>
   input.addEventListener("keyup", (e) => {
     if (e.key == "Enter") {
@@ -41,6 +47,7 @@ inputs.forEach((input, index) =>
   })
 );
 
+// 새로운 to-do-item을 추가하는 함수이다.
 function createItem(text, index) {
   const li = document.createElement("li");
   const span = document.createElement("span");
@@ -55,6 +62,7 @@ function createItem(text, index) {
   icon.addEventListener("click", () => {
     items[index].removeChild(li);
   });
+  // tranBtn을 눌렀을 때는 해당 li를 삭제한다.
 
   return li;
 }
@@ -62,11 +70,15 @@ function createItem(text, index) {
 function onAdd(index) {
   const text = inputs[index].value;
   if (!text) return;
+  // text가 없을 때는 추가하지 않는다.
 
   const item = createItem(text, index);
   items[index].appendChild(item);
   inputs[index].value = "";
   inputs[index].focus();
+  // 입력이 완료 된 후, input에 다시 focus가 가도록 한다.
+
+  // 아래를 일반화한 코드가 위 코드이다.
   //   if (btn == plusBtns[0]) {
   //     console.log(`inputs[0].innerText`, inputs[0].value);
   //     inputs[0].value = "";

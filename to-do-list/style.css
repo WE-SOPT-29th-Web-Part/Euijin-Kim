@@ -5,6 +5,7 @@
 body {
   margin: 0;
   height: 100vh;
+  /* 한 화면 전체를 채우는 방법 - 100vh (Viewport height) */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,14 +14,16 @@ header,
 footer {
   width: 100%;
   background-color: thistle;
-  height: 50px;
   color: white;
   text-align: center;
+  height: 50px;
   line-height: 50px;
+  /* 텍스트를 수직정렬 하는 방법 - height와 line-height를 동일하게 설정한디. */
 }
 
 header h1 {
   margin: 0;
+  /* h1 태그에는 기본적으로 margin이 있다. 이를 없애준다. */
 }
 
 nav {
@@ -31,7 +34,9 @@ nav {
 
 nav > button {
   border: 0;
+  /* button의 기본 border 스타일 제거 */
   outline: 0;
+  /* button을 클릭했을 때 발생하는 반짝거림 효과 제거 */
   margin-right: 15px;
   cursor: pointer;
   background-color: lightsalmon;
@@ -43,6 +48,10 @@ nav > button:nth-child(3) {
 
 main {
   flex: 1;
+  /* flex: flex-grow flex-shrink flex-basis */
+  /* flex: 1은 flex-grow를 1로 설정하는 코드이고, flex-grow는 flex-items가 차지하고 남은 공간을 분배하는 속성이다 */
+  /* 기본값은 0이기 때문에, 하나의 flex-item에만 flex:1을 설정해주면 나머지 공간을 모두 차지하게 된다.*/
+  /* 즉, 남은 공간을 모두 채우는 코드이다. */
   width: 100%;
   display: flex;
   background-color: whitesmoke;
@@ -52,14 +61,21 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all ease-in 300ms;
+  /* todo는 기본적으로 width:0이고, 보이지 않는다. */
   width: 0px;
   visibility: hidden;
+  transition: all ease-in 300ms;
+  /* opacity : dom 요소로 존재, 이벤트(클릭) 가능, 보이지 않는다 */
+  /* visibility : dom 요소로 존재, 이벤트(클릭) 불가, 보이지 않는다 */
+  /* visibility : dom 요소로 존재하지 않음, 이벤트(클릭) 불가, 보이지 않는다 */
+
   /* opacity 로 하면 tab하여 입력할 수 있는 문제 */
   /* display: none으로 하면 애니메이션이 발생하지 않는 문제 */
+  /* 고로 visibility가 유용한 경우가 많다. */
 }
 
 .todo.open {
+  /* open되었을 때 애니메이션 */
   width: 100%;
   visibility: visible;
   transition: all ease-in 300ms;
@@ -70,8 +86,8 @@ main {
 }
 
 ul {
-  padding: 0;
   margin: 0;
+  /* ul 태그에 기본적인 padding, margin존재 */
   width: 100%;
   flex: 1;
   padding: 0 20px;
@@ -79,6 +95,7 @@ ul {
 
 li {
   list-style: none;
+  /* li에는 기본적으로 스타일이 존재. */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,6 +105,8 @@ li {
 
 li > span {
   display: inline-block;
+  /* span은 기본적으로 inline 속성을 가진다. */
+  /* inline은 크기 조절이 불가능하고, 한 줄에 하나의 아이템만 놓이기 바라지 않으므로 inline-block속성 사용 */
   height: 35px;
   line-height: 35px;
 }
@@ -95,6 +114,7 @@ li > span {
 input {
   width: 100%;
   outline: 0;
+  /* input을 눌렀을 때 반짝거리는 효과 제거 */
   border: 0;
 }
 
@@ -106,6 +126,7 @@ input {
 
 .todo__plus i {
   font-size: 30px;
+  /* icon의 크기를 조절하는 방법은 width, height가 아니라 font-size이다. */
 }
 
 i {
