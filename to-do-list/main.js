@@ -1,8 +1,8 @@
 "use strict";
 
-// 1. +버튼 클릭 시 아이템 추가
+// 1. +버튼 클릭 시 아이템 추가 ㅇ
 // 2. enter 시 아이템 추가
-// 3. trash btn 클릭시 아이템 제거
+// 3. trash btn 클릭시 아이템 제거 ㅇ
 // 4. 오늘 할 일, 내일 할 일 필터링
 
 const inputs = document.querySelectorAll("input");
@@ -11,6 +11,13 @@ const items = document.querySelectorAll(".todo__items");
 
 plusBtns.forEach((btn, index) =>
   btn.addEventListener("click", () => onAdd(index))
+);
+inputs.forEach((input, index) =>
+  input.addEventListener("keyup", (e) => {
+    if (e.key == "Enter" && input.value !== "") {
+      onAdd(index);
+    }
+  })
 );
 
 function createItem(text, index) {
