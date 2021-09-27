@@ -3,7 +3,7 @@
 - SOPT 29기 웹파트 세미나 프로젝트 내용
 - 직접 짠 코드입니다.
 
-## 1st Semina
+## 1st Seminar
 
 1. Project
    - [To-Do-List](https://github.com/euijinkk/SOPT29_Web/tree/main/to-do-list) ([Link](https://todo-js-29th.vercel.app/))
