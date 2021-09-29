@@ -1,0 +1,64 @@
+/* 1주차 세미나, before, after, hover */
+/* .beforeAndAfter::after {
+  content: "🧡";
+}
+
+.beforeAndAfter::before {
+  content: "💙";
+}
+
+.beforeAndAfter:hover {
+  background-color: red;
+}
+
+.beforeAndAfter:active {
+  background-color: blue;
+} */
+
+/* 선택자 우선순위 */
+/* div {
+  color: yellow;
+}
+
+.beforeAndAfter {
+  color: green !important;
+  color: orange;
+}
+
+#idIsSuperior {
+  color: skyblue;
+} */
+
+/* position, z-index, overflow, transform, transition */
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first {
+  flex-shrink: 1;
+  /* width: 50px; */
+}
+
+.second {
+  flex-basis: 10;
+}
+
+.container {
+  position: relative;
+  overflow-y: scroll;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
