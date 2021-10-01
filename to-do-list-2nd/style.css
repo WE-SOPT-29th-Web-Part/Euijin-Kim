@@ -105,3 +105,17 @@ li {
   width: 25px;
   height: 25px;
 }
+
+.todos__input {
+  border: 0;
+  outline: 0;
+}
+
+.todos__btn-container {
+  padding: 5px 0;
+}
+.todos__btn {
+  background-image: url(/assets/icons/addIC.svg);
+  width: 25px;
+  height: 25px;
+}
