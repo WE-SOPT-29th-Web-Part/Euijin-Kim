@@ -5,39 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- 1. html 구조를 짠다. 2.style을 입힌다. 3. js 기능을 추가한다. -->
     <!-- 명심할 부분. 1. semantic tag -->
 
-    <header><h1>To Do List</h1></header>
-    <main>
-      <section>
-        <button>오늘만 보기</button>
-        <button>내일만 보기</button>
-        <button>함께 보기</button>
+    <header class="header">
+      <h1 class="header__title">To Do List</h1>
+    </header>
+    <nav class="options">
+      <button class="options__today">오늘만 보기</button>
+      <button class="options__tomorrow">내일만 보기</button>
+      <button class="options__both">함께 보기</button>
+    </nav>
+    <main class="todos">
+      <section class="todos__today">
+        <h2 class="todos__header">오늘 할 일</h2>
+        <ul class="todos__items">
+          <li class="todos__item">
+            <div class="todos__name">HTML 공부</div>
+            <button class="todos__delete"></button>
+          </li>
+          <li class="todos__item">
+            <div class="todos__name">CSS 공부</div>
+            <button class="todos__delete"></button>
+          </li>
+        </ul>
+        <input class="todos__input" type="text" />
+        <div class="todos__btn-container">
+          <button class="todos__btn"></button>
+        </div>
       </section>
-      <section>
-        <section>
-          <div>오늘 할 일</div>
-          <div>
-            <div>HTML 공부</div>
-            <div>CSS 공부</div>
-          </div>
-          <input type="text" />
-          <div><button>+</button></div>
-        </section>
-        <section>
-          <div>오늘 할 일</div>
-          <div>
-            <div>JavaScript 공부</div>
-            <div>React 공부</div>
-          </div>
-          <input type="text" />
-          <div><button>+</button></div>
-        </section>
+      <section class="todos__tomorrow">
+        <h2 class="todos__header">내일 할 일</h2>
+        <ul class="todos__items">
+          <li class="todos__item">
+            <div class="todos__name">JavaScript 공부</div>
+            <button class="todos__delete"></button>
+          </li>
+          <li class="todos__item">
+            <div class="todos__name">React 공부</div>
+            <button class="todos__delete"></button>
+          </li>
+        </ul>
+        <input class="todos__input" type="text" />
+        <div class="todos__btn-container">
+          <button class="todos__btn"></button>
+        </div>
       </section>
     </main>
-    <footer>SOPT 29th Web Part</footer>
+    <footer class="footer">SOPT 29th Web Part</footer>
   </body>
 </html>

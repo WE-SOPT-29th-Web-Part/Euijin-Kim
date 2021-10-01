@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  /* outline: 0; */
+  border: 0;
+  background-color: whitesmoke;
+}
+
+.header {
+  height: 50px;
+  color: white;
+  background-color: thistle;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.header > h1 {
+  font-size: 32px;
+  height: 50px;
+  line-height: 50px;
+  /* transform: translateY(8px); */
+}
+
+.options {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.options > button {
+  background-color: orange;
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.options > .options__both {
+  margin-right: 0;
+}
+
+.options__both {
+  margin-right: 0 !important;
+}
+
+.todos {
+  flex: 1;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.todos__today {
+  border-right: 1px solid darkgray;
+}
+
+.todos__today,
+.todos__tomorrow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todos__items {
+  width: 100%;
+  flex: 1;
+}
+
+.todos__input {
+  width: 100%;
+}
+
+.todos__items {
+  padding: 0 20px;
+}
+
+.todos__item {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.todos__delete {
+  background-image: url(/assets/icons/deleteIC.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.todos__input {
+  border: 0;
+  outline: 0;
+}
+
+.todos__btn-container {
+  padding: 5px 0;
+}
+.todos__btn {
+  background-image: url(/assets/icons/addIC.svg);
+  background-color: white;
+  border-radius: 50%;
+
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.footer {
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  background-color: thistle;
+  text-align: center;
+}
