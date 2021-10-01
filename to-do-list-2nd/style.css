@@ -22,3 +22,25 @@ h1 {
   line-height: 50px;
   /* transform: translateY(8px); */
 }
+
+.options {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.options > button {
+  background-color: orange;
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.options > .options__both {
+  margin-right: 0;
+}
+
+.options__both {
+  margin-right: 0 !important;
+}
