@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.header {
+  height: 50px;
+  color: white;
+  background-color: thistle;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.header > h1 {
+  font-size: 32px;
+  height: 50px;
+  line-height: 50px;
+  /* transform: translateY(8px); */
+}
