@@ -22,6 +22,12 @@ li {
   list-style: none;
 }
 
+button {
+  /* outline: 0; */
+  border: 0;
+  background-color: whitesmoke;
+}
+
 .header {
   height: 50px;
   color: white;
@@ -70,6 +76,10 @@ li {
   height: 100%;
 }
 
+.todos__today {
+  border-right: 1px solid darkgray;
+}
+
 .todos__today,
 .todos__tomorrow {
   width: 100%;
@@ -102,8 +112,9 @@ li {
 
 .todos__delete {
   background-image: url(/assets/icons/deleteIC.svg);
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .todos__input {
@@ -116,6 +127,18 @@ li {
 }
 .todos__btn {
   background-image: url(/assets/icons/addIC.svg);
-  width: 25px;
-  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.footer {
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  background-color: thistle;
+  text-align: center;
 }
