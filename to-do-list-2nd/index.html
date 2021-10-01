@@ -10,34 +10,38 @@
     <!-- 1. html 구조를 짠다. 2.style을 입힌다. 3. js 기능을 추가한다. -->
     <!-- 명심할 부분. 1. semantic tag -->
 
-    <header><h1>To Do List</h1></header>
+    <header class="header"><h1 class="header__title">To Do List</h1></header>
     <main>
-      <section>
-        <button>오늘만 보기</button>
-        <button>내일만 보기</button>
-        <button>함께 보기</button>
+      <section class="options">
+        <button class="options__today">오늘만 보기</button>
+        <button class="options__tomorrow">내일만 보기</button>
+        <button class="options__both">함께 보기</button>
       </section>
-      <section>
-        <section>
-          <div>오늘 할 일</div>
-          <div>
-            <div>HTML 공부</div>
-            <div>CSS 공부</div>
+      <section class="todos">
+        <section class="todos__today">
+          <header class="todos__header">오늘 할 일</header>
+          <ul class="todos_items">
+            <li class="todos__item">HTML 공부</li>
+            <li class="todos__item">CSS 공부</li>
+          </ul>
+          <input class="todos__input" type="text" />
+          <div class="todos__btn-container">
+            <button clas="todos__btn">+</button>
           </div>
-          <input type="text" />
-          <div><button>+</button></div>
         </section>
-        <section>
-          <div>오늘 할 일</div>
-          <div>
-            <div>JavaScript 공부</div>
-            <div>React 공부</div>
+        <section class="todos__tomorrow">
+          <header class="todos__header">내일 할 일</header>
+          <ul class="todos_items">
+            <li class="todos__item">JavaScript 공부</li>
+            <li class="todos__item">React 공부</li>
+          </ul>
+          <input class="todos__input" type="text" />
+          <div class="todos__btn-container">
+            <button clas="todos__btn">+</button>
           </div>
-          <input type="text" />
-          <div><button>+</button></div>
         </section>
       </section>
     </main>
-    <footer>SOPT 29th Web Part</footer>
+    <footer class="footer">SOPT 29th Web Part</footer>
   </body>
 </html>
