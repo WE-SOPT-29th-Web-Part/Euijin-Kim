@@ -1,3 +1,5 @@
+![github_김의진_ver1](https://user-images.githubusercontent.com/24906022/135574416-78cded38-6fbf-4fec-9da9-32e5d01b7035.png)
+
 # Sopt 29th Web Part
 
 - SOPT 29기 웹파트 세미나 프로젝트 내용
