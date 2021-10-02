@@ -5,6 +5,7 @@
 body {
   margin: 0 16px;
   background: rgb(248, 249, 250);
+  width: 100%;
 }
 
 button {
@@ -18,10 +19,16 @@ button {
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  margin-bottom: 24px;
+  max-width: 1024px;
+  margin: auto;
 }
 
 .header__logo {
   font-size: 28px;
+  font-weight: normal;
+  height: 64px;
+  line-height: 64px;
 }
 
 .header__right {
@@ -59,6 +66,8 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1024px;
+  margin: auto;
 }
 
 .nav__left {
@@ -109,4 +118,84 @@ button {
   background-image: url(/assets/icons/moreIC.svg);
   width: 24px;
   height: 24px;
+}
+
+.cards {
+  /* display: grid; */
+  /* grid-template-columns: repeat(); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 16px;
+  max-width: 1056px;
+  margin: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  /* width: 50%; */
+  background-color: white;
+  margin: 16px;
+}
+
+.card__img {
+  object-fit: cover;
+  width: 100%;
+  height: 167px;
+}
+
+.card__middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 165px;
+  padding: 16px;
+  border-bottom: 1px solid rgb(248, 249, 250);
+}
+
+.card__title {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.card__subtitle {
+  margin: 0;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.card__date {
+  color: rgb(134, 142, 150);
+  font-size: 12px;
+}
+
+.card__bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.card__profile {
+  display: flex;
+  align-items: center;
+}
+
+.card__profile-name {
+  font-weight: bold;
+}
+
+.card__profile-name > span {
+  color: rgb(134, 142, 150);
+}
+
+.card__profile-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
