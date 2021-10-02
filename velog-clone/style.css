@@ -19,9 +19,9 @@ button {
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  margin-bottom: 24px;
   max-width: 1024px;
   margin: auto;
+  margin-bottom: 24px;
 }
 
 .header__logo {
@@ -198,4 +198,20 @@ button {
   height: 24px;
   border-radius: 50%;
   margin-right: 8px;
+}
+
+.card__like {
+  display: flex;
+  align-items: center;
+}
+
+.card__like-img {
+  background-image: url(/assets/icons/likeIC.svg);
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.card__like-count {
+  transform: translateY(1px);
 }
