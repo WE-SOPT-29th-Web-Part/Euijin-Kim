@@ -19,7 +19,7 @@ button {
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  max-width: 1024px;
+  max-width: 1728px;
   margin: auto;
   margin-bottom: 24px;
 }
@@ -66,7 +66,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1024px;
+  max-width: 1728px;
   margin: auto;
 }
 
@@ -129,7 +129,7 @@ button {
   flex-wrap: wrap;
   width: 100%;
   margin-top: 16px;
-  max-width: 1056px;
+  max-width: calc(1728px + 2rem);
   margin: auto;
 }
 
@@ -142,10 +142,19 @@ button {
   margin: 16px;
 }
 
+.card__img-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .card__img {
+  position: absolute;
+  top: 0;
+  left: 0;
   object-fit: cover;
   width: 100%;
-  height: 167px;
+  height: 100%;
+  /* height: 167px; */
 }
 
 .card__middle {
@@ -214,4 +223,36 @@ button {
 
 .card__like-count {
   transform: translateY(1px);
+}
+
+@media (max-width: 1919px) {
+  .header,
+  .nav {
+    max-width: 1376px;
+  }
+  .cards {
+    max-width: calc(1376px + 2rem);
+  }
+}
+
+@media (max-width: 1440px) {
+  .header,
+  .nav {
+    max-width: 1024px;
+  }
+  .cards {
+    max-width: calc(1024px + 2rem);
+  }
+}
+
+@media (max-width: 1056px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+  }
 }
