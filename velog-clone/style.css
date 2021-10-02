@@ -37,7 +37,7 @@ button {
 }
 
 .header__search {
-  background-image: url(/assets/icons/searchIC.svg);
+  background-image: url(assets/icons/searchIC.svg);
   width: 18px;
   height: 18px;
   margin-right: 30px;
@@ -55,7 +55,7 @@ button {
 }
 
 .header__arrow-dropdown {
-  background-image: url(/assets/icons/arrow_drop_down.svg);
+  background-image: url(assets/icons/arrow_drop_down.svg);
   width: 24px;
   height: 24px;
   margin-left: 4px;
@@ -88,7 +88,7 @@ button {
 
 .nav__trending-icon,
 .nav__recent-icon {
-  background-image: url(/assets/icons/trending_up.svg);
+  background-image: url(assets/icons/trending_up.svg);
   width: 24px;
   height: 24px;
   display: inline-block;
@@ -102,7 +102,7 @@ button {
 }
 
 .nav__recent-icon {
-  background-image: url(/assets/icons/clockIC.svg);
+  background-image: url(assets/icons/clockIC.svg);
 }
 
 .nav__period {
@@ -115,7 +115,7 @@ button {
 }
 
 .nav__more-btn {
-  background-image: url(/assets/icons/moreIC.svg);
+  background-image: url(assets/icons/moreIC.svg);
   width: 24px;
   height: 24px;
 }
@@ -215,7 +215,7 @@ button {
 }
 
 .card__like-img {
-  background-image: url(/assets/icons/likeIC.svg);
+  background-image: url(assets/icons/likeIC.svg);
   width: 18px;
   height: 18px;
   margin-right: 8px;

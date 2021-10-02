@@ -111,7 +111,7 @@ button {
 }
 
 .todos__delete {
-  background-image: url(/assets/icons/deleteIC.svg);
+  background-image: url(assets/icons/deleteIC.svg);
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -126,7 +126,7 @@ button {
   padding: 5px 0;
 }
 .todos__btn {
-  background-image: url(/assets/icons/addIC.svg);
+  background-image: url(assets/icons/addIC.svg);
   background-color: white;
   border-radius: 50%;
 
