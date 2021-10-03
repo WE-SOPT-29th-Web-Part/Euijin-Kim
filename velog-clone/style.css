@@ -140,6 +140,14 @@ button {
   /* width: 50%; */
   background-color: white;
   margin: 16px;
+  transition: box-shadow 0.25s ease-in, transform 0.25s ease-in;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: rgb(0 0 0 / 8%) 0px 12px 20px 0px;
 }
 
 .card__img-wrapper {
@@ -154,6 +162,7 @@ button {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  border-radius: 4px 4px 0 0;
   /* height: 167px; */
 }
 
