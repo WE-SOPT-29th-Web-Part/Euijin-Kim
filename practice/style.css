@@ -38,27 +38,9 @@
   margin-right: 10px;
 }
 
-.item1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.first {
-  flex-shrink: 1;
-  /* width: 50px; */
-}
-
-.second {
-  flex-basis: 10;
-}
-
 .container {
-  position: relative;
-  overflow-y: scroll;
-  width: 500px;
-  height: 500px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  position: relative;
 }

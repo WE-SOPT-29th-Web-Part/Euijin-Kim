@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  height: 50px;
+  color: white;
+  background-color: thistle;
+}
+
+.header__logo {
+  font-size: 32px;
+  text-align: center;
+  /* 수평 정렬 방법 */
+  height: 50px;
+  line-height: 50px;
+  /* 수직 정렬 방법 */
+}
+
+.options {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.options__btn {
+  background-color: orange;
+  border: 0;
+  color: white;
+}
+
+/* flex-container */
+
+.todos {
+  background-color: whitesmoke;
+  display: flex;
+  flex-grow: 1;
+}
+
+.todos__today,
+.todos__tomorrow {
+  width: 100%;
+}
+
+.todos__today,
+.todos__tomorrow {
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.todos__items {
+  flex-grow: 1;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.todos__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.todos__name {
+  height: 36px;
+  line-height: 36px;
+}
+
+.todos__input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.footer {
+  color: white;
+  background-color: thistle;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
