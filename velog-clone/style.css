@@ -1,3 +1,5 @@
+@import "/path/to/reset-css/reset.css";
+
 * {
   box-sizing: border-box;
 }
@@ -12,6 +14,11 @@ button {
   border: 0;
   background: rgb(248, 249, 250);
   color: rgb(52, 58, 64);
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .header {
@@ -41,6 +48,24 @@ button {
   width: 18px;
   height: 18px;
   margin-right: 30px;
+}
+
+.header__write {
+  width: 97px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 16px;
+  border: 1px solid rgb(52, 58, 64);
+  background-color: white;
+  margin-right: 20px;
+  transition: background-color 300ms ease;
+  cursor: pointer;
+}
+
+.header__write:hover {
+  background-color: rgb(52, 58, 64);
+  color: white;
 }
 
 .header__profile {

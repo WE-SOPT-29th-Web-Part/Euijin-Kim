@@ -1,0 +1,28 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  outline: none;
+  border: none;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 16px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 12px;
+  background-color: rgb(241, 243, 245);
+  color: rgb(12, 166, 120);
+  border-radius: 16px;
+  cursor: pointer;
+}
