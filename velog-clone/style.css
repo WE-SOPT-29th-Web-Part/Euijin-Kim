@@ -107,11 +107,36 @@ button {
 
 .nav__period {
   /* display: inline-block; */
+  position: relative;
   background-color: white;
   display: flex;
   align-items: center;
   padding: 0 8px;
   cursor: pointer;
+  width: 96px;
+}
+
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px 0px;
+  margin-top: 8px;
+  z-index: 2;
+  font-size: 14px;
+  visibility: hidden;
+}
+
+.nav__dropdown.visible {
+  visibility: visible;
+}
+
+.nav__dropdown > div {
+  border-top: 1px solid rgb(241, 243, 245);
+  width: 192px;
+  height: 42px;
+  padding: 12px 16px;
 }
 
 .nav__more-btn {
