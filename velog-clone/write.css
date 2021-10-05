@@ -8,11 +8,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 624px;
+  margin: 0 auto;
 }
 
 .input {
   outline: none;
   border: none;
+  width: 200px;
 }
 
 .tag {
