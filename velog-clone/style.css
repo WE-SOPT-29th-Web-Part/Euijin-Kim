@@ -114,6 +114,8 @@ button {
   padding: 0 8px;
   cursor: pointer;
   width: 96px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav__dropdown {
