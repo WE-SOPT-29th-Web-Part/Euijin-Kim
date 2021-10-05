@@ -158,6 +158,7 @@ button {
   margin-top: 16px;
   max-width: calc(1728px + 2rem);
   margin: auto;
+  position: relative;
 }
 
 .card {
@@ -170,6 +171,41 @@ button {
   transition: box-shadow 0.25s ease-in, transform 0.25s ease-in;
   border-radius: 4px;
   cursor: pointer;
+  position: relative;
+}
+
+.card__modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: hidden;
+}
+
+.card__modal {
+  transition: none;
+}
+
+.card__modal:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.card__modal-close-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 50%;
+  transform: translate(50%, 150%);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
 }
 
 .card:hover {
