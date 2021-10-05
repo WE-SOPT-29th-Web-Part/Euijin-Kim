@@ -2,12 +2,11 @@
 
 const input = document.querySelector(".input");
 
-input.addEventListener("keydown", addTag);
+input.addEventListener("keypress", addTag);
 
 let tagArr = [];
 
 function addTag(e) {
-  console.log(`e.key`, e.key);
   if (e.key === "Enter") {
     //   기존 태그와 중복된다면 그냥 return
     if (tagArr.includes(e.target.value)) {
