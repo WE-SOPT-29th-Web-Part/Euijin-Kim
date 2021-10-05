@@ -7,6 +7,7 @@
 |Week|내용|과제|
 |:---:|:---------------|:-------------:|
 |1주차|HTML/CSS/JavaScript 기본|[To-Do-List](https://github.com/WE-SOPT-29th-Web-Part/Euijin-Kim/tree/main/to-do-list)|
+|1주차|HTML/CSS/JavaScript 기본|[Velog Clone Coding](https://github.com/WE-SOPT-29th-Web-Part/Euijin-Kim/tree/main/velog-clone)|
 |2주차|JavaScript 기본/Vanilla JavaScript||
 |3주차|React 이해하기, API 비동기 처리 이해하기||
 |4주차|SPA(react-router-dom), REST API - React 실전 프로젝트 1||
