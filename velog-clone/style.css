@@ -175,6 +175,7 @@ button {
 }
 
 .card__modal-bg {
+  /* 모달 스타일링 */
   position: fixed;
   top: 0;
   left: 0;
@@ -184,7 +185,6 @@ button {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  overflow-y: hidden;
 }
 
 .card__modal {
@@ -192,6 +192,7 @@ button {
 }
 
 .card__modal:hover {
+  /* 애내메이션 없애기 */
   transform: none !important;
   box-shadow: none !important;
 }
@@ -201,6 +202,7 @@ button {
   bottom: 0px;
   right: 50%;
   transform: translate(50%, 150%);
+  /* 중앙 위치 */
   width: 30px;
   height: 30px;
   line-height: 30px;

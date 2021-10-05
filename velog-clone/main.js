@@ -3,7 +3,6 @@
 const navPeriod = document.querySelector(".nav__period");
 const navDropdown = document.querySelector(".nav__dropdown");
 const navPeriodText = document.querySelector(".nav__period-text");
-const navDropdownItems = document.querySelectorAll(".nav__dropdown > div");
 navPeriod.addEventListener("click", () => handleDropdown(navDropdown));
 
 function handleDropdown(element) {
@@ -13,38 +12,41 @@ function handleDropdown(element) {
   //     : element.classList.add("visible");
 }
 
-navDropdownItems.forEach((item) =>
-  item.addEventListener("click", () => {
-    navPeriodText.innerText = item.innerText;
-  })
-);
+navDropdown.addEventListener("click", (e) => {
+  navPeriodText.innerText = e.target.innerText;
+});
 
 const cardContainer = document.querySelector(".cards");
-const cards = document.querySelectorAll(".card");
 
 cardContainer.addEventListener("click", (e) => {
   let el = e.target;
-  // walk up the tree until we find a LI item
   while (el && !el.classList.contains("card")) {
     el = el.parentNode;
   }
+  // e.target이 card일때까지 탐색
   if (el.classList.contains("card__modal")) return;
+  //   띄어진 modal의 card를 클릭했을 때는 반응하지 않도록
   const modalBg = document.createElement("div");
   const modalCard = document.createElement("article");
-  modalBg.appendChild(modalCard);
+  const modalCloseBtn = document.createElement("button");
+
   modalBg.setAttribute("class", "card__modal-bg");
-  cardContainer.appendChild(modalBg);
+
   modalCard.innerHTML = el.innerHTML;
   modalCard.setAttribute("class", "card card__modal");
 
-  const modalCloseBtn = document.createElement("button");
   modalCloseBtn.innerText = "X";
   modalCloseBtn.setAttribute("class", "card__modal-close-btn");
-  modalCard.appendChild(modalCloseBtn);
-  document.body.style.overflow = "hidden";
 
+  modalBg.appendChild(modalCard);
+  cardContainer.appendChild(modalBg);
+  modalCard.appendChild(modalCloseBtn);
+
+  document.body.style.overflow = "hidden";
+  //   modal 띄어졌을 때는 화면이 스크롤 되지 않도록
   modalCloseBtn.addEventListener("click", () => {
     modalBg.remove();
     document.body.style.overflow = "visible";
+    // modal 이 사라지고, 스크롤 되도록 만들기.
   });
 });
