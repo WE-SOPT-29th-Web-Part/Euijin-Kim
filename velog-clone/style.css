@@ -141,6 +141,10 @@ button {
   padding: 12px 16px;
 }
 
+.nav__dropdown > div.active {
+  color: rgb(18, 184, 134);
+}
+
 .nav__more-btn {
   background-image: url(assets/icons/moreIC.svg);
   width: 24px;

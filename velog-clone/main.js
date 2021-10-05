@@ -3,6 +3,7 @@
 const navPeriod = document.querySelector(".nav__period");
 const navDropdown = document.querySelector(".nav__dropdown");
 const navPeriodText = document.querySelector(".nav__period-text");
+// navPeriod 클릭 시, navDropdown이 toggle 되도록.
 navPeriod.addEventListener("click", () => {
   navDropdown.classList.toggle("visible");
   //   navDropdown.classList.contains("visible")
@@ -10,12 +11,19 @@ navPeriod.addEventListener("click", () => {
   //     : navDropdown.classList.add("visible");
 });
 
+// navDropdown 클릭 시, navPeriodText 글자가 바뀌도록.
 navDropdown.addEventListener("click", (e) => {
   navPeriodText.innerText = e.target.innerText;
+  Array.from(e.target.parentNode.children).forEach((el) =>
+    el.classList.remove("active")
+  );
+  //   htmlelement to array 코드
+  e.target.classList.add("active");
+  //   클릭되는 list에 대해 색상을 추가하는 코드
 });
 
 const cardContainer = document.querySelector(".cards");
-
+// 카드 클릭 시, 모달 띄우는 코드
 cardContainer.addEventListener("click", (e) => {
   let el = e.target;
   while (el && !el.classList.contains("card")) {
