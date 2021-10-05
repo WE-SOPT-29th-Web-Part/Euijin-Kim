@@ -3,6 +3,7 @@
 const navPeriod = document.querySelector(".nav__period");
 const navDropdown = document.querySelector(".nav__dropdown");
 const navPeriodText = document.querySelector(".nav__period-text");
+
 // navPeriod 클릭 시, navDropdown이 toggle 되도록.
 navPeriod.addEventListener("click", () => {
   navDropdown.classList.toggle("visible");
