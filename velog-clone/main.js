@@ -3,14 +3,12 @@
 const navPeriod = document.querySelector(".nav__period");
 const navDropdown = document.querySelector(".nav__dropdown");
 const navPeriodText = document.querySelector(".nav__period-text");
-navPeriod.addEventListener("click", () => handleDropdown(navDropdown));
-
-function handleDropdown(element) {
-  element.classList.toggle("visible");
-  //   element.classList.contains("visible")
-  //     ? element.classList.remove("visible")
-  //     : element.classList.add("visible");
-}
+navPeriod.addEventListener("click", () => {
+  navDropdown.classList.toggle("visible");
+  //   navDropdown.classList.contains("visible")
+  //     ? navDropdown.classList.remove("visible")
+  //     : navDropdown.classList.add("visible");
+});
 
 navDropdown.addEventListener("click", (e) => {
   navPeriodText.innerText = e.target.innerText;
