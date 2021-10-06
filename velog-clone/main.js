@@ -57,3 +57,32 @@ cardContainer.addEventListener("click", (e) => {
     // modal 이 사라지고, 스크롤 되도록 만들기.
   });
 });
+
+const darkModeCheckBox = document.querySelector(".checkbox");
+
+document.documentElement.setAttribute("color-theme", "light");
+darkModeCheckBox.addEventListener("change", switchTheme);
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute("color-theme", "dark");
+
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.setAttribute("color-theme", "light");
+
+    localStorage.setItem("theme", "light");
+  }
+}
+
+// Get the current theme from local storage
+const currentTheme = localStorage.getItem("theme");
+// If the current local storage item can be found
+if (currentTheme) {
+  // Set the body data-theme attribute to match the local storage item
+  document.documentElement.setAttribute("color-theme", currentTheme);
+  // If the current theme is dark, check the theme toggle
+  if (currentTheme === "dark") {
+    darkModeCheckBox.checked = true;
+  }
+}
