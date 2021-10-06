@@ -59,8 +59,9 @@ cardContainer.addEventListener("click", (e) => {
 });
 
 const darkModeCheckBox = document.querySelector(".checkbox");
-
+// 기본값은 light
 document.documentElement.setAttribute("color-theme", "light");
+
 darkModeCheckBox.addEventListener("change", switchTheme);
 
 function switchTheme(e) {
@@ -75,13 +76,9 @@ function switchTheme(e) {
   }
 }
 
-// Get the current theme from local storage
 const currentTheme = localStorage.getItem("theme");
-// If the current local storage item can be found
 if (currentTheme) {
-  // Set the body data-theme attribute to match the local storage item
   document.documentElement.setAttribute("color-theme", currentTheme);
-  // If the current theme is dark, check the theme toggle
   if (currentTheme === "dark") {
     darkModeCheckBox.checked = true;
   }
