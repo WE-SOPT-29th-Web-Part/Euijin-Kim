@@ -61,6 +61,7 @@ a {
 
 .header__mode-text {
   margin-right: 8px;
+  color: var(--color);
 }
 
 .header__search {
@@ -162,6 +163,7 @@ a {
   width: 96px;
   display: flex;
   justify-content: space-between;
+  color: var(--color);
 }
 
 .nav__dropdown {
@@ -185,6 +187,11 @@ a {
   width: 192px;
   height: 42px;
   padding: 12px 16px;
+  color: var(--color);
+}
+
+.nav__dropdown > div:nth-child(1) {
+  border-top: none;
 }
 
 .nav__dropdown > div.active {
