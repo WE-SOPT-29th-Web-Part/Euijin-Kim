@@ -31,8 +31,8 @@ cardContainer.addEventListener("click", (e) => {
     el = el.parentNode;
   }
   // e.target이 card일때까지 탐색
-  if (el.classList.contains("card__modal")) return;
-  //   띄어진 modal의 card를 클릭했을 때는 반응하지 않도록
+  if (!el.classList || el.classList.contains("card__modal")) return;
+  //  card 외부가 눌러졌거나, 띄어진 modal의 card를 클릭했을 때는 반응하지 않도록
   const modalBg = document.createElement("div");
   const modalCard = document.createElement("article");
   const modalCloseBtn = document.createElement("button");
