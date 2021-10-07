@@ -46,7 +46,7 @@ cardContainer.addEventListener("click", (e) => {
   modalCloseBtn.setAttribute("class", "card__modal-close-btn");
 
   modalBg.appendChild(modalCard);
-  cardContainer.appendChild(modalBg);
+  document.body.appendChild(modalBg);
   modalCard.appendChild(modalCloseBtn);
 
   document.body.style.overflow = "hidden";
