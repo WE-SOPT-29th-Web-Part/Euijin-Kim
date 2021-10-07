@@ -86,37 +86,59 @@ if (currentTheme) {
 }
 
 const sliderLen = cardContainer.children.length;
-const sliderWidth = 320;
+// slider 요소의 개수
+cardContainer.style.width = "100000px";
+// cardContainer의 크기가 제한되어 있어, card의 width가 css에서 조정되지 않는 문제.
+// 그러므로 먼저 박스의 크기를 넓혀두고, css style을 적용한 다음에, 그 style을 js로 가져온다.
+// 이를 기반으로 계산을 한 다음에 다시 cardContainer의 넓이를 줄여준다.
+// 컨테이너의 넓이를 줄여주는 이유는, 카드 크기의 합과 동일한 크기를 유지하게 함으로써 왼쪽 정렬되도록 만들기 위함이다.
+let sliderWidth = Number(
+  window.getComputedStyle(cardContainer.children[0]).width.slice(0, -2)
+);
 const sliderMargin = 32;
-
 cardContainer.style.width = (sliderWidth + sliderMargin) * sliderLen + "px";
+
+// 화면이 resize될 때마다, card의 크기가 변하므로, 다시 cardContainer의 크기도 산정해준다. (반응형)
+window.addEventListener("resize", () => {
+  cardContainer.style.width = "100000px";
+  sliderWidth = Number(
+    window.getComputedStyle(cardContainer.children[0]).width.slice(0, -2)
+  );
+  cardContainer.style.width = (sliderWidth + sliderMargin) * sliderLen + "px";
+});
 
 const arrowRight = document.querySelector(".slider__arrow-right");
 const arrowLeft = document.querySelector(".slider__arrow-left");
+const sliderBox = document.querySelector(".slider-box");
 
+// 가장 왼쪽에 있는 card의 index
 let index = 0;
 
 arrowRight.addEventListener("click", () => {
-  if (index > 9) return;
+  // 눌렀을때 지나온 slider의 넓이 + 현재 sliderBox의 넓이가 전체 cardContainer의 넓이보다 크다면 제일마지막카드가 제일 오른쪽에 위치하고 더이상 움직이지 않도록 한다.
   if (
-    (index + 1) * (sliderWidth + sliderMargin) + window.innerWidth >
+    (index + 1) * (sliderWidth + sliderMargin) +
+      Number(window.getComputedStyle(sliderBox).width.slice(0, -2)) >
     cardContainer.style.width.slice(0, -2)
   ) {
     cardContainer.style.transform = `translateX(-${
-      cardContainer.style.width.slice(0, -2) - window.innerWidth
+      cardContainer.style.width.slice(0, -2) -
+      Number(window.getComputedStyle(sliderBox).width.slice(0, -2))
     }px)`;
     return;
   }
+  // 하나의 카드를 움직인다.
   index++;
-
+  // 하나의 카드 넓이 + margin만큼 이동시킨다.
   cardContainer.style.transform = `translateX(-${
     (sliderWidth + sliderMargin) * index
   }px)`;
 });
 
 arrowLeft.addEventListener("click", () => {
-  if (index < 1) return;
+  // 하나의 카드를 움직인다.
   index--;
+  // 하나의 카드 넓이 + margin 만큼 이동시킨다.
   cardContainer.style.transform = `translateX(-${
     (sliderWidth + sliderMargin) * index
   }px)`;
