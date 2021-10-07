@@ -27,12 +27,13 @@ const cardContainer = document.querySelector(".cards");
 // 카드 클릭 시, 모달 띄우는 코드
 cardContainer.addEventListener("click", (e) => {
   let el = e.target;
-  while (el && !el.classList.contains("card")) {
+  while (el.classList && !el.classList.contains("card")) {
     el = el.parentNode;
   }
   // e.target이 card일때까지 탐색
-  if (el.classList.contains("card__modal")) return;
-  //   띄어진 modal의 card를 클릭했을 때는 반응하지 않도록
+
+  if (!el.classList || el.classList.contains("card__modal")) return;
+  //  el이 card 외부가 눌러졌거나, / 띄어진 modal의 card를 클릭했을 때는 반응하지 않도록
   const modalBg = document.createElement("div");
   const modalCard = document.createElement("article");
   const modalCloseBtn = document.createElement("button");
@@ -46,7 +47,7 @@ cardContainer.addEventListener("click", (e) => {
   modalCloseBtn.setAttribute("class", "card__modal-close-btn");
 
   modalBg.appendChild(modalCard);
-  cardContainer.appendChild(modalBg);
+  document.body.appendChild(modalBg);
   modalCard.appendChild(modalCloseBtn);
 
   document.body.style.overflow = "hidden";
