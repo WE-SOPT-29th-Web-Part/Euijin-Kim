@@ -19,9 +19,8 @@
 }
 
 body {
-  margin: 0px;
+  margin: 0;
   background: var(--main-background);
-  /* background-color: #111; */
   width: 100%;
 }
 
