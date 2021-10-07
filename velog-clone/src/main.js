@@ -84,3 +84,32 @@ if (currentTheme) {
     darkModeCheckBox.checked = true;
   }
 }
+
+const sliderLen = cardContainer.children.length;
+const sliderWidth = 320;
+const sliderMargin = 32;
+
+cardContainer.style.width = (sliderWidth + sliderMargin) * sliderLen + "px";
+
+const arrowRight = document.querySelector(".slider__arrow-right");
+const arrowLeft = document.querySelector(".slider__arrow-left");
+
+let index = 0;
+
+arrowRight.addEventListener("click", () => {
+  if (index > 9) return;
+
+  index++;
+
+  cardContainer.style.transform = `translateX(-${
+    (sliderWidth + sliderMargin) * index
+  }px)`;
+});
+
+arrowLeft.addEventListener("click", () => {
+  if (index < 1) return;
+  index--;
+  cardContainer.style.transform = `translateX(-${
+    (sliderWidth + sliderMargin) * index
+  }px)`;
+});
