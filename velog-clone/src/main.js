@@ -98,7 +98,15 @@ let index = 0;
 
 arrowRight.addEventListener("click", () => {
   if (index > 9) return;
-
+  if (
+    (index + 1) * (sliderWidth + sliderMargin) + window.innerWidth >
+    cardContainer.style.width.slice(0, -2)
+  ) {
+    cardContainer.style.transform = `translateX(-${
+      cardContainer.style.width.slice(0, -2) - window.innerWidth
+    }px)`;
+    return;
+  }
   index++;
 
   cardContainer.style.transform = `translateX(-${
