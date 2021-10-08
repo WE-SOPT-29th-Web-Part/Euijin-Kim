@@ -21,7 +21,16 @@ const todoItems = document.querySelector(".todos__items");
 // 1.1.
 addBtn.addEventListener("click", () => {
   // click 되었을때, 콜백함수 : 다른 함수의 parameter로 들어와서, 다른 함수가 실행되는 시점에 실행되는 함수.
+  onAdd();
+});
 
+input.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    onAdd();
+  }
+});
+
+function onAdd() {
   const value = input.value;
   if (!value) return;
   const li = document.createElement("li");
@@ -39,4 +48,8 @@ addBtn.addEventListener("click", () => {
 
   todoItems.appendChild(li);
   input.value = "";
-});
+
+  deleteBtn.addEventListener("click", () => {
+    li.remove();
+  });
+}
