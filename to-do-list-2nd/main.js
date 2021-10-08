@@ -57,3 +57,28 @@ function onAdd(index) {
     li.remove();
   });
 }
+
+// 이벤트 위임
+
+// 각각 버튼을 클릭할 때, open이라는 클래스 네임을 더해주고,
+const nav = document.querySelector(".options");
+const todos = document.querySelectorAll(".todos > section");
+nav.addEventListener("click", (e) => {
+  // nav의 빈 공간을 눌렀을 때는 아무 일이 발생하지 않도록 한다.
+  if (e.target.tagName !== "BUTTON") return;
+  // 3가지 버튼의 클릭 결과를 하나의 함수에 넣기 위해 switch 함수를 사용한다.
+  switch (e.target.className) {
+    case "options__today":
+      todos[0].classList.add("open");
+      todos[1].classList.remove("open");
+      break;
+    case "options__tomorrow":
+      todos[0].classList.remove("open");
+      todos[1].classList.add("open");
+      break;
+    case "options__both":
+      todos[0].classList.add("open");
+      todos[1].classList.add("open");
+      break;
+  }
+});

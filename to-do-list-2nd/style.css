@@ -76,13 +76,20 @@ button {
   height: 100%;
 }
 
+.todos > section.open {
+  width: 100%;
+  visibility: visible;
+}
+
 .todos__today {
   border-right: 1px solid darkgray;
 }
 
 .todos__today,
 .todos__tomorrow {
-  width: 100%;
+  transition: all 300ms ease;
+  width: 0;
+  visibility: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
