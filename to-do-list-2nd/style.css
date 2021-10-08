@@ -80,10 +80,6 @@ button {
   border-right: 1px solid darkgray;
 }
 
-li:nth-child(2) {
-  color: red;
-}
-
 .todos__today,
 .todos__tomorrow {
   width: 100%;
