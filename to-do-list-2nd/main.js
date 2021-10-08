@@ -13,25 +13,29 @@
 
 // 2개의 영역이 존재합니다. -> 하나를 먼저 해보고, 일반화 시켜보겠습니다.
 
-const addBtn = document.querySelector(".todos__btn");
+const addBtns = document.querySelectorAll(".todos__btn");
 // 똑같은 것이 2개라면, 위에 있는 코드의 것을 가지고 온다.
-const input = document.querySelector(".todos__input");
-const todoItems = document.querySelector(".todos__items");
+const inputs = document.querySelectorAll(".todos__input");
+const allTodoItems = document.querySelectorAll(".todos__items");
 
 // 1.1.
-addBtn.addEventListener("click", () => {
-  // click 되었을때, 콜백함수 : 다른 함수의 parameter로 들어와서, 다른 함수가 실행되는 시점에 실행되는 함수.
-  onAdd();
-});
+addBtns.forEach((btn, index) =>
+  btn.addEventListener("click", () => {
+    // click 되었을때, 콜백함수 : 다른 함수의 parameter로 들어와서, 다른 함수가 실행되는 시점에 실행되는 함수.
+    onAdd(index);
+  })
+);
 
-input.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    onAdd();
-  }
-});
+inputs.forEach((input, index) =>
+  input.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      onAdd(index);
+    }
+  })
+);
 
-function onAdd() {
-  const value = input.value;
+function onAdd(index) {
+  const value = inputs[index].value;
   if (!value) return;
   const li = document.createElement("li");
   const div = document.createElement("div");
@@ -46,8 +50,8 @@ function onAdd() {
   li.appendChild(div);
   li.appendChild(deleteBtn);
 
-  todoItems.appendChild(li);
-  input.value = "";
+  allTodoItems[index].appendChild(li);
+  inputs[index].value = "";
 
   deleteBtn.addEventListener("click", () => {
     li.remove();
