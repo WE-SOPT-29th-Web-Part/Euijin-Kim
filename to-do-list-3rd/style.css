@@ -68,6 +68,16 @@ li {
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+  width: 0;
+  visibility: hidden;
+  /* width, visibility - 이 두 요소의 변화에 대해 transition을 줄게 */
+  transition: all 300ms ease;
+}
+
+.todos__today.open,
+.todos__tomorrow.open {
+  width: 100%;
+  visibility: visible;
 }
 
 .todos__items {

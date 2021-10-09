@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
   </head>
   <body>
     <!-- html 마크업 <- semantic tag -->
@@ -18,35 +19,17 @@
       <button class="options__btn options__both">함께 보기</button>
     </nav>
     <main class="todos">
-      <section class="todos__today">
+      <section class="todos__today open">
         <h2 class="todos__header">오늘 할 일</h2>
-        <ul class="todos__items">
-          <li class="todos__item">
-            <span class="todos__name">HTML 공부</span>
-            <button class="todos__delete">X</button>
-          </li>
-          <li class="todos__item">
-            <span class="todos__name">CSS 공부</span>
-            <button class="todos__delete">X</button>
-          </li>
-        </ul>
+        <ul class="todos__items"></ul>
         <input class="todos__input" type="text" />
         <div class="todos__btn-wrapper">
           <button class="todos__add">+</button>
         </div>
       </section>
-      <section class="todos__tomorrow">
+      <section class="todos__tomorrow open">
         <h2 class="todos__header">내일 할 일</h2>
-        <ul class="todos__items">
-          <li class="todos__item">
-            <span class="todos__name">JS 공부</span>
-            <button class="todos__delete">X</button>
-          </li>
-          <li class="todos__item">
-            <span class="todos__name">React 공부</span>
-            <button class="todos__delete">X</button>
-          </li>
-        </ul>
+        <ul class="todos__items"></ul>
         <input class="todos__input" type="text" />
         <div class="todos__btn-wrapper">
           <button class="todos__add">+</button>
