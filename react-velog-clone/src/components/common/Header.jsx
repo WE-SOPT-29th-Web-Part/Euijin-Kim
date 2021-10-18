@@ -69,7 +69,7 @@ const Styled = {
       cursor: pointer;
       color: ${colors.darkBlack};
       font-size: 16px;
-
+      font-weight: bold;
       &:hover {
         background-color: rgb(52, 58, 64);
         color: #e8eaed;
