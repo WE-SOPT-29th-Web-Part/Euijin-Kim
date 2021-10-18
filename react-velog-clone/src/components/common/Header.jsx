@@ -5,7 +5,7 @@ import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as ArrowDropDownImage } from "../../assets/icons/arrow_drop_down.svg";
 import { colors } from "../../libs/constants/colors";
 import { useHistory } from "react-router";
-import img from "../../assets/images/sopt_web.png";
+import profileImg from "../../assets/images/sopt_web.png";
 
 const Header = () => {
   const history = useHistory();
@@ -22,7 +22,7 @@ const Header = () => {
           <button>새 글 작성</button>
         </Link>
         <Styled.Thumbnail>
-          <img src={img} alt="profile" />
+          <img src={profileImg} alt="profile" />
           <ArrowDropDownImage fill="darkgray" />
         </Styled.Thumbnail>
       </Styled.Right>
