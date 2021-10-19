@@ -45,6 +45,7 @@ const Styled = {
   Root: styled.div`
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 18px;
     input {
       outline: none;
       border: none;

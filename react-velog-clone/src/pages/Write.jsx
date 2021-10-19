@@ -22,7 +22,11 @@ const Write = () => {
 export default Write;
 
 const Styled = {
-  Root: styled.div``,
+  Root: styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  `,
   Top: styled.div`
     padding: 32px 48px 0 48px;
     width: 50%;
