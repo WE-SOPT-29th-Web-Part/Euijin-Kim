@@ -11,7 +11,7 @@ const Main = () => {
       <Header />
       <Styled.Main>
         <Profile />
-        <MainNav />
+        <MainNav type="main" />
       </Styled.Main>
     </Styled.Root>
   );

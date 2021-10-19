@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
-const MainNav = () => {
-  // 1. bottomLine을 useRef로 받아서, button이 클록될때마다, translate
-  // 2. button을 useRef로 받아와서, className을 정의
+const MainNav = ({ type }) => {
   const btn1ref = useRef(null);
   const btn2ref = useRef(null);
   const handleClick = (e) => {
@@ -24,13 +22,21 @@ const MainNav = () => {
   };
   return (
     <Styled.Root>
-      <button ref={btn1ref} className="active" onClick={handleClick}>
+      <Link
+        to="/"
+        ref={btn1ref}
+        className={type === "main" && "active"}
+        onClick={handleClick}
+      >
         글
-      </button>
-      <Link to="/series">
-        <button ref={btn2ref} onClick={handleClick}>
-          시리즈
-        </button>
+      </Link>
+      <Link
+        to="/series"
+        ref={btn2ref}
+        className={type === "series" && "active"}
+        onClick={handleClick}
+      >
+        시리즈
       </Link>
       <Styled.BottomLine />
     </Styled.Root>
@@ -45,8 +51,9 @@ const Styled = {
     display: flex;
     justify-content: center;
     margin: 72px 0;
+    position: relative;
 
-    button {
+    a {
       width: 128px;
       height: 48px;
       text-align: center;
@@ -56,15 +63,13 @@ const Styled = {
       background-color: ${colors.mainWhite};
       border: none;
       padding: 0;
+      text-decoration: none;
 
       &.active {
         color: ${colors.mainGreen};
       }
     }
-    button:nth-child(1).active + div {
-      transform: translateX(-128px);
-    }
-    button:nth-child(2).active + div {
+    a:nth-child(2).active + div {
       transform: translateX(128px);
     }
   `,
@@ -73,8 +78,7 @@ const Styled = {
     height: 2px;
     width: 128px;
     position: absolute;
-    bottom: -48px;
+    bottom: 0;
     right: 50%;
-    transition: transform 200ms linear;
   `,
 };
