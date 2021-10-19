@@ -5,10 +5,13 @@ const ArticleTag = ({ tagArr, setTagArr }) => {
   const inputRef = useRef(null);
   const handleSubmit = (e) => {
     if (e.key === "," || e.key === "Enter") {
+      e.preventDefault();
       if (e.target.value == "" || tagArr.includes(e.target.value)) {
         inputRef.current.value = "";
         return;
       }
+      setTagArr([...tagArr, e.target.value]);
+      inputRef.current.value = "";
     }
   };
   return (
@@ -18,7 +21,7 @@ const ArticleTag = ({ tagArr, setTagArr }) => {
         class="input"
         type="text"
         placeholder="태그를 입력하세요."
-        onKeyDown={handleSubmit}
+        onKeyPress={handleSubmit}
         ref={inputRef}
       />
     </Styled.Root>
@@ -36,13 +39,14 @@ const Styled = {
       border: none;
       width: 200px;
       font-size: 18px;
+      margin-bottom: 12px;
     }
     span {
       display: inline-block;
       padding: 0 16px;
       height: 32px;
       line-height: 32px;
-      margin: 0 14px 14px 0;
+      margin: 0 12px 12px 0;
       background-color: rgb(241, 243, 245);
       color: rgb(12, 166, 120);
       border-radius: 16px;
