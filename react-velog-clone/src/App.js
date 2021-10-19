@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import Series from "./pages/SeriesCategory";
 import Write from "./pages/Write";
-import Article from "./pages/Article";
+import Article from "./components/main/Articles";
 import SeriesCategory from "./pages/SeriesCategory";
 
 function App() {

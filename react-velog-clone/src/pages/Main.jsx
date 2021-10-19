@@ -4,6 +4,7 @@ import Header from "../components/common/Header";
 import MainNav from "../components/main/MainNav";
 import Profile from "../components/main/Profile";
 import { colors } from "../libs/constants/colors";
+import ArticlesContainer from "../components/main/Articles";
 
 const Main = () => {
   return (
@@ -12,6 +13,7 @@ const Main = () => {
       <Styled.Main>
         <Profile />
         <MainNav type="main" />
+        <ArticlesContainer />
       </Styled.Main>
     </Styled.Root>
   );
