@@ -3,22 +3,26 @@ import styled from "styled-components";
 import Header from "../components/common/Header";
 import MainNav from "../components/main/MainNav";
 import Profile from "../components/main/Profile";
+import { colors } from "../libs/constants/colors";
 
 const Main = () => {
   return (
-    <div>
+    <Styled.Root>
       <Header />
       <Styled.Main>
         <Profile />
         <MainNav />
       </Styled.Main>
-    </div>
+    </Styled.Root>
   );
 };
 
 export default Main;
 
 const Styled = {
+  Root: styled.div`
+    background-color: ${colors.mainWhite};
+  `,
   Main: styled.main`
     max-width: 768px;
     width: 100%;
