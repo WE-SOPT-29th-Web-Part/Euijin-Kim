@@ -38,7 +38,7 @@ const Styled = {
   Root: styled.section`
     margin: auto;
     margin-top: 90px;
-    width: 768px;
+    width: 100%;
   `,
   Introduce: styled.div`
     display: flex;
