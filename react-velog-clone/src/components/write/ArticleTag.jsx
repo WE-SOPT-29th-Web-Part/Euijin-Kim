@@ -5,16 +5,15 @@ const ArticleTag = ({ tagArr, setTagArr }) => {
   const inputRef = useRef(null);
   const handleSubmit = (e) => {
     if (e.key === "," || e.key === "Enter") {
-      if (tagArr.includes(e.target.value)) {
+      if (e.target.value == "" || tagArr.includes(e.target.value)) {
+        inputRef.current.value = "";
         return;
       }
-      setTagArr([...tagArr, e.target.value]);
-      inputRef.current.value = "";
     }
   };
   return (
     <Styled.Root>
-      {tagArr && tagArr.map((tag) => <span>{tag}</span>)}
+      {tagArr && tagArr.map((tag) => <span key={tag}>{tag}</span>)}
       <input
         class="input"
         type="text"
