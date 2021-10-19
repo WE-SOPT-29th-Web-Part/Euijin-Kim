@@ -5,8 +5,9 @@ const ArticleTag = ({ tagArr, setTagArr }) => {
   const inputRef = useRef(null);
   const handleSubmit = (e) => {
     if (e.key === "," || e.key === "Enter") {
-      console.log(`tarArr`, tagArr);
-      console.log(`e.target.value`, e.target.value);
+      if (tagArr.includes(e.target.value)) {
+        return;
+      }
       setTagArr([...tagArr, e.target.value]);
       inputRef.current.value = "";
     }
@@ -42,7 +43,7 @@ const Styled = {
       padding: 0 16px;
       height: 32px;
       line-height: 32px;
-      margin-right: 12px;
+      margin: 0 14px 14px 0;
       background-color: rgb(241, 243, 245);
       color: rgb(12, 166, 120);
       border-radius: 16px;
