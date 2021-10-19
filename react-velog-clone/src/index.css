@@ -22,3 +22,10 @@ textarea {
   outline: 0;
   resize: none;
 }
+
+button {
+  outline: 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}

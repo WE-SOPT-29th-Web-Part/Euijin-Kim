@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
+import ArticleFooter from "../components/write/ArticleFooter";
 import ArticleTag from "../components/write/ArticleTag";
 import ArticleTitle from "../components/write/ArticleTitle";
 import { colors } from "../libs/constants/colors";
 
 const Write = () => {
+  const [title, setTitle] = useState();
+  const [body, setBody] = useState();
+  const [summary, setSummary] = useState();
+  const [series, setSeries] = useState();
   const [tagArr, setTagArr] = useState([]);
+  const [thumbnail, setThumbnail] = useState();
+  const [data, setDate] = useState();
+
   return (
     <Styled.Root>
       <Styled.Top>
@@ -15,6 +23,7 @@ const Write = () => {
         <ArticleTag tagArr={tagArr} setTagArr={setTagArr} />
       </Styled.Top>
       <ArticleBody />
+      <ArticleFooter />
     </Styled.Root>
   );
 };
