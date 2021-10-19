@@ -80,6 +80,7 @@ const Styled = {
     display: flex;
     align-items: center;
     width: 100%;
+    cursor: pointer;
     img {
       margin-right: 4px;
       width: 40px;
