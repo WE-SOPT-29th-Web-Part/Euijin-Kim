@@ -8,11 +8,13 @@ import { colors } from "../libs/constants/colors";
 const SeriesCategory = () => {
   return (
     <Styled.Root>
-      <Header />
+      <div>123</div>
+      {/* <Header />
       <Styled.Main>
         <Profile />
         <MainNav type="series" />
-      </Styled.Main>
+      </Styled.Main> */}
+      <div>series</div>
     </Styled.Root>
   );
 };

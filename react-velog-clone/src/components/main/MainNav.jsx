@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
-const MainNav = ({ type }) => {
+const MainNav = () => {
   const btn1ref = useRef(null);
   const btn2ref = useRef(null);
   const handleClick = (e) => {
@@ -22,20 +22,10 @@ const MainNav = ({ type }) => {
   };
   return (
     <Styled.Root>
-      <Link
-        to="/"
-        ref={btn1ref}
-        className={type === "main" && "active"}
-        onClick={handleClick}
-      >
+      <Link to="/" ref={btn1ref} className="active" onClick={handleClick}>
         글
       </Link>
-      <Link
-        to="/series"
-        ref={btn2ref}
-        className={type === "series" && "active"}
-        onClick={handleClick}
-      >
+      <Link to="/series" ref={btn2ref} onClick={handleClick}>
         시리즈
       </Link>
       <Styled.BottomLine />
@@ -69,6 +59,9 @@ const Styled = {
         color: ${colors.mainGreen};
       }
     }
+    a:nth-child(1).active + div {
+      transform: translateX(-128px);
+    }
     a:nth-child(2).active + div {
       transform: translateX(128px);
     }
@@ -80,5 +73,6 @@ const Styled = {
     position: absolute;
     bottom: 0;
     right: 50%;
+    transition: transform 250ms ease;
   `,
 };
