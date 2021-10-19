@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { client } from "../../libs/api";
+import { colors } from "../../libs/constants/colors";
 import ArticleCard from "./ArticleCard";
 
 const ArticlesContainer = () => {
@@ -16,10 +18,19 @@ const ArticlesContainer = () => {
   }, []);
 
   return (
-    <div>
+    <Styled.Root>
       {data && data.map((item) => <ArticleCard key={item.id} item={item} />)}
-    </div>
+    </Styled.Root>
   );
 };
 
 export default ArticlesContainer;
+
+const Styled = {
+  Root: styled.div`
+    & > article + article {
+      padding-top: 64px;
+      border-top: 1px solid ${colors.lineGray};
+    }
+  `,
+};
