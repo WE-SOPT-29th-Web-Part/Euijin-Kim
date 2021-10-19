@@ -35,6 +35,8 @@ const Styled = {
       margin-bottom: 32px;
     }
     & > span {
+      color: ${colors.dateGray};
+      font-size: 14px;
     }
   `,
   ImgWrapper: styled.div`
