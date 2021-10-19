@@ -18,9 +18,8 @@ const Main = () => {
       <Styled.Main>
         <Profile />
         <MainNav />
-        <Route path="/" exact component={ArticlesContainer} />
-        {/* <Route path="/123" exact component={() => <ArticlesContainer />} /> */}
-        <Route path="/series" component={() => <SeriesCategory />} />
+        <Route path="/" exact component={() => <ArticlesContainer />} />
+        <Route path="/series" exact component={() => <SeriesCategory />} />
       </Styled.Main>
     </Styled.Root>
   );
