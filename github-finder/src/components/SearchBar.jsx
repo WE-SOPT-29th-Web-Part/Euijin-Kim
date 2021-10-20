@@ -26,7 +26,9 @@ const SearchBar = ({ getUserInfo }) => {
 
 export default SearchBar;
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+  margin-bottom: 30px;
+`;
 
 const StyledInput = styled.input`
   border: none;
