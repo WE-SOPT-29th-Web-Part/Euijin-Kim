@@ -1,22 +1,27 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/common/Header";
-import History from "./pages/History";
-import Home from "./pages/Home";
+import SearchBar from "./components/SearchBar";
+import styled from "styled-components";
+import Result from "./components/Result";
 
 function App() {
   return (
-    <div>
+    <StyledRoot>
       <Header />
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={() => <Home />} />
-          <Route exact path="/history" component={() => <History />} />
-          <Route component={() => <div>Fage Not Found</div>} />
-        </Switch>
-      </BrowserRouter>
-    </div>
+      <SearchBar />
+      <Result />
+    </StyledRoot>
   );
 }
 
 export default App;
+
+const StyledRoot = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #1b1d21;
+  color: #e5e6e7;
+`;
