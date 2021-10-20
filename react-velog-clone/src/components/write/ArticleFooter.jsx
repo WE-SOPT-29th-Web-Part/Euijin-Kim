@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as ArrowLeftIcon } from "../../assets/icons/arrow_left.svg";
 import { colors } from "../../libs/constants/colors";
 
-const ArticleFooter = () => {
+const ArticleFooter = ({ setIsPublishScreen }) => {
   return (
     <Styled.Root>
       <Styled.Left>
@@ -12,7 +12,7 @@ const ArticleFooter = () => {
       </Styled.Left>
       <Styled.Right>
         <button>임시저장</button>
-        <button>출간하기</button>
+        <button onClick={() => setIsPublishScreen(true)}>출간하기</button>
       </Styled.Right>
     </Styled.Root>
   );

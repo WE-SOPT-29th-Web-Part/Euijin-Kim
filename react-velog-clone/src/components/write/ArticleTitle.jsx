@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import TextareaAutosize from "react-textarea-autosize";
 
-const ArticleTitle = () => {
-  return <Styled.Textarea placeholder="제목을 입력하세요." />;
+const ArticleTitle = ({ handleChange, setTitle }) => {
+  return (
+    <Styled.Textarea
+      placeholder="제목을 입력하세요."
+      onChange={(e) => handleChange(e, setTitle)}
+    />
+  );
 };
 
 export default ArticleTitle;
