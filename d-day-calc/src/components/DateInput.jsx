@@ -2,12 +2,12 @@ import React from "react";
 import "../index.css";
 
 const DateInput = ({ year, month, date, setYear, setMonth, setDate }) => {
-  const now = new Date();
   const handleChange = (e, setState) => {
     setState(e.target.value);
   };
 
   const makeDateToday = () => {
+    const now = new Date();
     setYear(now.getFullYear());
     setMonth(now.getMonth() + 1);
     setDate(now.getDate());
