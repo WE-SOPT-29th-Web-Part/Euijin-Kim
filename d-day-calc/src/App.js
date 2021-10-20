@@ -7,12 +7,12 @@ import Footer from "./components/common/Footer";
 
 function App() {
   return (
-    <div>
+    <div id="home">
       <div id="home__top">
         <Header />
         <DateInput />
       </div>
-      <div id="home__middle-line"></div>
+      <div id="home__middle-line">D-Day 계산기</div>
       <div className="home__bottom">
         <Result />
         <Footer />
