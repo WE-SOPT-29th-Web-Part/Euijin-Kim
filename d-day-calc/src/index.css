@@ -21,7 +21,7 @@ body,
 #home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 500px;
   width: 500px;
@@ -31,13 +31,34 @@ body,
   box-shadow: 5px 5px 15px 5px #000000;
 }
 
+#home__top,
+#home__bottom {
+  width: 100%;
+  height: 230px;
+}
+
+#home__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #home__middle-line {
   color: white;
   background-color: darkgray;
   width: 100%;
   height: 40px;
-  padding-left: 10px;
   line-height: 40px;
+  text-align: center;
+}
+
+#header {
+  margin-bottom: 70px;
+  margin-top: 20px;
+}
+
+input {
+  outline: 0;
 }
 
 .date-input__container {
@@ -46,9 +67,8 @@ body,
 }
 
 .date-input {
-  width: 20px;
-  border: 0;
-  outline: 0;
+  width: 30px;
+
   text-align: right;
 }
 
@@ -60,12 +80,14 @@ body,
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 0 20px;
+}
+
+.result__text + .result__text {
+  margin-top: 30px;
 }
 
 #result {
   width: 100%;
-}
-
-#home__bottom {
-  width: 100%;
+  margin-top: 50px;
 }

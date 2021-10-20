@@ -15,8 +15,10 @@ const Text2 = ({ year, month, date }) => {
   };
   return (
     <div className="result__text">
-      <input type="text" onChange={handleChange} />
-      일째 되는 날은?
+      <div className="left">
+        <input type="text" onChange={handleChange} />
+        일째 되는 날은?
+      </div>
       <div ref={dateRef}>yyyy년 mm월 dd일</div>
     </div>
   );

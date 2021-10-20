@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Header = () => {
-  return <div>D-day 계산기</div>;
+  return <div id="header">D-day 계산기</div>;
 };
 
 export default Header;
