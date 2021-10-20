@@ -43,6 +43,13 @@ body,
   align-items: center;
 }
 
+#home__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #home__middle-line {
   color: white;
   background-color: darkgray;
