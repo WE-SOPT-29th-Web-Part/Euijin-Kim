@@ -55,3 +55,17 @@ body,
 .date-input__year {
   width: 40px;
 }
+
+.result__text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#result {
+  width: 100%;
+}
+
+#home__bottom {
+  width: 100%;
+}

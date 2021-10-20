@@ -4,7 +4,7 @@ import Text2 from "./Text2";
 
 const Result = ({ year, month, date }) => {
   return (
-    <div>
+    <div id="result">
       <Text1 year={year} month={month} date={date} />
       <Text2 year={year} month={month} date={date} />
     </div>

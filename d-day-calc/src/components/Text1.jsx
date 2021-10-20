@@ -14,9 +14,12 @@ const Text1 = ({ year, month, date }) => {
     dateRef.current.innerText = `${tempDate.getFullYear()}년 ${tempDate.getMonth()}월 ${tempDate.getDate()}일`;
   };
   return (
-    <div>
-      <input type="text" onChange={handleChange} />
-      일째 되는 날은?
+    <div className="result__text">
+      <div className="left">
+        <input type="text" onChange={handleChange} />
+        일째 되는 날은?
+      </div>
+
       <div ref={dateRef}>yyyy년 mm월 dd일</div>
     </div>
   );

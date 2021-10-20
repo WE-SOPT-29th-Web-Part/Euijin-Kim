@@ -24,7 +24,7 @@ function App() {
         />
       </div>
       <div id="home__middle-line">D-Day 계산기</div>
-      <div className="home__bottom">
+      <div id="home__bottom">
         <Result year={year} month={month} date={date} />
         <Footer />
       </div>
