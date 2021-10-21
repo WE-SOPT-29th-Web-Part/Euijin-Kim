@@ -23,7 +23,7 @@ function App() {
     <StyledRoot>
       <Header />
       <SearchBar getUserInfo={getUserInfo} />
-      <Result userInfo={userInfo} />
+      <Result userInfo={userInfo} setUserInfo={setUserInfo} />
     </StyledRoot>
   );
 }

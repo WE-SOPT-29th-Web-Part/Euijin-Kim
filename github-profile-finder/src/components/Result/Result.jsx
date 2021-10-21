@@ -3,12 +3,12 @@ import Card from "./Card";
 import PendingResult from "./PendingResult";
 import RejectedResult from "./RejectedResult";
 
-const Result = ({ userInfo }) => {
+const Result = ({ userInfo, setUserInfo }) => {
   switch (userInfo.status) {
     case "pending":
       return <PendingResult />;
     case "resolved":
-      return <Card data={userInfo.data} />;
+      return <Card data={userInfo.data} setUserInfo={setUserInfo} />;
     case "rejected":
       return <RejectedResult />;
     case "idle":

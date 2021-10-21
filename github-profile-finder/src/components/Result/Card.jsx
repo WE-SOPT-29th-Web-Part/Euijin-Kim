@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Card = ({ data }) => {
+const Card = ({ data, setUserInfo }) => {
   const {
     avatar_url,
     name,
@@ -15,6 +15,17 @@ const Card = ({ data }) => {
 
   return (
     <StyledRoot>
+      <button
+        onClick={() =>
+          setUserInfo((userInfo) => ({
+            ...userInfo,
+            status: "idle",
+            data: null,
+          }))
+        }
+      >
+        닫기
+      </button>
       <img src={avatar_url} alt="" />
       <h3>{name}</h3>
       <h4>{login}</h4>
@@ -49,6 +60,20 @@ const StyledRoot = styled.section`
   width: 390px;
   background-color: #2c3035;
   border-radius: 20px;
+  position: relative;
+  & > button {
+    color: white;
+    background-color: #24272b;
+    outline: 0;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 
   & > img {
     width: 200px;
