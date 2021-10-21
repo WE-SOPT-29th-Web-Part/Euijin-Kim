@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import History from "./History";
 
 const SearchBar = ({ getUserInfo }) => {
   const [user, setUser] = useState();
+  const [userList, setUserList] = useState([]);
 
   const handleChange = (e) => {
     setUser(e.target.value);
@@ -10,17 +12,30 @@ const SearchBar = ({ getUserInfo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getUserInfo(user);
+    if (!userList.includes(user)) {
+      const newUserList = [...userList, user];
+      setUserList(newUserList);
+      localStorage.setItem("userList", JSON.stringify(newUserList));
+      // localStorage는 모든 데이터를 string으로 변환해버림. 그러므로 JSON 형태로 저장하고(직렬화) 읽어와야(역직렬화) 기본 상태를 유지할 수 있음.
+    }
     setUser("");
   };
+
+  useEffect(() => {
+    setUserList(JSON.parse(localStorage.getItem("userList")));
+  }, []);
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <StyledInput
-        type="text"
-        placeholder="Github 프로필을 검색해보세요."
-        onChange={handleChange}
-        value={user || ""}
-      />
-    </StyledForm>
+    <>
+      <StyledForm onSubmit={handleSubmit}>
+        <StyledInput
+          type="text"
+          placeholder="Github 프로필을 검색해보세요."
+          onChange={handleChange}
+          value={user || ""}
+        />
+      </StyledForm>
+      <History userList={userList} />
+    </>
   );
 };
 
