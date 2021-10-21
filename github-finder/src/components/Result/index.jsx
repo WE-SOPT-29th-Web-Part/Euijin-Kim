@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Result = ({ userInfo = {} }) => {
+const Result = ({ userInfo }) => {
   const {
     avatar_url,
     name,
@@ -70,6 +70,17 @@ const StyledRoot = styled.section`
   & > p {
     padding: 20px 45px;
     text-align: center;
+  }
+  & > a {
+    text-decoration: none;
+    color: gold;
+    border: 1px solid gold;
+    border-radius: 4px;
+    padding: 8px;
+    &:hover {
+      background-color: gold;
+      color: black;
+    }
   }
 `;
 

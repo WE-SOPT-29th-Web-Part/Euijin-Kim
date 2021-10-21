@@ -7,7 +7,7 @@ import { useState } from "react";
 import { client } from "./libs/api";
 
 function App() {
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState({});
 
   const getUserInfo = async (user) => {
     try {
