@@ -1,0 +1,32 @@
+name: Generate Static Site
+
+on:
+    push:
+        branches:
+            - "main"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [12.x]
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: cd ./github-profile-finder
+            - run: yarn install
+            - run: yarn build
+            - run: touch .nojekyll
+            - name: Deploy
+              uses: s0/git-publish-subdir-action@master
+              env:
+                  REPO: self
+                  BRANCH: gh-pages
+                  FOLDER: github-profile-finder/dist
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
