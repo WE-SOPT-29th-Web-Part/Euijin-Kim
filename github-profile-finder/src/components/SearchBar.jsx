@@ -23,6 +23,7 @@ const SearchBar = ({ getUserInfo }) => {
         }
         return [...userList, user];
       };
+      // history가 3개를 넘지 못하게 많듦.
       const newUserList = setNewUserList();
       // 상태를 변화시켜줌으로써, 화면에 History가 보여지도록 함.
       setUserList(newUserList);
