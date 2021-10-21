@@ -5,6 +5,7 @@ import History from "./History";
 const SearchBar = ({ getUserInfo }) => {
   const [user, setUser] = useState();
   const [userList, setUserList] = useState([]);
+  const MAX_NUM = 3;
 
   const handleChange = (e) => {
     setUser(e.target.value);
@@ -16,7 +17,13 @@ const SearchBar = ({ getUserInfo }) => {
     getUserInfo(user);
     // 중복체크
     if (!userList.includes(user)) {
-      const newUserList = [...userList, user];
+      const setNewUserList = () => {
+        if (userList.length >= MAX_NUM) {
+          return [...userList, user].slice(1, 4);
+        }
+        return [...userList, user];
+      };
+      const newUserList = setNewUserList();
       // 상태를 변화시켜줌으로써, 화면에 History가 보여지도록 함.
       setUserList(newUserList);
       // localStorage에 저장하여, 사이트를 껐다가 다시 들어와도 history가 저장되도록 함.
