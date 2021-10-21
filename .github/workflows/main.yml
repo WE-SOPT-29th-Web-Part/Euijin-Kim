@@ -24,18 +24,22 @@ jobs:
               run: |
                   yarn install
                   yarn build
-                  touch build/.nojekyll
                   mkdir -p ../gh-pages/github-profile-finder
                   cp -r ./build/* ../gh-pages/github-profile-finder
-            - working-directory: ./d-day-calc
-              name: d-day-calc build
+
+            - working-directory: ./to-do-list
+              name: to-do-list build
               run: |
-                  yarn install
-                  yarn build
-                  touch build/.nojekyll
-                  mkdir -p ../gh-pages/d-day-calc
-                  cp -r ./build/* ../gh-pages/d-day-calc
-                  
+                  mkdir -p ../gh-pages/to-do-list
+                  cp -r ./* ../gh-pages/to-do-list            
+#             - working-directory: ./d-day-calc
+#               name: d-day-calc build
+#               run: |
+#                   yarn install
+#                   yarn build
+#                   mkdir -p ../gh-pages/d-day-calc
+#                   cp -r ./build/* ../gh-pages/d-day-calc
+            - run: touch gh-pages/.nojekyll
             - name: Deploy
               uses: s0/git-publish-subdir-action@master
               env:
