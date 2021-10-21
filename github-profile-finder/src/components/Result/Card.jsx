@@ -61,6 +61,18 @@ const StyledRoot = styled.section`
   background-color: #2c3035;
   border-radius: 20px;
   position: relative;
+  animation: showUp 500ms ease-in 0s 1 normal forwards;
+
+  @keyframes showUp {
+    0% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
   & > button {
     color: white;
     background-color: #24272b;
