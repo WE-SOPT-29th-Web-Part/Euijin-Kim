@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Euijin-Kim/github-profile-finder/static/css/main.ac9b9826.chunk.css",
-    "main.js": "/Euijin-Kim/github-profile-finder/static/js/main.f713cb6a.chunk.js",
-    "main.js.map": "/Euijin-Kim/github-profile-finder/static/js/main.f713cb6a.chunk.js.map",
+    "main.js": "/Euijin-Kim/github-profile-finder/static/js/main.8a95b795.chunk.js",
+    "main.js.map": "/Euijin-Kim/github-profile-finder/static/js/main.8a95b795.chunk.js.map",
     "runtime-main.js": "/Euijin-Kim/github-profile-finder/static/js/runtime-main.0ab9000d.js",
     "runtime-main.js.map": "/Euijin-Kim/github-profile-finder/static/js/runtime-main.0ab9000d.js.map",
     "static/css/2.0978f8b3.chunk.css": "/Euijin-Kim/github-profile-finder/static/css/2.0978f8b3.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.0978f8b3.chunk.css",
     "static/js/2.90949354.chunk.js",
     "static/css/main.ac9b9826.chunk.css",
-    "static/js/main.f713cb6a.chunk.js"
+    "static/js/main.8a95b795.chunk.js"
   ]
 }
