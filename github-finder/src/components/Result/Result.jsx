@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Card from "./Card";
 import PendingResult from "./PendingResult";
 import RejectedResult from "./RejectedResult";

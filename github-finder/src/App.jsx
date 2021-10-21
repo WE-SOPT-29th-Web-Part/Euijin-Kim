@@ -14,7 +14,6 @@ function App() {
     try {
       const { data } = await client.get(`/${user}`);
       setUserInfo({ ...userInfo, status: "resolved", data });
-      console.log(`data`, data);
     } catch (e) {
       setUserInfo({ ...userInfo, status: "rejected", data: null });
     }
