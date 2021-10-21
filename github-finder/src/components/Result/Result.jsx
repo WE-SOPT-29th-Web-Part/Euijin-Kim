@@ -5,14 +5,13 @@ import RejectedResult from "./RejectedResult";
 
 const Result = ({ userInfo }) => {
   switch (userInfo.status) {
-    case "idle":
-      return <></>;
     case "pending":
       return <PendingResult />;
     case "resolved":
       return <Card data={userInfo.data} />;
     case "rejected":
       return <RejectedResult />;
+    case "idle":
     default:
       return <></>;
   }
