@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Euijin-Kim/github-profile-finder/static/css/main.ac9b9826.chunk.css",
+    "main.js": "/Euijin-Kim/github-profile-finder/static/js/main.f713cb6a.chunk.js",
+    "main.js.map": "/Euijin-Kim/github-profile-finder/static/js/main.f713cb6a.chunk.js.map",
+    "runtime-main.js": "/Euijin-Kim/github-profile-finder/static/js/runtime-main.0ab9000d.js",
+    "runtime-main.js.map": "/Euijin-Kim/github-profile-finder/static/js/runtime-main.0ab9000d.js.map",
+    "static/css/2.0978f8b3.chunk.css": "/Euijin-Kim/github-profile-finder/static/css/2.0978f8b3.chunk.css",
+    "static/js/2.90949354.chunk.js": "/Euijin-Kim/github-profile-finder/static/js/2.90949354.chunk.js",
+    "static/js/2.90949354.chunk.js.map": "/Euijin-Kim/github-profile-finder/static/js/2.90949354.chunk.js.map",
+    "index.html": "/Euijin-Kim/github-profile-finder/index.html",
+    "static/css/2.0978f8b3.chunk.css.map": "/Euijin-Kim/github-profile-finder/static/css/2.0978f8b3.chunk.css.map",
+    "static/css/main.ac9b9826.chunk.css.map": "/Euijin-Kim/github-profile-finder/static/css/main.ac9b9826.chunk.css.map",
+    "static/js/2.90949354.chunk.js.LICENSE.txt": "/Euijin-Kim/github-profile-finder/static/js/2.90949354.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0ab9000d.js",
+    "static/css/2.0978f8b3.chunk.css",
+    "static/js/2.90949354.chunk.js",
+    "static/css/main.ac9b9826.chunk.css",
+    "static/js/main.f713cb6a.chunk.js"
+  ]
+}
