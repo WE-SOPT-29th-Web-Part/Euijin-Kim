@@ -1,5 +1,5 @@
 {
-  "homepage": "https://we-sopt-29th-web-part.github.io/Euijin-Kim/github-profile-finder/",
+  "homepage": ".",
   "name": "cra-js-basic",
   "version": "0.1.0",
   "private": true,
@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
