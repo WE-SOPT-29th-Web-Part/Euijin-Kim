@@ -26,7 +26,7 @@ jobs:
                   yarn build
                   touch build/.nojekyll
                   mkdir -p ../gh-pages/github-profile-finder
-                  cp ./build/* ../gh-pages/github-profile-finder
+                  cp -r ./build/* ../gh-pages/github-profile-finder
             - working-directory: ./d-day-calc
               name: d-day-calc build
               run: |
@@ -34,7 +34,7 @@ jobs:
                   yarn build
                   touch build/.nojekyll
                   mkdir -p ../gh-pages/d-day-calc
-                  cp ./build/* ../gh-pages/d-day-calc
+                  cp -r ./build/* ../gh-pages/d-day-calc
                   
             - name: Deploy
               uses: s0/git-publish-subdir-action@master
