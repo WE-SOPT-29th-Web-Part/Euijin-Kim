@@ -2,20 +2,21 @@ import "./App.css";
 import Header from "./components/common/Header";
 import SearchBar from "./components/SearchBar";
 import styled from "styled-components";
-import Result from "./components/Result";
+import Result from "./components/Result/Result";
 import { useState } from "react";
 import { client } from "./libs/api";
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({ status: "idle", data: null });
 
   const getUserInfo = async (user) => {
+    setUserInfo({ ...userInfo, status: "pending" });
     try {
       const { data } = await client.get(`/${user}`);
+      setUserInfo({ ...userInfo, status: "resolved", data });
       console.log(`data`, data);
-      setUserInfo(data);
     } catch (e) {
-      console.log(`e`, e);
+      setUserInfo({ ...userInfo, status: "rejected", data: null });
     }
   };
 
