@@ -25,12 +25,6 @@ const SearchBar = ({ getUserInfo }) => {
     }
     setUser("");
   };
-  const handleRemove = (user) => {
-    // X 누르면 상태를 바꿔줌으로써 UI를 바꾸고, localStorage를 바꿈으로써 history를 바꿈.
-    const newUserList = userList.filter((userId) => userId !== user);
-    setUserList(newUserList);
-    localStorage.setItem("userList", JSON.stringify(newUserList));
-  };
 
   useEffect(() => {
     // 컴포넌트가 mount되었을 때, localStorage 정보를 가지고 옴.
@@ -49,7 +43,7 @@ const SearchBar = ({ getUserInfo }) => {
       <History
         getUserInfo={getUserInfo}
         userList={userList}
-        handleRemove={handleRemove}
+        setUserList={setUserList}
       />
     </>
   );

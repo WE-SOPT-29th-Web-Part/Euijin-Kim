@@ -1,10 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const History = ({ getUserInfo, userList, handleRemove }) => {
+const History = ({ getUserInfo, userList, setUserList }) => {
   const handleClick = (user) => {
     getUserInfo(user);
   };
+
+  const handleRemove = (user) => {
+    // X 누르면 상태를 바꿔줌으로써 UI를 바꾸고, localStorage를 바꿈으로써 history를 바꿈.
+    const newUserList = userList.filter((userId) => userId !== user);
+    setUserList(newUserList);
+    localStorage.setItem("userList", JSON.stringify(newUserList));
+  };
+
   return (
     <StyledRoot>
       {userList.map((user) => (
