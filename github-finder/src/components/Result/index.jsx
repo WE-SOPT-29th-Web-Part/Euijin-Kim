@@ -23,9 +23,18 @@ const Result = ({ userInfo = {} }) => {
         Visit Github
       </a>
       <StyledBottom>
-        <div>{followers}</div>
-        <div>{following}</div>
-        <div>{public_repos}</div>
+        <li>
+          <strong>Followers</strong>
+          {followers}
+        </li>
+        <li>
+          <strong>Following</strong>
+          {following}
+        </li>
+        <li>
+          <strong>Repos</strong>
+          {public_repos}
+        </li>
       </StyledBottom>
     </StyledRoot>
   ) : (
@@ -64,7 +73,31 @@ const StyledRoot = styled.section`
   }
 `;
 
-const StyledBottom = styled.div`
+const StyledBottom = styled.ul`
   margin-top: 25px;
   display: flex;
+
+  & > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 59px;
+    background-color: #24272b;
+    border-left: 5px solid #2c3035;
+    border-right: 5px solid #2c3035;
+    &:nth-child(1) {
+      border-left: none;
+      border-bottom-left-radius: 20px;
+    }
+    &:nth-child(3) {
+      border-right: none;
+      border-bottom-right-radius: 20px;
+    }
+    & > strong {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
 `;
