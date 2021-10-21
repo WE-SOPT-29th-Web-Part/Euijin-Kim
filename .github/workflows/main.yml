@@ -20,6 +20,8 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: cd ./github-profile-finder
+            - run: ls -al
+            - run: pwd
             - run: yarn install
             - run: yarn build
             - run: touch .nojekyll
