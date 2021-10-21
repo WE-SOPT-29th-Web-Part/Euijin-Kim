@@ -1,0 +1,49 @@
+name: Generate Static Site
+
+on:
+    push:
+        branches:
+            - "main"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [12.x]
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - working-directory: ./github-profile-finder
+              name: github-profile-finder build
+              run: |
+                  yarn install
+                  yarn build
+                  mkdir -p ../gh-pages/github-profile-finder
+                  cp -r ./build/* ../gh-pages/github-profile-finder
+
+            - working-directory: ./to-do-list
+              name: to-do-list build
+              run: |
+                  mkdir -p ../gh-pages/to-do-list
+                  cp -r ./* ../gh-pages/to-do-list            
+#             - working-directory: ./d-day-calc
+#               name: d-day-calc build
+#               run: |
+#                   yarn install
+#                   yarn build
+#                   mkdir -p ../gh-pages/d-day-calc
+#                   cp -r ./build/* ../gh-pages/d-day-calc
+            - run: touch gh-pages/.nojekyll
+            - name: Deploy
+              uses: s0/git-publish-subdir-action@master
+              env:
+                  REPO: self
+                  BRANCH: gh-pages
+                  FOLDER: gh-pages
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
