@@ -20,14 +20,26 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - working-directory: ./github-profile-finder
+              name: github-profile-finder build
               run: |
                   yarn install
                   yarn build
                   touch build/.nojekyll
+                  mkdir -p ../gh-pages/github-profile-finder
+                  cp ./build/* ../gh-pages/github-profile-finder
+            - working-directory: ./d-day-calc
+              name: d-day-calc build
+              run: |
+                  yarn install
+                  yarn build
+                  touch build/.nojekyll
+                  mkdir -p ../gh-pages/d-day-calc
+                  cp ./build/* ../gh-pages/d-day-calc
+                  
             - name: Deploy
               uses: s0/git-publish-subdir-action@master
               env:
                   REPO: self
                   BRANCH: gh-pages
-                  FOLDER: github-profile-finder/build
+                  FOLDER: gh-pages
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
