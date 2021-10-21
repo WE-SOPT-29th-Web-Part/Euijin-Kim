@@ -56,9 +56,9 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
-  border: none;
+  border: 8px solid rgba(105, 105, 105, 0.5);
   outline: none;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 320px;
   height: 57px;
   background-color: #24272b;

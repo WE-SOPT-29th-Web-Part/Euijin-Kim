@@ -33,6 +33,8 @@ const StyledRoot = styled.ul`
   background-color: #24272b;
   color: #e5e6e7;
   margin-bottom: 10px;
+  position: relative;
+  top: -10px;
 
   button {
     border: 0;
