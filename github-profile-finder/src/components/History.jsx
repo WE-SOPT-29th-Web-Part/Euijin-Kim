@@ -15,12 +15,13 @@ const History = ({ getUserInfo, userList, setUserList }) => {
 
   return (
     <StyledRoot>
-      {userList.map((user) => (
-        <StyledList key={user}>
-          <span onClick={() => handleClick(user)}>{user}</span>
-          <button onClick={() => handleRemove(user)}>X</button>
-        </StyledList>
-      ))}
+      {userList &&
+        userList.map((user) => (
+          <StyledList key={user}>
+            <span onClick={() => handleClick(user)}>{user}</span>
+            <button onClick={() => handleRemove(user)}>X</button>
+          </StyledList>
+        ))}
     </StyledRoot>
   );
 };
@@ -29,7 +30,6 @@ export default History;
 
 const StyledRoot = styled.ul`
   width: 300px;
-  /* border-radius: 10px; */
   background-color: #24272b;
   color: #e5e6e7;
   margin-bottom: 10px;
