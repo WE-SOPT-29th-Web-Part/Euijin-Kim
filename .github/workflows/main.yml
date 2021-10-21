@@ -19,12 +19,11 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-            - run: cd ./github-profile-finder
-            - run: ls -al
-            - run: pwd
-            - run: yarn install
-            - run: yarn build
-            - run: touch .nojekyll
+            - working-directory: ./github-profile-finder
+              run: |
+                  yarn install
+                  yarn build
+                  touch .nojekyll
             - name: Deploy
               uses: s0/git-publish-subdir-action@master
               env:
