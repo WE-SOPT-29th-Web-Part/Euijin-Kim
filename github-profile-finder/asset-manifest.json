@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Euijin-Kim/github-profile-finder/static/css/main.ac9b9826.chunk.css",
-    "main.js": "/Euijin-Kim/github-profile-finder/static/js/main.8a95b795.chunk.js",
-    "main.js.map": "/Euijin-Kim/github-profile-finder/static/js/main.8a95b795.chunk.js.map",
-    "runtime-main.js": "/Euijin-Kim/github-profile-finder/static/js/runtime-main.0ab9000d.js",
-    "runtime-main.js.map": "/Euijin-Kim/github-profile-finder/static/js/runtime-main.0ab9000d.js.map",
-    "static/css/2.0978f8b3.chunk.css": "/Euijin-Kim/github-profile-finder/static/css/2.0978f8b3.chunk.css",
-    "static/js/2.90949354.chunk.js": "/Euijin-Kim/github-profile-finder/static/js/2.90949354.chunk.js",
-    "static/js/2.90949354.chunk.js.map": "/Euijin-Kim/github-profile-finder/static/js/2.90949354.chunk.js.map",
-    "index.html": "/Euijin-Kim/github-profile-finder/index.html",
-    "static/css/2.0978f8b3.chunk.css.map": "/Euijin-Kim/github-profile-finder/static/css/2.0978f8b3.chunk.css.map",
-    "static/css/main.ac9b9826.chunk.css.map": "/Euijin-Kim/github-profile-finder/static/css/main.ac9b9826.chunk.css.map",
-    "static/js/2.90949354.chunk.js.LICENSE.txt": "/Euijin-Kim/github-profile-finder/static/js/2.90949354.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.ac9b9826.chunk.css",
+    "main.js": "./static/js/main.8a95b795.chunk.js",
+    "main.js.map": "./static/js/main.8a95b795.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.b17e09e1.js",
+    "runtime-main.js.map": "./static/js/runtime-main.b17e09e1.js.map",
+    "static/css/2.0978f8b3.chunk.css": "./static/css/2.0978f8b3.chunk.css",
+    "static/js/2.1623bd66.chunk.js": "./static/js/2.1623bd66.chunk.js",
+    "static/js/2.1623bd66.chunk.js.map": "./static/js/2.1623bd66.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.0978f8b3.chunk.css.map": "./static/css/2.0978f8b3.chunk.css.map",
+    "static/css/main.ac9b9826.chunk.css.map": "./static/css/main.ac9b9826.chunk.css.map",
+    "static/js/2.1623bd66.chunk.js.LICENSE.txt": "./static/js/2.1623bd66.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0ab9000d.js",
+    "static/js/runtime-main.b17e09e1.js",
     "static/css/2.0978f8b3.chunk.css",
-    "static/js/2.90949354.chunk.js",
+    "static/js/2.1623bd66.chunk.js",
     "static/css/main.ac9b9826.chunk.css",
     "static/js/main.8a95b795.chunk.js"
   ]
