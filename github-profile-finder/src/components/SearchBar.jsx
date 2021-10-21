@@ -26,7 +26,7 @@ const SearchBar = ({ getUserInfo }) => {
     setUser("");
   };
   const handleRemove = (user) => {
-    // X 누르면 제거
+    // X 누르면 상태를 바꿔줌으로써 UI를 바꾸고, localStorage를 바꿈으로써 history를 바꿈.
     const newUserList = userList.filter((userId) => userId !== user);
     setUserList(newUserList);
     localStorage.setItem("userList", JSON.stringify(newUserList));
@@ -46,7 +46,11 @@ const SearchBar = ({ getUserInfo }) => {
           value={user || ""}
         />
       </StyledForm>
-      <History userList={userList} handleRemove={handleRemove} />
+      <History
+        getUserInfo={getUserInfo}
+        userList={userList}
+        handleRemove={handleRemove}
+      />
     </>
   );
 };
@@ -54,7 +58,7 @@ const SearchBar = ({ getUserInfo }) => {
 export default SearchBar;
 
 const StyledForm = styled.form`
-  margin-bottom: 30px;
+  /* margin-bottom: 10px; */
 `;
 
 const StyledInput = styled.input`
