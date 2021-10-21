@@ -23,11 +23,11 @@ jobs:
               run: |
                   yarn install
                   yarn build
-                  touch .nojekyll
+                  touch build/.nojekyll
             - name: Deploy
               uses: s0/git-publish-subdir-action@master
               env:
                   REPO: self
                   BRANCH: gh-pages
-                  FOLDER: github-profile-finder/dist
+                  FOLDER: github-profile-finder/build
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
