@@ -4,11 +4,11 @@ import { colors } from "../../../libs/constants/colors";
 import PublishLeftScreen from "./PublishLeftScreen";
 import PublishRightScreen from "./PublishRightScreen";
 
-const PublishScreen = ({ createArticle }) => {
+const PublishScreen = ({ handleDataChange, createArticle }) => {
   return (
     <StyledRoot>
       <StyledWrapper>
-        <PublishLeftScreen />
+        <PublishLeftScreen handleDataChange={handleDataChange} />
         <StyledCenterLine />
         <PublishRightScreen createArticle={createArticle} />
       </StyledWrapper>

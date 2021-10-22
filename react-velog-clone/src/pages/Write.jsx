@@ -49,19 +49,19 @@ const Write = () => {
     });
   };
 
-  const handleChange = (e, key) => {
+  const handleDataChange = (e, key) => {
     // title, body, summary, series, thumbnail의 변화에 적용ㅐ
     const tempArticleData = { ...articleData };
     tempArticleData[key] = e.target.value;
     setArticleData(tempArticleData);
   };
-  const handleArrChange = (e, key) => {
+  const handleArrDataChange = (e, key) => {
     // tag의 변화에 적용
     const tempArticleData = { ...articleData };
     tempArticleData[key] = [...tempArticleData[key], e.target.value];
     setArticleData(tempArticleData);
   };
-  const handleArrRemove = (e, key) => {
+  const handleArrDataRemove = (e, key) => {
     const tempArticleData = { ...articleData };
     tempArticleData[key] = tempArticleData[key].filter(
       (ele) => ele !== e.target.innerText
@@ -72,16 +72,21 @@ const Write = () => {
   return (
     <Styled.Root>
       <Styled.Top>
-        <ArticleTitle handleChange={handleChange} />
+        <ArticleTitle handleDataChange={handleDataChange} />
         <Styled.MiddleLine />
         <ArticleTag
-          handleArrChange={handleArrChange}
-          handleArrRemove={handleArrRemove}
+          handleArrDataChange={handleArrDataChange}
+          handleArrDataRemove={handleArrDataRemove}
         />
       </Styled.Top>
-      <ArticleBody handleChange={handleChange} />
+      <ArticleBody handleDataChange={handleDataChange} />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
-      {isPublishScreen && <PublishScreen createArticle={createArticle} />}
+      {isPublishScreen && (
+        <PublishScreen
+          handleDataChange={handleDataChange}
+          createArticle={createArticle}
+        />
+      )}
     </Styled.Root>
   );
 };

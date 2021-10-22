@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
-const ArticleTag = ({ handleArrChange, handleArrRemove }) => {
+const ArticleTag = ({ handleArrDataChange, handleArrDataRemove }) => {
   const [tagArr, setTagArr] = useState([]);
   const inputRef = useRef(null);
   const handleSubmit = (e) => {
@@ -11,7 +11,7 @@ const ArticleTag = ({ handleArrChange, handleArrRemove }) => {
         inputRef.current.value = "";
         return;
       }
-      handleArrChange(e, "tags");
+      handleArrDataChange(e, "tags");
       setTagArr([...tagArr, e.target.value]);
       inputRef.current.value = "";
     }
@@ -26,7 +26,7 @@ const ArticleTag = ({ handleArrChange, handleArrRemove }) => {
     <Styled.Root>
       {tagArr &&
         tagArr.map((tag) => (
-          <span key={tag} onClick={(e) => handleArrRemove(e, "tags")}>
+          <span key={tag} onClick={(e) => handleArrDataRemove(e, "tags")}>
             {tag}
           </span>
         ))}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 
-const PublishLeftScreen = () => {
+const PublishLeftScreen = ({ handleDataChange }) => {
   const [description, setDescription] = useState("");
   const MAX_NUM = 150;
 
