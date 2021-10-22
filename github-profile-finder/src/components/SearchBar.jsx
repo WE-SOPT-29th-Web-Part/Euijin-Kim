@@ -16,21 +16,32 @@ const SearchBar = ({ getUserInfo }) => {
     // user API 받아오기
     getUserInfo(user);
     // 중복체크
-    if (!userList.includes(user)) {
-      const setNewUserList = () => {
-        if (userList.length >= MAX_NUM) {
-          return [...userList, user].slice(1, 4);
-        }
-        return [...userList, user];
-      };
-      // history가 3개를 넘지 못하게 많듦.
-      const newUserList = setNewUserList();
-      // 상태를 변화시켜줌으로써, 화면에 History가 보여지도록 함.
-      setUserList(newUserList);
-      // localStorage에 저장하여, 사이트를 껐다가 다시 들어와도 history가 저장되도록 함.
-      localStorage.setItem("userList", JSON.stringify(newUserList));
-      // localStorage는 모든 데이터를 string으로 변환해버림. 그러므로 JSON 형태로 저장하고(직렬화) 읽어와야(역직렬화) 기본 상태를 유지할 수 있음.
+
+    // 처음 받아올 때
+    if (userList === null) {
+      setUserList([user]);
+      return;
     }
+
+    // 중복될 때
+    if (!userList.includes(user)) return;
+
+    const setNewUserList = () => {
+      if (userList.length >= MAX_NUM) {
+        // 3개 초과일때
+        return [...userList, user].slice(1, 4);
+      }
+      // 3개 이하일때
+      return [...userList, user];
+    };
+    // history가 3개를 넘지 못하게 많듦.
+    const newUserList = setNewUserList();
+    // 상태를 변화시켜줌으로써, 화면에 History가 보여지도록 함.
+    setUserList(newUserList);
+    // localStorage에 저장하여, 사이트를 껐다가 다시 들어와도 history가 저장되도록 함.
+    localStorage.setItem("userList", JSON.stringify(newUserList));
+    // localStorage는 모든 데이터를 string으로 변환해버림. 그러므로 JSON 형태로 저장하고(직렬화) 읽어와야(역직렬화) 기본 상태를 유지할 수 있음.
+
     setUser("");
   };
 
