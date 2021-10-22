@@ -35,17 +35,20 @@ const StyledRoot = styled.ul`
   margin-bottom: 10px;
   position: relative;
   top: -10px;
-
-  button {
-    border: 0;
-    outline: 0;
-    background-color: #24272b;
-    color: white;
-  }
 `;
 
 const StyledList = styled.li`
   padding: 8px 16px;
   display: flex;
   justify-content: space-between;
+  & > button {
+    border: 0;
+    outline: 0;
+    background-color: #24272b;
+    color: white;
+    cursor: pointer;
+  }
+  & > span {
+    cursor: pointer;
+  }
 `;
