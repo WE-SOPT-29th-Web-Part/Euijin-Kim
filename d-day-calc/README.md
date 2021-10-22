@@ -8,3 +8,4 @@
    - Date 객체를 활용한 날짜 연산
    - state 상태 끌어올리기
 4. 시연 영상
+![화면 기록 2021-10-22 오후 4 30 14](https://user-images.githubusercontent.com/24906022/138412587-892a8461-b5ef-478c-9c60-dd870cc9b2e6.gif)
