@@ -17,7 +17,7 @@ const SearchBar = ({ getUserInfo }) => {
     getUserInfo(user);
 
     // 중복될 때
-    if (!userList.includes(user)) return;
+    if (userList.includes(user)) return;
 
     const setNewUserList = () => {
       if (userList.length >= MAX_NUM) {
