@@ -13,19 +13,17 @@ const Card = ({ data, setUserInfo }) => {
     public_repos,
   } = data;
 
+  const handleClick = () => {
+    setUserInfo((userInfo) => ({
+      ...userInfo,
+      status: "idle",
+      data: null,
+    }));
+  };
+
   return (
     <StyledRoot>
-      <button
-        onClick={() =>
-          setUserInfo((userInfo) => ({
-            ...userInfo,
-            status: "idle",
-            data: null,
-          }))
-        }
-      >
-        닫기
-      </button>
+      <button onClick={handleClick}>닫기</button>
       <img src={avatar_url} alt="" />
       <h3>{name}</h3>
       <h4>{login}</h4>
@@ -53,7 +51,7 @@ const Card = ({ data, setUserInfo }) => {
 
 export default Card;
 
-const StyledRoot = styled.section`
+const StyledRoot = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
