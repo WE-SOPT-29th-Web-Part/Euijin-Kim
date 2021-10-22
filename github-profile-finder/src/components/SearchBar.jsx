@@ -15,13 +15,6 @@ const SearchBar = ({ getUserInfo }) => {
     e.preventDefault();
     // user API 받아오기
     getUserInfo(user);
-    // 중복체크
-
-    // 처음 받아올 때
-    if (userList === null) {
-      setUserList([user]);
-      return;
-    }
 
     // 중복될 때
     if (!userList.includes(user)) return;

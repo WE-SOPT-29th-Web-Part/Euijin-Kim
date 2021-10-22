@@ -8,3 +8,4 @@
    - axios를 이용해 github API 정보를 가져와서 github profile 불러오기
    - promise 상태를 idle, pending, resolved, rejected로 나누어, 다른 UI를 보여주기
    - localStorage를 이용하여, 검색 history를 유지하도록 구현
+4. 시연 영상
