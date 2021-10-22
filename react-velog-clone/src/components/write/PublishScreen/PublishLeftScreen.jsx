@@ -11,11 +11,17 @@ const PublishLeftScreen = () => {
     const length = value.length;
     console.log(`value`, value);
     if (length > MAX_NUM) {
+      // ex 144자에서 10자짜리를 복붙했을 때, 들어가지 않는 현상 해결
+      // 6자는 채워지길 원함.
+
+      // 남은 공간 ex 6자
       const room = MAX_NUM - description.length;
+      // 남은 공간만큼의 글자. 10자 중 앞 6자
       const roomDescription = value.slice(
         description.length,
         description.length + room
       );
+      // 기본 144자에 잘라온 6글자를 더함/
       const fullDescription = description + roomDescription;
       setDescription(fullDescription);
       return;
