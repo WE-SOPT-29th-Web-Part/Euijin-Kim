@@ -9,7 +9,15 @@ const PublishLeftScreen = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     const length = value.length;
+    console.log(`value`, value);
     if (length > MAX_NUM) {
+      const room = MAX_NUM - description.length;
+      const roomDescription = value.slice(
+        description.length,
+        description.length + room
+      );
+      const fullDescription = description + roomDescription;
+      setDescription(fullDescription);
       return;
     }
     setDescription(e.target.value);
