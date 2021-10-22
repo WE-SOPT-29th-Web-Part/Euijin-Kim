@@ -11,8 +11,8 @@ function App() {
   const [date, setDate] = useState(new Date().getDate());
 
   return (
-    <div id="home">
-      <div id="home__top">
+    <main id="home">
+      <section id="home__top">
         <Header />
         <DateInput
           year={year}
@@ -22,13 +22,13 @@ function App() {
           setMonth={setMonth}
           setDate={setDate}
         />
-      </div>
+      </section>
       <div id="home__middle-line">D-Day 계산기</div>
-      <div id="home__bottom">
+      <section id="home__bottom">
         <Result year={year} month={month} date={date} />
         <Footer />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
