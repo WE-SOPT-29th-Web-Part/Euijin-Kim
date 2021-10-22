@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const ArticleBody = ({ handleChange, setBody }) => {
+const ArticleBody = ({ handleChange }) => {
   return (
     <Styled.Textarea
       placeholder="당신의 이야기를 적어보세요..."
-      onChange={(e) => handleChange(e, setBody)}
+      onChange={(e) => handleChange(e, "body")}
     ></Styled.Textarea>
   );
 };

@@ -3,19 +3,27 @@ import styled from "styled-components";
 
 const PublishLeftScreen = () => {
   return (
-    <Styled.Root>
-      <div>포스트 미리보기</div>
+    <StyledRoot>
+      <h3>포스트 미리보기</h3>
       <input type="file" />
-      <div>제목</div>
       <textarea placeholder="당신의 포스트를 짧게 소개해보세요." />
-      <Styled.CharacterCounter>000/150</Styled.CharacterCounter>
-    </Styled.Root>
+      <StyledCharacterCounter>000/150</StyledCharacterCounter>
+    </StyledRoot>
   );
 };
 
 export default PublishLeftScreen;
 
-const Styled = {
-  Root: styled.div``,
-  CharacterCounter: styled.div``,
-};
+const StyledRoot = styled.div`
+  & > h3 {
+    margin-bottom: 8px;
+  }
+  & > input {
+    margin-bottom: 32px;
+    display: block;
+  }
+  & > textarea {
+  }
+`;
+
+const StyledCharacterCounter = styled.div``;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";
@@ -9,44 +9,79 @@ import { client } from "../libs/api";
 import { colors } from "../libs/constants/colors";
 
 const Write = () => {
-  const [title, setTitle] = useState();
-  const [body, setBody] = useState();
-  const [summary, setSummary] = useState();
-  const [series, setSeries] = useState();
-  const [tagArr, setTagArr] = useState([]);
-  const [thumbnail, setThumbnail] = useState();
-  const [date, setDate] = useState();
+  const [articleData, setArticleData] = useState({
+    id: null,
+    title: null,
+    body: null,
+    summary: null,
+    series: null,
+    tags: [],
+    thumbnail: null,
+    date: null,
+  });
+
   const [isPublishScreen, setIsPublishScreen] = useState(false);
+
+  useEffect(() => {
+    // console.log(`articleCard`, articleData);
+  }, [articleData]);
 
   const createArticle = async () => {
     const { data } = await client.get("/article");
+    console.log(`data`, data);
+    console.log(`{ ...articleData, id: data.length }`, {
+      ...articleData,
+      id: data.length + 1,
+      date: new Date(),
+    });
+    // await client.post("/article", { ...articleData, id: data.length });
     await client.post("/article", {
-      id: data.length,
-      title,
-      body,
-      summary,
-      series,
-      tags: tagArr,
-      thumbnail,
-      date,
+      id: 4,
+      title: "[JavaScript] 단어수세기 구현 (split, 정규식)",
+      body: "오늘은 단어수세기를 구현해보겠습니다. 보통 한국어는 글자수를 기준으로, 영어는 단어수를 기준으로 셉니다.# 단어란1. [표준어국어대사전] 분리하여 자립적으로 쓸 수 있는 말이나 이에 준하는 말. 또는 그 말의 뒤에 붙어서 문법적 기능을 나타내는 말.2. 간단하게 말하면, 영어에서 띄어쓰기 단위와 같다. a, the, apple, is, new 등 모든 띄어쓰기 단위들이 단어이다.",
+      summary:
+        "오늘은 단어수세기를 구현해보겠습니다.보통 한국어는 글자수를 기준으로, 영어는 단어수를 기준으로 셉니다표준어국어대사전 분리하여 자립적으로 쓸 수 있는 말이나 이에 준하는 말. 또는 그 말의 뒤에 붙어서 문법적 기능을 나타내는 말.간단하게 말하면, 영어에서 띄어쓰기 단위와",
+      series: "발표시간 계산기 개발기",
+      tags: ["JavaScript", "단어수세기", "정규식"],
+      thumbnail:
+        "https://kyrics.s3.ap-northeast-2.amazonaws.com/kyrics_og_image.png",
+      date: "2021년 10월 4일",
     });
   };
 
-  const handleChange = (e, setState) => {
-    // title, body, summary, series, thumbnail에 적용
-    setState(e.target.value);
+  const handleChange = (e, key) => {
+    // title, body, summary, series, thumbnail의 변화에 적용ㅐ
+    const tempArticleData = { ...articleData };
+    tempArticleData[key] = e.target.value;
+    setArticleData(tempArticleData);
+  };
+  const handleArrChange = (e, key) => {
+    // tag의 변화에 적용
+    const tempArticleData = { ...articleData };
+    tempArticleData[key] = [...tempArticleData[key], e.target.value];
+    setArticleData(tempArticleData);
+  };
+  const handleArrRemove = (e, key) => {
+    const tempArticleData = { ...articleData };
+    tempArticleData[key] = tempArticleData[key].filter(
+      (ele) => ele !== e.target.innerText
+    );
+    setArticleData(tempArticleData);
   };
 
   return (
     <Styled.Root>
       <Styled.Top>
-        <ArticleTitle handleChange={handleChange} setTitle={setTitle} />
+        <ArticleTitle handleChange={handleChange} />
         <Styled.MiddleLine />
-        <ArticleTag tagArr={tagArr} setTagArr={setTagArr} />
+        <ArticleTag
+          handleArrChange={handleArrChange}
+          handleArrRemove={handleArrRemove}
+        />
       </Styled.Top>
-      <ArticleBody handleChange={handleChange} setBody={setBody} />
+      <ArticleBody handleChange={handleChange} />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
-      {isPublishScreen && <PublishScreen />}
+      {isPublishScreen && <PublishScreen createArticle={createArticle} />}
     </Styled.Root>
   );
 };

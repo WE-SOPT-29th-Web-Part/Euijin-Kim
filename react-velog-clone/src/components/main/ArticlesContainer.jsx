@@ -9,7 +9,6 @@ const ArticlesContainer = () => {
 
   const getArticles = async () => {
     const { data } = await client.get("article");
-    console.log(`data`, data);
     setData(data);
   };
 
@@ -18,19 +17,17 @@ const ArticlesContainer = () => {
   }, []);
 
   return (
-    <Styled.Root>
+    <StyledRoot>
       {data && data.map((item) => <ArticleCard key={item.id} item={item} />)}
-    </Styled.Root>
+    </StyledRoot>
   );
 };
 
 export default ArticlesContainer;
 
-const Styled = {
-  Root: styled.div`
-    & > article + article {
-      padding-top: 64px;
-      border-top: 1px solid ${colors.lineGray};
-    }
-  `,
-};
+const StyledRoot = styled.div`
+  & > article + article {
+    padding-top: 64px;
+    border-top: 1px solid ${colors.lineGray};
+  }
+`;

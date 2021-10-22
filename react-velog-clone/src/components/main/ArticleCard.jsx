@@ -3,17 +3,18 @@ import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
 const ArticleCard = ({ item }) => {
-  console.log(`item`, item);
   const { id, title, body, summary, series, tags, thumbnail, date } = item;
 
   return (
     <Styled.Root>
       <Styled.ImgWrapper>
-        <img src={thumbnail} alt="" />
+        {thumbnail && <img src={thumbnail} alt="" />}
       </Styled.ImgWrapper>
       <h3>{title}</h3>
       <p>{summary}</p>
-      <Styled.Tag>{tags && tags.map((tag) => <span>{tag}</span>)}</Styled.Tag>
+      <Styled.Tag>
+        {tags && tags.map((tag) => <span key={tag}>{tag}</span>)}
+      </Styled.Tag>
       <span>{date}</span>
     </Styled.Root>
   );

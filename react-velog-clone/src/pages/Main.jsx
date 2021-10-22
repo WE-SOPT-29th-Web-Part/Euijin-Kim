@@ -8,7 +8,7 @@ import UserPage from "../components/main/UserPage";
 import Profile from "../components/main/Profile";
 import MainNav from "../components/main/MainNav";
 import { Route } from "react-router";
-import ArticlesContainer from "../components/main/Articles";
+import ArticlesContainer from "../components/main/ArticlesContainer";
 import SeriesCategory from "./SeriesCategory";
 
 const Main = () => {
