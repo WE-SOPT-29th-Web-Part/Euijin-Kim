@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 
 const PublishLeftScreen = () => {
-  const [description, setDescription] = useState();
+  const [description, setDescription] = useState("");
+  const MAX_NUM = 150;
 
   const handleChange = (e) => {
     const value = e.target.value;
     const length = value.length;
-    if (length > 150) {
+    if (length > MAX_NUM) {
       return;
     }
     setDescription(e.target.value);
@@ -22,8 +23,8 @@ const PublishLeftScreen = () => {
         value={description}
         onChange={handleChange}
       />
-      <StyledCharacterCounter>
-        {(description && description.length) || "0"}/150
+      <StyledCharacterCounter limit={description.length === 150}>
+        {description.length || "0"}/150
       </StyledCharacterCounter>
     </StyledRoot>
   );
@@ -54,5 +55,6 @@ const StyledCharacterCounter = styled.div`
   text-align: right;
   font-size: 12px;
   margin-top: 4px;
-  color: ${colors.dateGray};
+  /* color: ${colors.dateGray}; */
+  color: ${({ limit }) => (limit ? "red" : colors.dateGray)};
 `;
