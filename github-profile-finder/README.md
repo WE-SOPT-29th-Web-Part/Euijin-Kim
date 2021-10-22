@@ -1,7 +1,7 @@
 ## SOPT 29th, 3rd Seminar
 
 1. Project
-   - [Github-profile-finder](https://github.com/WE-SOPT-29th-Web-Part/Euijin-Kim/tree/main/github-profile-finder) ([Link](https://we-sopt-29th-web-part.github.io/Euijin-Kim/github-profile-finder/))
+   - Github-profile-finder ([Link](https://we-sopt-29th-web-part.github.io/Euijin-Kim/github-profile-finder/))
 2. 사용 기술
    - React, axios, styled-components
 3. 주요개념
