@@ -6,7 +6,7 @@ const ArticleTitle = ({ handleDataChange }) => {
   return (
     <Styled.Textarea
       placeholder="제목을 입력하세요."
-      onChange={(e) => handleDataChange(e, "title")}
+      onChange={(e) => handleDataChange(e.target.value, "title")}
     />
   );
 };

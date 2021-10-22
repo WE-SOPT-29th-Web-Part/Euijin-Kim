@@ -1,18 +1,16 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
-const ArticleTag = ({ handleArrDataChange, handleArrDataRemove }) => {
-  const [tagArr, setTagArr] = useState([]);
+const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
   const inputRef = useRef(null);
   const handleSubmit = (e) => {
     if (e.key === "," || e.key === "Enter") {
       e.preventDefault();
-      if (e.target.value === "" || tagArr.includes(e.target.value)) {
+      if (e.target.value === "" || tags.includes(e.target.value)) {
         inputRef.current.value = "";
         return;
       }
-      handleArrDataChange(e, "tags");
-      setTagArr([...tagArr, e.target.value]);
+      handleArrDataChange(e.target.value, "tags");
       inputRef.current.value = "";
     }
   };
@@ -24,8 +22,8 @@ const ArticleTag = ({ handleArrDataChange, handleArrDataRemove }) => {
 
   return (
     <Styled.Root>
-      {tagArr &&
-        tagArr.map((tag) => (
+      {tags &&
+        tags.map((tag) => (
           <span key={tag} onClick={(e) => handleArrDataRemove(e, "tags")}>
             {tag}
           </span>

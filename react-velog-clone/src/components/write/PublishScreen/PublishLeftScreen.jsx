@@ -2,31 +2,28 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 
-const PublishLeftScreen = ({ handleDataChange }) => {
+const PublishLeftScreen = ({ summary, handleDataChange }) => {
   const [description, setDescription] = useState("");
   const MAX_NUM = 150;
 
   const handleChange = (e) => {
     const value = e.target.value;
     const length = value.length;
-    console.log(`value`, value);
     if (length > MAX_NUM) {
       // ex 144자에서 10자짜리를 복붙했을 때, 들어가지 않는 현상 해결
       // 6자는 채워지길 원함.
 
       // 남은 공간 ex 6자
-      const room = MAX_NUM - description.length;
+      const room = MAX_NUM - summary.length;
       // 남은 공간만큼의 글자. 10자 중 앞 6자
-      const roomDescription = value.slice(
-        description.length,
-        description.length + room
-      );
+      const roomSummary = value.slice(summary.length, summary.length + room);
       // 기본 144자에 잘라온 6글자를 더함/
-      const fullDescription = description + roomDescription;
-      setDescription(fullDescription);
+      const fullSummary = summary + roomSummary;
+      setDescription(fullSummary);
+      handleDataChange(fullSummary, "summary");
       return;
     }
-    setDescription(e.target.value);
+    handleDataChange(value, "summary");
   };
   return (
     <StyledRoot>
@@ -34,7 +31,7 @@ const PublishLeftScreen = ({ handleDataChange }) => {
       <input type="file" />
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요."
-        value={description}
+        value={summary}
         onChange={handleChange}
       />
       <StyledCharacterCounter limit={description.length === 150}>

@@ -13,7 +13,7 @@ const Write = () => {
     id: null,
     title: null,
     body: null,
-    summary: null,
+    summary: "",
     series: null,
     tags: [],
     thumbnail: null,
@@ -23,48 +23,35 @@ const Write = () => {
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
   useEffect(() => {
-    // console.log(`articleCard`, articleData);
+    console.log(`articleData`, articleData);
   }, [articleData]);
 
   const createArticle = async () => {
     const { data } = await client.get("/article");
-    console.log(`data`, data);
-    console.log(`{ ...articleData, id: data.length }`, {
-      ...articleData,
-      id: data.length + 1,
-      date: new Date(),
-    });
-    // await client.post("/article", { ...articleData, id: data.length });
+
     await client.post("/article", {
-      id: 4,
-      title: "[JavaScript] 단어수세기 구현 (split, 정규식)",
-      body: "오늘은 단어수세기를 구현해보겠습니다. 보통 한국어는 글자수를 기준으로, 영어는 단어수를 기준으로 셉니다.# 단어란1. [표준어국어대사전] 분리하여 자립적으로 쓸 수 있는 말이나 이에 준하는 말. 또는 그 말의 뒤에 붙어서 문법적 기능을 나타내는 말.2. 간단하게 말하면, 영어에서 띄어쓰기 단위와 같다. a, the, apple, is, new 등 모든 띄어쓰기 단위들이 단어이다.",
-      summary:
-        "오늘은 단어수세기를 구현해보겠습니다.보통 한국어는 글자수를 기준으로, 영어는 단어수를 기준으로 셉니다표준어국어대사전 분리하여 자립적으로 쓸 수 있는 말이나 이에 준하는 말. 또는 그 말의 뒤에 붙어서 문법적 기능을 나타내는 말.간단하게 말하면, 영어에서 띄어쓰기 단위와",
-      series: "발표시간 계산기 개발기",
-      tags: ["JavaScript", "단어수세기", "정규식"],
-      thumbnail:
-        "https://kyrics.s3.ap-northeast-2.amazonaws.com/kyrics_og_image.png",
-      date: "2021년 10월 4일",
+      ...articleData,
+      id: data.length,
+      date: new Date(),
     });
   };
 
-  const handleDataChange = (e, key) => {
+  const handleDataChange = (value, key) => {
     // title, body, summary, series, thumbnail의 변화에 적용ㅐ
     const tempArticleData = { ...articleData };
-    tempArticleData[key] = e.target.value;
+    tempArticleData[key] = value;
     setArticleData(tempArticleData);
   };
-  const handleArrDataChange = (e, key) => {
+  const handleArrDataChange = (value, key) => {
     // tag의 변화에 적용
     const tempArticleData = { ...articleData };
-    tempArticleData[key] = [...tempArticleData[key], e.target.value];
+    tempArticleData[key] = [...tempArticleData[key], value];
     setArticleData(tempArticleData);
   };
-  const handleArrDataRemove = (e, key) => {
+  const handleArrDataRemove = (innerText, key) => {
     const tempArticleData = { ...articleData };
     tempArticleData[key] = tempArticleData[key].filter(
-      (ele) => ele !== e.target.innerText
+      (ele) => ele !== innerText
     );
     setArticleData(tempArticleData);
   };
@@ -75,6 +62,7 @@ const Write = () => {
         <ArticleTitle handleDataChange={handleDataChange} />
         <Styled.MiddleLine />
         <ArticleTag
+          tags={articleData.tags}
           handleArrDataChange={handleArrDataChange}
           handleArrDataRemove={handleArrDataRemove}
         />
@@ -83,6 +71,7 @@ const Write = () => {
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
       {isPublishScreen && (
         <PublishScreen
+          summary={articleData.summary}
           handleDataChange={handleDataChange}
           createArticle={createArticle}
         />
