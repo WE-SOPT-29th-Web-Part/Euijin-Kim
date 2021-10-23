@@ -33,8 +33,7 @@ const PublishScreen = ({
       }
     };
   }, [isPublishScreen, animate]);
-  // 화면이 내려가고, 애니메이션도 켜져있지 않다면 null
-  // 화면이 올라올때 애니메이션이 켜져있다면?
+  // 화면이 내려가고, 애니메이션도 켜져있지 않다면 null. 애니메이션 시간 0.125초를 안배한다
   if (!isPublishScreen && !animate) return null;
   return (
     <StyledRoot isPublishScreen={isPublishScreen}>
