@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 import { StyledButton } from "../ArticleFooter";
 
-const PublishRightScreen = ({ createArticle }) => {
+const PublishRightScreen = ({ createArticle, setIsPublishScreen }) => {
   const history = useHistory();
   const handlePost = async () => {
     // await 안 해주면, 비동기 처리되지 않아 곧바로 get 반영되지 않는다.
@@ -13,7 +13,9 @@ const PublishRightScreen = ({ createArticle }) => {
   };
   return (
     <StyledRoot>
-      <StyledButton>취소</StyledButton>
+      <StyledButton onClick={() => setIsPublishScreen(false)}>
+        취소
+      </StyledButton>
       <StyledButton onClick={handlePost}>출간하기</StyledButton>
     </StyledRoot>
   );

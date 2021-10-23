@@ -29,7 +29,6 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
           </span>
         ))}
       <input
-        class="input"
         type="text"
         placeholder="태그를 입력하세요."
         onKeyPress={handleSubmit}

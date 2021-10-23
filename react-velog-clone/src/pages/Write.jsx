@@ -69,13 +69,15 @@ const Write = () => {
       </Styled.Top>
       <ArticleBody handleDataChange={handleDataChange} />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
-      {isPublishScreen && (
-        <PublishScreen
-          summary={articleData.summary}
-          handleDataChange={handleDataChange}
-          createArticle={createArticle}
-        />
-      )}
+      {/* {isPublishScreen && ( */}
+      <PublishScreen
+        summary={articleData.summary}
+        handleDataChange={handleDataChange}
+        createArticle={createArticle}
+        isPublishScreen={isPublishScreen}
+        setIsPublishScreen={setIsPublishScreen}
+      />
+      {/* )} */}
     </Styled.Root>
   );
 };
