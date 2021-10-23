@@ -57,19 +57,18 @@ const Write = () => {
   };
 
   return (
-    <Styled.Root>
-      <Styled.Top>
+    <StyledRoot>
+      <StyledTop>
         <ArticleTitle handleDataChange={handleDataChange} />
-        <Styled.MiddleLine />
+        <StyledMiddleLine />
         <ArticleTag
           tags={articleData.tags}
           handleArrDataChange={handleArrDataChange}
           handleArrDataRemove={handleArrDataRemove}
         />
-      </Styled.Top>
+      </StyledTop>
       <ArticleBody handleDataChange={handleDataChange} />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
-      {/* {isPublishScreen && ( */}
       <PublishScreen
         summary={articleData.summary}
         handleDataChange={handleDataChange}
@@ -77,27 +76,26 @@ const Write = () => {
         isPublishScreen={isPublishScreen}
         setIsPublishScreen={setIsPublishScreen}
       />
-      {/* )} */}
-    </Styled.Root>
+    </StyledRoot>
   );
 };
 
 export default Write;
 
-const Styled = {
-  Root: styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  `,
-  Top: styled.div`
-    padding: 32px 48px 0 48px;
-    width: 50%;
-  `,
-  MiddleLine: styled.div`
-    width: 64px;
-    height: 6px;
-    background-color: ${colors.lightGray};
-    margin: 24px 0;
-  `,
-};
+const StyledRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+const StyledTop = styled.div`
+  padding: 32px 48px 0 48px;
+  width: 50%;
+`;
+
+const StyledMiddleLine = styled.div`
+  width: 64px;
+  height: 6px;
+  background-color: ${colors.lightGray};
+  margin: 24px 0;
+`;

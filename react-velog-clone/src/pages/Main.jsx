@@ -13,27 +13,26 @@ import SeriesCategory from "./SeriesCategory";
 
 const Main = () => {
   return (
-    <Styled.Root>
+    <StyledRoot>
       <Header />
-      <Styled.Main>
+      <StyledMain>
         <Profile />
         <MainNav />
         <Route path="/" exact component={() => <ArticlesContainer />} />
         <Route path="/series" exact component={() => <SeriesCategory />} />
-      </Styled.Main>
-    </Styled.Root>
+      </StyledMain>
+    </StyledRoot>
   );
 };
 
 export default Main;
 
-const Styled = {
-  Root: styled.div`
-    background-color: ${colors.mainWhite};
-  `,
-  Main: styled.main`
-    max-width: 768px;
-    width: 100%;
-    margin: auto;
-  `,
-};
+const StyledRoot = styled.div`
+  background-color: ${colors.mainWhite};
+`;
+
+const StyledMain = styled.main`
+  max-width: 768px;
+  width: 100%;
+  margin: auto;
+`;

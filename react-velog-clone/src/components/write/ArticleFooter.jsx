@@ -1,12 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import { ReactComponent as ArrowLeftIcon } from "../../assets/icons/arrow_left.svg";
 import { colors } from "../../libs/constants/colors";
 
 const ArticleFooter = ({ setIsPublishScreen }) => {
+  const history = useHistory();
   return (
     <StyledRoot>
-      <StyledLeft>
+      <StyledLeft onClick={() => history.push("/")}>
         <ArrowLeftIcon />
         <span>나가기</span>
       </StyledLeft>
@@ -31,6 +33,7 @@ const StyledRoot = styled.div`
   height: 64px;
   padding: 0 16px;
 `;
+
 const StyledLeft = styled.button`
   padding: 8px 16px;
   display: flex;
