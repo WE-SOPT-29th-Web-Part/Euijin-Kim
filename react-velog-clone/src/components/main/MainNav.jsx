@@ -21,58 +21,57 @@ const MainNav = () => {
     }
   };
   return (
-    <Styled.Root>
+    <StyledRoot>
       <Link to="/" ref={btn1ref} className="active" onClick={handleClick}>
         글
       </Link>
       <Link to="/series" ref={btn2ref} onClick={handleClick}>
         시리즈
       </Link>
-      <Styled.BottomLine />
-    </Styled.Root>
+      <StyledBottomLine />
+    </StyledRoot>
   );
 };
 
 export default MainNav;
 
-const Styled = {
-  Root: styled.nav`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 72px 0;
-    position: relative;
+const StyledRoot = styled.nav`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 72px 0;
+  position: relative;
 
-    a {
-      width: 128px;
-      height: 48px;
-      text-align: center;
-      line-height: 48px;
-      font-size: 21px;
-      color: ${colors.lightGray};
-      background-color: ${colors.mainWhite};
-      border: none;
-      padding: 0;
-      text-decoration: none;
-
-      &.active {
-        color: ${colors.mainGreen};
-      }
-    }
-    a:nth-child(1).active + div {
-      transform: translateX(-128px);
-    }
-    a:nth-child(2).active + div {
-      transform: translateX(128px);
-    }
-  `,
-  BottomLine: styled.div`
-    background-color: ${colors.mainGreen};
-    height: 2px;
+  a {
     width: 128px;
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transition: transform 250ms ease;
-  `,
-};
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    font-size: 21px;
+    color: ${colors.lightGray};
+    background-color: ${colors.mainWhite};
+    border: none;
+    padding: 0;
+    text-decoration: none;
+
+    &.active {
+      color: ${colors.mainGreen};
+    }
+  }
+  a:nth-child(1).active + div {
+    transform: translateX(-128px);
+  }
+  a:nth-child(2).active + div {
+    transform: translateX(128px);
+  }
+`;
+
+const StyledBottomLine = styled.div`
+  background-color: ${colors.mainGreen};
+  height: 2px;
+  width: 128px;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transition: transform 250ms ease;
+`;

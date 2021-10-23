@@ -4,16 +4,14 @@ import { colors } from "../libs/constants/colors";
 
 const SeriesCategory = () => {
   return (
-    <Styled.Root>
+    <StyledRoot>
       <div>series</div>
-    </Styled.Root>
+    </StyledRoot>
   );
 };
 
 export default SeriesCategory;
 
-const Styled = {
-  Root: styled.div`
-    background-color: ${colors.mainWhite};
-  `,
-};
+const StyledRoot = styled.div`
+  background-color: ${colors.mainWhite};
+`;
