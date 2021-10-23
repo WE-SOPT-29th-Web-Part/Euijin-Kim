@@ -5,61 +5,60 @@ import { colors } from "../../libs/constants/colors";
 
 const ArticleFooter = ({ setIsPublishScreen }) => {
   return (
-    <Styled.Root>
-      <Styled.Left>
+    <StyledRoot>
+      <StyledLeft>
         <ArrowLeftIcon />
         <span>나가기</span>
-      </Styled.Left>
-      <Styled.Right>
-        <button>임시저장</button>
-        <button onClick={() => setIsPublishScreen(true)}>출간하기</button>
-      </Styled.Right>
-    </Styled.Root>
+      </StyledLeft>
+      <StyledRight>
+        <StyledButton>임시저장</StyledButton>
+        <StyledButton onClick={() => setIsPublishScreen(true)}>
+          출간하기
+        </StyledButton>
+      </StyledRight>
+    </StyledRoot>
   );
 };
 
 export default ArticleFooter;
 
-const Styled = {
-  Root: styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
-    width: 50%;
-    height: 64px;
-    padding: 0 16px;
-    button {
-      height: 40px;
-      font-size: 18px;
-      border-radius: 4px;
-    }
-  `,
-  Left: styled.button`
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    background-color: white;
+const StyledRoot = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+  width: 50%;
+  height: 64px;
+  padding: 0 16px;
+`;
+const StyledLeft = styled.button`
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  background-color: white;
 
-    & > svg {
-      margin-right: 8px;
-    }
-    &:hover {
-      background-color: ${colors.lineGray};
-    }
-  `,
-  Right: styled.div`
-    & > button {
-      padding: 0 20px;
-    }
-    & > button:nth-child(1) {
-      background-color: ${colors.lineGray};
-      color: ${colors.lightGray};
-      margin-right: 12px;
-    }
-    & > button:nth-child(2) {
-      background-color: ${colors.subGreen};
-      color: white;
-    }
-  `,
-};
+  & > svg {
+    margin-right: 8px;
+  }
+  &:hover {
+    background-color: ${colors.lineGray};
+  }
+`;
+const StyledRight = styled.div`
+  & > button:nth-child(1) {
+    background-color: ${colors.lineGray};
+    color: ${colors.lightGray};
+    margin-right: 12px;
+  }
+  & > button:nth-child(2) {
+    background-color: ${colors.subGreen};
+  }
+`;
+
+export const StyledButton = styled.button`
+  height: 40px;
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 0 20px;
+  color: white;
+`;

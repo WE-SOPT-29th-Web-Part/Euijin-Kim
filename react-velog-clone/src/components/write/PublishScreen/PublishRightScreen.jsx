@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
+import { colors } from "../../../libs/constants/colors";
+import { StyledButton } from "../ArticleFooter";
 
 const PublishRightScreen = ({ createArticle }) => {
   const history = useHistory();
@@ -11,7 +13,8 @@ const PublishRightScreen = ({ createArticle }) => {
   };
   return (
     <StyledRoot>
-      <button onClick={handlePost}>출간하기</button>
+      <StyledButton>취소</StyledButton>
+      <StyledButton onClick={handlePost}>출간하기</StyledButton>
     </StyledRoot>
   );
 };
@@ -20,4 +23,13 @@ export default PublishRightScreen;
 
 const StyledRoot = styled.section`
   width: 100%;
+
+  & > button:nth-child(1) {
+    background-color: ${colors.dateGray};
+  }
+
+  & > button + button {
+    background-color: ${colors.subGreen};
+    margin-left: 12px;
+  }
 `;

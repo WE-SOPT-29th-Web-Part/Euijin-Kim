@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 
 const PublishLeftScreen = ({ summary, handleDataChange }) => {
-  const [description, setDescription] = useState("");
   const MAX_NUM = 150;
 
   const handleChange = (e) => {
@@ -19,7 +18,6 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
       const roomSummary = value.slice(summary.length, summary.length + room);
       // 기본 144자에 잘라온 6글자를 더함/
       const fullSummary = summary + roomSummary;
-      setDescription(fullSummary);
       handleDataChange(fullSummary, "summary");
       return;
     }
@@ -34,8 +32,8 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
         value={summary}
         onChange={handleChange}
       />
-      <StyledCharacterCounter limit={description.length === 150}>
-        {description.length || "0"}/150
+      <StyledCharacterCounter limit={summary.length === 150}>
+        {summary.length || "0"}/150
       </StyledCharacterCounter>
     </StyledRoot>
   );
