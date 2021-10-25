@@ -6,6 +6,7 @@ const SearchBar = ({ getUserInfo }) => {
   const [user, setUser] = useState();
   const [userList, setUserList] = useState([]);
   const MAX_NUM = 3;
+  console.log(`userList`, userList);
 
   const handleChange = (e) => {
     setUser(e.target.value);
@@ -43,7 +44,8 @@ const SearchBar = ({ getUserInfo }) => {
 
   useEffect(() => {
     // 컴포넌트가 mount되었을 때, localStorage 정보를 가지고 옴.
-    setUserList(JSON.parse(localStorage.getItem("userList")));
+    localStorage.getItem("userList") &&
+      setUserList(JSON.parse(localStorage.getItem("userList")));
   }, []);
   return (
     <>
