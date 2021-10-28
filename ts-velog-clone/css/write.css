@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 624px;
+}
+
+.input {
+  outline: none;
+  border: none;
+  width: 200px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 16px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 12px;
+  background-color: rgb(241, 243, 245);
+  color: rgb(12, 166, 120);
+  border-radius: 16px;
+  cursor: pointer;
+}
