@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
-const ArticleCard = ({ item }) => {
-  const { id, title, body, summary, series, tags, thumbnail, date } = item;
-  console.log(`id`, id);
+const ArticleCard = ({ article }) => {
+  const { id, title, body, summary, series, tags, thumbnail, date } = article;
 
   return (
     <StyledRoot>

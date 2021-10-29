@@ -40,7 +40,7 @@ const StyledRoot = styled.nav`
   margin: 72px 0;
   position: relative;
 
-  a {
+  & > a {
     width: 128px;
     height: 48px;
     text-align: center;
@@ -52,12 +52,12 @@ const StyledRoot = styled.nav`
     padding: 0;
     text-decoration: none;
   }
-  a:nth-child(1) {
+  & > a:nth-child(1) {
     color: ${({ isArticleBottomLine }) =>
       isArticleBottomLine && colors.mainGreen};
   }
 
-  a:nth-child(2) {
+  & > a:nth-child(2) {
     color: ${({ isArticleBottomLine }) =>
       !isArticleBottomLine && colors.mainGreen};
   }
