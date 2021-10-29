@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";
@@ -23,6 +23,7 @@ const Write = () => {
 
   const createArticle = async () => {
     const { data } = await client.get("/article");
+    const id = data.length + 1;
     const date = new Date();
     const today = `${date.getFullYear()}년 ${
       date.getMonth() + 1
@@ -30,7 +31,7 @@ const Write = () => {
 
     await client.post("/article", {
       ...articleData,
-      id: data.length + 1,
+      id: id,
       date: today,
       thumbnail: "",
     });
@@ -51,7 +52,7 @@ const Write = () => {
   const handleArrDataRemove = (key, innerText) => {
     const tempArticleData = { ...articleData };
     tempArticleData[key] = tempArticleData[key].filter(
-      (ele) => ele !== innerText
+      (item) => item !== innerText
     );
     setArticleData(tempArticleData);
   };

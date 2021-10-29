@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import { colors } from "../../libs/constants/colors";
 
 const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
   const inputRef = useRef(null);
   const handleSubmit = (e) => {
     if (e.key === "," || e.key === "Enter") {
-      e.preventDefault();
       if (e.target.value === "" || tags.includes(e.target.value)) {
+        // 빈값은 태그로 만들지 않고, 중복된 값도 태그로 만들지 않고
         inputRef.current.value = "";
         return;
       }
@@ -55,8 +56,8 @@ const StyledRoot = styled.div`
     height: 32px;
     line-height: 32px;
     margin: 0 12px 12px 0;
-    background-color: rgb(241, 243, 245);
-    color: rgb(12, 166, 120);
+    background-color: ${colors.tagGray};
+    color: ${colors.subGreen};
     border-radius: 16px;
     cursor: pointer;
   }
