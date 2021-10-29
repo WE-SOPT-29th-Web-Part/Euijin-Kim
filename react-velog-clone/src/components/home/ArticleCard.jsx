@@ -8,7 +8,7 @@ const ArticleCard = ({ article }) => {
   return (
     <StyledRoot>
       <StyledImgWrapper thumbnail={thumbnail}>
-        {thumbnail && <img src={thumbnail} alt="" />}
+        {thumbnail && <img src={thumbnail} alt="thumbnail" />}
       </StyledImgWrapper>
       <h3>{title}</h3>
       <p>{summary}</p>

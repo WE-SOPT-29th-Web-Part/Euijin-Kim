@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 
@@ -18,22 +18,16 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
       const roomSummary = value.slice(summary.length, summary.length + room);
       // 기본 144자에 잘라온 6글자를 더함/
       const fullSummary = summary + roomSummary;
-      handleDataChange(fullSummary, "summary");
+      handleDataChange("summary", fullSummary);
       return;
     }
-    handleDataChange(value, "summary");
-  };
-  const [image, setImage] = useState();
-
-  const handleFileChange = (e) => {
-    const form = new FormData();
+    handleDataChange("summary", value);
   };
 
   return (
     <StyledRoot>
       <h3>포스트 미리보기</h3>
-      {image && <img src={image}></img>}
-      <input type="file" onChange={handleFileChange} />
+      <input type="file" />
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요."
         value={summary}

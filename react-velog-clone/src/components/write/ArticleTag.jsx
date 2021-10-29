@@ -10,7 +10,7 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
         inputRef.current.value = "";
         return;
       }
-      handleArrDataChange(e.target.value, "tags");
+      handleArrDataChange("tags", e.target.value);
       inputRef.current.value = "";
     }
   };
@@ -19,7 +19,10 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
     <StyledRoot>
       {tags &&
         tags.map((tag) => (
-          <span key={tag} onClick={(e) => handleArrDataRemove(e, "tags")}>
+          <span
+            key={tag}
+            onClick={(e) => handleArrDataRemove("tags", e.target.innerText)}
+          >
             {tag}
           </span>
         ))}

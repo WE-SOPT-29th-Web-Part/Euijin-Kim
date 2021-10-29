@@ -5,7 +5,7 @@ const ArticleBody = ({ handleDataChange }) => {
   return (
     <StyledTextarea
       placeholder="당신의 이야기를 적어보세요..."
-      onChange={(e) => handleDataChange(e.target.value, "body")}
+      onChange={(e) => handleDataChange("body", e.target.value)}
     ></StyledTextarea>
   );
 };

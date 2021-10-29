@@ -21,10 +21,6 @@ const Write = () => {
 
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
-  useEffect(() => {
-    console.log(`articleData`, articleData);
-  }, [articleData]);
-
   const createArticle = async () => {
     const { data } = await client.get("/article");
     const date = new Date();
@@ -40,19 +36,19 @@ const Write = () => {
     });
   };
 
-  const handleDataChange = (value, key) => {
+  const handleDataChange = (key, value) => {
     // title, body, summary, series, thumbnail의 변화에 적용ㅐ
     const tempArticleData = { ...articleData };
     tempArticleData[key] = value;
     setArticleData(tempArticleData);
   };
-  const handleArrDataChange = (value, key) => {
+  const handleArrDataChange = (key, value) => {
     // tag의 변화에 적용
     const tempArticleData = { ...articleData };
     tempArticleData[key] = [...tempArticleData[key], value];
     setArticleData(tempArticleData);
   };
-  const handleArrDataRemove = (innerText, key) => {
+  const handleArrDataRemove = (key, innerText) => {
     const tempArticleData = { ...articleData };
     tempArticleData[key] = tempArticleData[key].filter(
       (ele) => ele !== innerText
