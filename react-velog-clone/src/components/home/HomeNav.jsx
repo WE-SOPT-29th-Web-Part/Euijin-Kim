@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
-const MainNav = () => {
+const HomeNav = () => {
   const btn1ref = useRef(null);
   const btn2ref = useRef(null);
   const handleClick = (e) => {
@@ -33,7 +33,7 @@ const MainNav = () => {
   );
 };
 
-export default MainNav;
+export default HomeNav;
 
 const StyledRoot = styled.nav`
   width: 100%;

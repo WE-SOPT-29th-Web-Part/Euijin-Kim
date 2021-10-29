@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 
@@ -23,10 +23,17 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
     }
     handleDataChange(value, "summary");
   };
+  const [image, setImage] = useState();
+
+  const handleFileChange = (e) => {
+    const form = new FormData();
+  };
+
   return (
     <StyledRoot>
       <h3>포스트 미리보기</h3>
-      <input type="file" />
+      {image && <img src={image}></img>}
+      <input type="file" onChange={handleFileChange} />
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요."
         value={summary}

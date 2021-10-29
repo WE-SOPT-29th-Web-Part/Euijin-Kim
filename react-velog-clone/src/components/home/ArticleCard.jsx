@@ -4,10 +4,10 @@ import { colors } from "../../libs/constants/colors";
 
 const ArticleCard = ({ item }) => {
   const { id, title, body, summary, series, tags, thumbnail, date } = item;
-
+  console.log(`data`, date);
   return (
     <StyledRoot>
-      <StyledImgWrapper>
+      <StyledImgWrapper thumbnail={thumbnail}>
         {thumbnail && <img src={thumbnail} alt="" />}
       </StyledImgWrapper>
       <h3>{title}</h3>
@@ -41,7 +41,7 @@ const StyledRoot = styled.article`
 `;
 
 const StyledImgWrapper = styled.div`
-  padding-top: 52.356%;
+  padding-top: ${({ thumbnail }) => (thumbnail ? "52.356%" : "0")};
   position: relative;
   margin-bottom: 16px;
   img {

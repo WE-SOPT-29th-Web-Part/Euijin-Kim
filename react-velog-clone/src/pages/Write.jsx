@@ -10,14 +10,13 @@ import { colors } from "../libs/constants/colors";
 
 const Write = () => {
   const [articleData, setArticleData] = useState({
-    id: null,
-    title: null,
-    body: null,
+    id: "",
+    title: "",
+    body: "",
     summary: "",
-    series: null,
     tags: [],
-    thumbnail: null,
-    date: null,
+    thumbnail: "",
+    date: "",
   });
 
   const [isPublishScreen, setIsPublishScreen] = useState(false);
@@ -28,11 +27,16 @@ const Write = () => {
 
   const createArticle = async () => {
     const { data } = await client.get("/article");
+    const date = new Date();
+    const today = `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`;
 
     await client.post("/article", {
       ...articleData,
-      id: data.length,
-      date: new Date(),
+      id: data.length + 1,
+      date: today,
+      thumbnail: "",
     });
   };
 
