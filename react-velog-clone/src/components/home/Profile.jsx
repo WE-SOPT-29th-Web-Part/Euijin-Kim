@@ -9,13 +9,13 @@ import { ReactComponent as MailIcon } from "../../assets/icons/mail.svg";
 const Profile = () => {
   return (
     <StyledRoot>
-      <StyledIntroduce>
+      <StyledProfile>
         <img src={profileImg} alt="profile" />
         <div>
           <h3>김의진</h3>
           <h4>안녕하세요.</h4>
         </div>
-      </StyledIntroduce>
+      </StyledProfile>
       <StyledCenterLine></StyledCenterLine>
       <StyledContact>
         <a href="https://github.com/euijinkk" target="blank">
@@ -24,7 +24,7 @@ const Profile = () => {
         <a href="https://www.speechtime.co.kr/" target="blank">
           <HomeIcon fill="lightGray" />
         </a>
-        <a href="#">
+        <a href="/">
           <MailIcon fill="lightGray" />
         </a>
       </StyledContact>
@@ -40,7 +40,7 @@ const StyledRoot = styled.section`
   width: 100%;
 `;
 
-const StyledIntroduce = styled.div`
+const StyledProfile = styled.div`
   display: flex;
   align-items: center;
   img {

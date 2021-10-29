@@ -1,34 +1,32 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
 const HomeNav = () => {
-  const btn1ref = useRef(null);
-  const btn2ref = useRef(null);
+  const [isArticleBottomLine, setIsArticleBottomLine] = useState(true);
+
   const handleClick = (e) => {
-    switch (e.target) {
-      case btn1ref.current:
-        btn1ref.current.classList.add("active");
-        btn2ref.current.classList.remove("active");
+    switch (e.target.name) {
+      case "article":
+        setIsArticleBottomLine(true);
         break;
-      case btn2ref.current:
-        btn2ref.current.classList.add("active");
-        btn1ref.current.classList.remove("active");
+      case "series":
+        setIsArticleBottomLine(false);
         break;
       default:
         break;
     }
   };
   return (
-    <StyledRoot>
-      <Link to="/" ref={btn1ref} className="active" onClick={handleClick}>
+    <StyledRoot isArticleBottomLine={isArticleBottomLine}>
+      <Link to="/" name="article" onClick={handleClick}>
         글
       </Link>
-      <Link to="/series" ref={btn2ref} onClick={handleClick}>
+      <Link to="/series" name="series" onClick={handleClick}>
         시리즈
       </Link>
-      <StyledBottomLine />
+      <StyledBottomLine isArticleBottomLine={isArticleBottomLine} />
     </StyledRoot>
   );
 };
@@ -53,16 +51,15 @@ const StyledRoot = styled.nav`
     border: none;
     padding: 0;
     text-decoration: none;
+  }
+  a:nth-child(1) {
+    color: ${({ isArticleBottomLine }) =>
+      isArticleBottomLine && colors.mainGreen};
+  }
 
-    &.active {
-      color: ${colors.mainGreen};
-    }
-  }
-  a:nth-child(1).active + div {
-    transform: translateX(-128px);
-  }
-  a:nth-child(2).active + div {
-    transform: translateX(128px);
+  a:nth-child(2) {
+    color: ${({ isArticleBottomLine }) =>
+      !isArticleBottomLine && colors.mainGreen};
   }
 `;
 
@@ -74,4 +71,6 @@ const StyledBottomLine = styled.div`
   bottom: 0;
   right: 50%;
   transition: transform 250ms ease;
+  transform: ${({ isArticleBottomLine }) =>
+    !isArticleBottomLine && "translateX(128px)"};
 `;
