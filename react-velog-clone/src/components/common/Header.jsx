@@ -66,7 +66,7 @@ const StyledRight = styled.div`
     font-size: 16px;
     font-weight: bold;
     &:hover {
-      background-color: r ${colors.mainBlack};
+      background-color: ${colors.mainBlack};
       color: ${colors.lineGray};
     }
   }
