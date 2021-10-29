@@ -10,6 +10,7 @@ const ArticlesContainer = () => {
   const getArticles = async () => {
     const { data } = await client.get("article");
     setData(data);
+    console.log(`data.reverse()`, data.reverse());
   };
 
   useEffect(() => {
@@ -18,7 +19,11 @@ const ArticlesContainer = () => {
 
   return (
     <StyledRoot>
-      {data && data.map((item) => <ArticleCard key={item.id} item={item} />)}
+      {data &&
+        [...data]
+          // 원본 배열을 건드리지 않고 역순으로 하려면 사본을 만든 다음 반대로 만들고 map을 실행하면 된다.
+          .reverse()
+          .map((item) => <ArticleCard key={item.id} item={item} />)}
     </StyledRoot>
   );
 };

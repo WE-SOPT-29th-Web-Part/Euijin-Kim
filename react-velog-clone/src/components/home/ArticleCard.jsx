@@ -4,7 +4,8 @@ import { colors } from "../../libs/constants/colors";
 
 const ArticleCard = ({ item }) => {
   const { id, title, body, summary, series, tags, thumbnail, date } = item;
-  console.log(`data`, date);
+  console.log(`id`, id);
+
   return (
     <StyledRoot>
       <StyledImgWrapper thumbnail={thumbnail}>

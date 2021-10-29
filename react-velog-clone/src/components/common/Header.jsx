@@ -57,7 +57,7 @@ const StyledRight = styled.div`
     line-height: 32px;
     text-align: center;
     border-radius: 16px;
-    border: 1px solid rgb(52, 58, 64);
+    border: 1px solid ${colors.mainBlack};
     background-color: white;
     margin-right: 20px;
     transition: background-color 300ms ease;
@@ -66,8 +66,8 @@ const StyledRight = styled.div`
     font-size: 16px;
     font-weight: bold;
     &:hover {
-      background-color: rgb(52, 58, 64);
-      color: #e8eaed;
+      background-color: r ${colors.mainBlack};
+      color: ${colors.lineGray};
     }
   }
 `;
