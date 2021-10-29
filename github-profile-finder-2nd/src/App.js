@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Result from "./components/Result";
@@ -7,10 +7,6 @@ import styled from "styled-components";
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
-
-  useEffect(() => {
-    console.log(`userInfo`, userInfo);
-  }, [userInfo]);
 
   return (
     <Root>

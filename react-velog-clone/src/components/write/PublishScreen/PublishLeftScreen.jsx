@@ -16,7 +16,7 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
       const room = MAX_NUM - summary.length;
       // 남은 공간만큼의 글자. 10자 중 앞 6자
       const roomSummary = value.slice(summary.length, summary.length + room);
-      // 기본 144자에 잘라온 6글자를 더함/
+      // 기본 144자에 잘라온 6글자를 더함
       const fullSummary = summary + roomSummary;
       handleDataChange("summary", fullSummary);
       return;
@@ -65,6 +65,5 @@ const StyledCharacterCounter = styled.div`
   text-align: right;
   font-size: 12px;
   margin-top: 4px;
-  /* color: ${colors.dateGray}; */
   color: ${({ limit }) => (limit ? "red" : colors.dateGray)};
 `;
