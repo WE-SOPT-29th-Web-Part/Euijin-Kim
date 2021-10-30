@@ -1,35 +1,39 @@
 import React from "react";
 import styled from "styled-components";
+import { Route } from "react-router-dom";
 import Header from "../components/common/Header";
-import { colors } from "../libs/constants/colors";
 import Profile from "../components/home/Profile";
 import HomeNav from "../components/home/HomeNav";
-import { Route } from "react-router";
 import ArticlesContainer from "../components/home/ArticlesContainer";
 import SeriesCategory from "../components/home/SeriesCategory";
 
 const Home = () => {
+  // ArticlesContainer에서 데이터를 get 해올 것
+  // Write에서 Article을 post할 것
   return (
-    <StyledRoot>
+    <div>
       <Header />
       <StyledMain>
         <Profile />
         <HomeNav />
-        <Route path="/" exact component={() => <ArticlesContainer />} />
-        <Route path="/series" exact component={() => <SeriesCategory />} />
+        {/* 중첩 라우트 */}
+        <Route
+          path="/"
+          exact
+          component={() => <ArticlesContainer></ArticlesContainer>}
+        />
+        <Route
+          path="/series"
+          exact
+          component={() => <SeriesCategory></SeriesCategory>}
+        />
       </StyledMain>
-    </StyledRoot>
+    </div>
   );
 };
 
 export default Home;
 
-const StyledRoot = styled.div`
-  background-color: ${colors.mainWhite};
-`;
-
 const StyledMain = styled.main`
   max-width: 768px;
-  width: 100%;
-  margin: auto;
 `;

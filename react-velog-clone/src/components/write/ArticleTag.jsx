@@ -1,18 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
 const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
-  const inputRef = useRef(null);
   const handleSubmit = (e) => {
     if (e.key === "," || e.key === "Enter") {
       if (e.target.value === "" || tags.includes(e.target.value)) {
         // 빈값은 태그로 만들지 않고, 중복된 값도 태그로 만들지 않고
-        inputRef.current.value = "";
+        e.target.value = "";
         return;
       }
       handleArrDataChange("tags", e.target.value);
-      inputRef.current.value = "";
+      e.target.value = "";
     }
   };
 
@@ -31,7 +30,6 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
         type="text"
         placeholder="태그를 입력하세요."
         onKeyPress={handleSubmit}
-        ref={inputRef}
       />
     </StyledRoot>
   );

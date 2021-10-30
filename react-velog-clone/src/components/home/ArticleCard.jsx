@@ -44,8 +44,7 @@ const StyledImgWrapper = styled.div`
   padding-top: ${({ thumbnail }) => (thumbnail ? "52.356%" : "0")};
   position: relative;
   margin-bottom: 16px;
-  img {
-    width: 100%;
+  & > img {
     position: absolute;
     top: 0;
     left: 0;
