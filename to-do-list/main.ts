@@ -57,7 +57,7 @@ inputs.forEach((input, index) =>
 );
 
 // 새로운 to-do-item을 추가하는 함수이다.
-function createItem(text, index) {
+function createItem(text: string, index: number) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   span.innerText = text;
@@ -76,7 +76,7 @@ function createItem(text, index) {
   return li;
 }
 
-function onAdd(index) {
+function onAdd(index: number) {
   const text = inputs[index].value;
   if (!text) return;
   // text가 없을 때는 추가하지 않는다.
