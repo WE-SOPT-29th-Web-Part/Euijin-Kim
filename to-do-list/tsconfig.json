@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "lib": ["dom", "es2016"],
+    "outDir": "./dist",
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"]
+}
