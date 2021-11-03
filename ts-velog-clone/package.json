@@ -3,7 +3,9 @@
   "description": "1. Project    - [Velog Clone Coding](https://velog-clone.netlify.app/) 2. 사용 기술    - HTML, CSS 3. 주요개념    - HTML : Semantic Tag    - CSS : flex-box, media query, animation(transition)",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.11.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

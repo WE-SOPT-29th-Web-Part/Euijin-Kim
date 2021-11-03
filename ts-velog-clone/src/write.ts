@@ -1,25 +1,26 @@
 "use strict";
 
-const input = document.querySelector(".input") as Element;
+const input = document.querySelector(".input") as HTMLInputElement;
 
 input.addEventListener("keypress", addTag);
 
 const tagArr: string[] = [];
 
-function addTag(e) {
+function addTag(e: KeyboardEvent) {
+  const target = e.target as HTMLInputElement;
   if (e.key === "Enter") {
     //   기존 태그와 중복된다면 그냥 return
-    if (tagArr.includes(e.target.value)) {
-      e.target.value = "";
+    if (tagArr.includes(target.value)) {
+      target.value = "";
       return;
     }
-    const span = document.createElement("span");
+    const span = document.createElement("span") as HTMLElement;
     span.setAttribute("class", "tag");
-    span.innerText = e.target.value;
+    span.innerText = target.value;
     document.body.insertBefore(span, input);
 
-    tagArr.push(e.target.value);
-    e.target.value = "";
+    tagArr.push(target.value);
+    target.value = "";
 
     span.addEventListener("click", () => {
       span.remove();

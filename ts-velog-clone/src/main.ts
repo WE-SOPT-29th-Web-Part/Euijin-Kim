@@ -1,8 +1,15 @@
 "use strict";
 
-const navPeriod = document.querySelector(".nav__period");
-const navDropdown = document.querySelector(".nav__dropdown");
-const navPeriodText = document.querySelector(".nav__period-text");
+const navPeriod = document.querySelector(".nav__period") as HTMLElement;
+const navDropdown = document.querySelector(".nav__dropdown") as HTMLElement;
+const navPeriodText = document.querySelector(
+  ".nav__period-text"
+) as HTMLElement;
+const cardContainer = document.querySelector(".cards") as HTMLElement;
+
+if (navPeriod === null) throw new Error();
+if (navDropdown === null) throw new Error();
+if (navPeriodText === null) throw new Error();
 
 // navPeriod 클릭 시, navDropdown이 toggle 되도록.
 navPeriod.addEventListener("click", () => {
@@ -14,21 +21,26 @@ navPeriod.addEventListener("click", () => {
 
 // navDropdown 클릭 시, navPeriodText 글자가 바뀌도록.
 navDropdown.addEventListener("click", (e) => {
-  navPeriodText.innerText = e.target.innerText;
-  Array.from(e.target.parentNode.children).forEach((el) =>
+  const target = e.target as HTMLElement; // 맞나?
+  navPeriodText.innerText = target.innerText;
+
+  if (target.parentNode === null) return; // 맞나?
+
+  Array.from(target.parentNode.children).forEach((el) =>
     el.classList.remove("active")
   );
   //   htmlelement to array 코드
-  e.target.classList.add("active");
+  target.classList.add("active");
   //   클릭되는 list에 대해 색상을 추가하는 코드
 });
 
-const cardContainer = document.querySelector(".cards");
 // 카드 클릭 시, 모달 띄우는 코드
 cardContainer.addEventListener("click", (e) => {
-  let el = e.target;
+  let el = e.target as HTMLElement;
+
   while (el.classList && !el.classList.contains("card")) {
-    el = el.parentNode;
+    if (el.parentNode === null) return; // 맞나?
+    el = el.parentNode as HTMLElement; // 맞나?
   }
   // e.target이 card일때까지 탐색
   if (!el.classList || el.classList.contains("card__modal")) return;
@@ -59,14 +71,17 @@ cardContainer.addEventListener("click", (e) => {
   });
 });
 
-const darkModeCheckBox = document.querySelector(".checkbox");
+const darkModeCheckBox = document.querySelector(
+  ".checkbox"
+) as HTMLInputElement;
 // 기본값은 light
 document.documentElement.setAttribute("color-theme", "light");
 
 darkModeCheckBox.addEventListener("change", switchTheme);
 
-function switchTheme(e) {
-  if (e.target.checked) {
+function switchTheme(e: Event) {
+  const target = e.target as HTMLInputElement;
+  if (target.checked) {
     document.documentElement.setAttribute("color-theme", "dark");
 
     localStorage.setItem("theme", "dark");
@@ -107,9 +122,11 @@ window.addEventListener("resize", () => {
   cardContainer.style.width = (sliderWidth + sliderMargin) * sliderLen + "px";
 });
 
-const arrowRight = document.querySelector(".slider__arrow-right");
-const arrowLeft = document.querySelector(".slider__arrow-left");
-const sliderBox = document.querySelector(".slider-box");
+const arrowRight = document.querySelector(
+  ".slider__arrow-right"
+) as HTMLElement;
+const arrowLeft = document.querySelector(".slider__arrow-left") as HTMLElement;
+const sliderBox = document.querySelector(".slider-box") as HTMLElement;
 
 // 가장 왼쪽에 있는 card의 index
 let index = 0;
@@ -119,10 +136,10 @@ arrowRight.addEventListener("click", () => {
   if (
     (index + 1) * (sliderWidth + sliderMargin) +
       Number(window.getComputedStyle(sliderBox).width.slice(0, -2)) >
-    cardContainer.style.width.slice(0, -2)
+    Number(cardContainer.style.width.slice(0, -2))
   ) {
     cardContainer.style.transform = `translateX(-${
-      cardContainer.style.width.slice(0, -2) -
+      Number(cardContainer.style.width.slice(0, -2)) -
       Number(window.getComputedStyle(sliderBox).width.slice(0, -2))
     }px)`;
     return;
