@@ -11,18 +11,30 @@ const SearchBar = ({ setUserInfo }) => {
   // input 태그를 form 태그로 감싸고, onSubmit 이벤트를 사용하는 것.
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // user 값을 이용하여 정보를 받아오자.
-    // 서버에 있는 데이터를 받아오는 방법 -> 온라인에 올라와있는 데이터를 받아오자.
-    // 서버 통신이 필요하다. -> 서버 통신에는 받아오는데 시간이 걸린다. -> 비동기다.
-    // 비동기 처리를 하기 위한 방법 -> async await
-    // axios는 서버통신을 도와주는 툴입니다.
-    // get 은 받아온다는 의미이고, REST API의 한 종류이다.
+    setUserInfo((currentUserInfo) => ({
+      ...currentUserInfo,
+      status: "pending",
+    })); // 데이터를 받아오는중입니다 . loading중
 
-    const { data } = await axios.get(`https://api.github.com/users/${user}`);
-    setUserInfo(data);
+    try {
+      const { data } = await axios.get(`https://api.github.com/users/${user}`);
+      setUserInfo((currentUserInfo) => ({
+        ...currentUserInfo,
+        data, // key와 value가 같을떄
+        status: "resolved", // 받아오는 데 성공한 상태
+      }));
+      console.log(`data`, data);
+    } catch (error) {
+      setUserInfo((currentUserInfo) => ({
+        ...currentUserInfo,
+        data: null, // key와 value가 같을떄
+        status: "rejected", // 받아오는 데 성공한 상태
+      }));
+      console.log(error);
+    }
+
     setUser("");
   };
-
   return (
     <form onSubmit={handleSubmit}>
       <Input

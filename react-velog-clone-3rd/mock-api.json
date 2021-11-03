@@ -44,63 +44,16 @@
     },
     {
       "id": 4,
-      "title": "9번째",
-      "body": "ㅁㄴㅇㄹㅂㄷㅈㄱ",
-      "summary": "ㅁㄴㅇㄹㅁㄴㅇㅍㅋㅌㅊ",
+      "title": "제목을 입력",
+      "body": "바디바디\n",
+      "summary": "요약입니다.",
+      "series": "",
       "tags": [
-        "asdf",
-        "sdfg",
-        "wert",
-        "ㅂㅈㄷㄱ",
-        "ㅁㄴㅇㄹ",
-        "ㅋㅍ",
-        "ㄱㅈ"
+        "태그",
+        "태그1"
       ],
       "thumbnail": "",
-      "date": "2021년 10월 30일"
-    },
-    {
-      "id": 5,
-      "title": "awesdvasv",
-      "body": "wefqvdsav",
-      "summary": "csdvqwevrevasdv",
-      "tags": [
-        "qwd",
-        "addzxv"
-      ],
-      "thumbnail": "",
-      "date": "2021년 10월 30일"
-    },
-    {
-      "id": 6,
-      "title": "3번쨰",
-      "body": "ㅈㄷㄹㄴㄴㅁㅇㅍㄴㅇㅁ",
-      "summary": "ㅁㅈㄷㅍㅁㅇㄹㅍㅊㅌㅋㅍ",
-      "tags": [
-        "ㅁㄴㅇㄹ"
-      ],
-      "thumbnail": "",
-      "date": "2021년 10월 30일"
-    },
-    {
-      "id": 7,
-      "title": "title",
-      "body": "body",
-      "summary": "summary",
-      "tags": [],
-      "thumbnail": "",
-      "date": "2021년 10월 30일"
-    },
-    {
-      "id": 8,
-      "title": "글",
-      "body": "이야기",
-      "summary": "요약",
-      "tags": [
-        "태그"
-      ],
-      "thumbnail": "",
-      "date": "2021년 10월 31일"
+      "date": "2021년 9월 30일"
     }
   ]
 }

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Result = ({ userInfo, setUserInfo }) => {
-  return userInfo.avatar_url ? (
+  return (
     <Root>
       <button onClick={() => setUserInfo({})}>닫기</button>
       <img src={userInfo.avatar_url} alt="" />
@@ -27,8 +27,6 @@ const Result = ({ userInfo, setUserInfo }) => {
         </li>
       </Ul>
     </Root>
-  ) : (
-    <></>
   );
 };
 
