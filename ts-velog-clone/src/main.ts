@@ -1,15 +1,18 @@
-"use strict";
+export const $ = (qu: string): HTMLElement => {
+  const $el = document.querySelector(qu);
+  if (!$el) {
+    throw new Error(`querySelector ${qu} failed!`);
+  }
+  if (!($el instanceof HTMLElement)) {
+    throw new Error(`${qu} is not HTMLElement.`);
+  }
+  return $el;
+};
 
-const navPeriod = document.querySelector(".nav__period") as HTMLElement;
-const navDropdown = document.querySelector(".nav__dropdown") as HTMLElement;
-const navPeriodText = document.querySelector(
-  ".nav__period-text"
-) as HTMLElement;
-const cardContainer = document.querySelector(".cards") as HTMLElement;
-
-if (navPeriod === null) throw new Error();
-if (navDropdown === null) throw new Error();
-if (navPeriodText === null) throw new Error();
+const navPeriod = $(".nav__period");
+const navDropdown = $(".nav__dropdown");
+const navPeriodText = $(".nav__period-text");
+const cardContainer = $(".cards");
 
 // navPeriod 클릭 시, navDropdown이 toggle 되도록.
 navPeriod.addEventListener("click", () => {
@@ -20,28 +23,38 @@ navPeriod.addEventListener("click", () => {
 });
 
 // navDropdown 클릭 시, navPeriodText 글자가 바뀌도록.
+
+export const isHTMLElement = (el: unknown): el is HTMLElement => {
+  return el instanceof HTMLElement;
+};
+
 navDropdown.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement; // 맞나?
-  navPeriodText.innerText = target.innerText;
+  // if (!(e.target instanceof HTMLElement)) return;
+  if (!isHTMLElement(e.target)) return;
 
-  if (target.parentNode === null) return; // 맞나?
+  navPeriodText.innerText = e.target.innerText;
 
-  Array.from(target.parentNode.children).forEach((el) =>
+  if (e.target.parentNode === null) return; // 맞나?
+
+  Array.from(e.target.parentNode.children).forEach((el) =>
     el.classList.remove("active")
   );
   //   htmlelement to array 코드
-  target.classList.add("active");
+  e.target.classList.add("active");
   //   클릭되는 list에 대해 색상을 추가하는 코드
 });
 
 // 카드 클릭 시, 모달 띄우는 코드
 cardContainer.addEventListener("click", (e) => {
-  let el = e.target as HTMLElement;
+  if (!isHTMLElement(e.target)) return;
 
-  while (el.classList && !el.classList.contains("card")) {
-    if (el.parentNode === null) return; // 맞나?
-    el = el.parentNode as HTMLElement; // 맞나?
-  }
+  const el = e.target.closest(".card");
+  if (!isHTMLElement(el)) return;
+
+  // while (e.target.classList && !e.target.classList.contains("card")) {
+  //   if (e.target.parentNode === null) return; // 맞나?
+  //   el = .parentNode as HTMLElement; // 맞나?
+  // }
   // e.target이 card일때까지 탐색
   if (!el.classList || el.classList.contains("card__modal")) return;
   //  el이 card 외부가 눌러졌거나, / 띄어진 modal의 card를 클릭했을 때는 반응하지 않도록
@@ -71,9 +84,7 @@ cardContainer.addEventListener("click", (e) => {
   });
 });
 
-const darkModeCheckBox = document.querySelector(
-  ".checkbox"
-) as HTMLInputElement;
+const darkModeCheckBox = $(".checkbox");
 // 기본값은 light
 document.documentElement.setAttribute("color-theme", "light");
 
@@ -96,6 +107,7 @@ const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
   document.documentElement.setAttribute("color-theme", currentTheme);
   if (currentTheme === "dark") {
+    if (!(darkModeCheckBox instanceof HTMLInputElement)) throw new Error();
     darkModeCheckBox.checked = true;
   }
 }
@@ -122,11 +134,9 @@ window.addEventListener("resize", () => {
   cardContainer.style.width = (sliderWidth + sliderMargin) * sliderLen + "px";
 });
 
-const arrowRight = document.querySelector(
-  ".slider__arrow-right"
-) as HTMLElement;
-const arrowLeft = document.querySelector(".slider__arrow-left") as HTMLElement;
-const sliderBox = document.querySelector(".slider-box") as HTMLElement;
+const arrowRight = $(".slider__arrow-right");
+const arrowLeft = $(".slider__arrow-left");
+const sliderBox = $(".slider-box");
 
 // 가장 왼쪽에 있는 card의 index
 let index = 0;
