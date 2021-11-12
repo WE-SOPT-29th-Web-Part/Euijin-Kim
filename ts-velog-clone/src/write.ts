@@ -16,7 +16,7 @@ function addTag(e: KeyboardEvent) {
       e.target.value = "";
       return;
     }
-    const span = document.createElement("span") as HTMLElement;
+    const span = document.createElement("span");
     span.setAttribute("class", "tag");
     span.innerText = e.target.value;
     document.body.insertBefore(span, input);

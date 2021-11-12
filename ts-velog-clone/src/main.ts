@@ -1,11 +1,12 @@
 export const $ = (qu: string): HTMLElement => {
   const $el = document.querySelector(qu);
-  if (!$el) {
-    throw new Error(`querySelector ${qu} failed!`);
-  }
+
+  // HTMLElement로 제어
   if (!($el instanceof HTMLElement)) {
     throw new Error(`${qu} is not HTMLElement.`);
   }
+
+  // 제네릭은 컴파일 -> 타입을 동적으로 검사할 수 없다. 오류 검출이 안됨. / 타입체크는 런타임 -> 타입가드 함수를 만들자.
   return $el;
 };
 
@@ -13,6 +14,15 @@ const navPeriod = $(".nav__period");
 const navDropdown = $(".nav__dropdown");
 const navPeriodText = $(".nav__period-text");
 const cardContainer = $(".cards");
+
+// const navPeriod = document.querySelector(".nav__period") as HTMLElement;
+
+// const navPeriod = document.querySelector(".nav__period");
+// // 1. null 막기 2. Element가 아니라 HTMLElement로 선언하기
+// // type 가드, 내로잉
+// if (navPeriod === null) throw new Error(); // null을 막고
+// if (!(navPeriod instanceof HTMLElement)) throw new Error();
+// 클래스 버전 마스터
 
 // navPeriod 클릭 시, navDropdown이 toggle 되도록.
 navPeriod.addEventListener("click", () => {
@@ -25,16 +35,21 @@ navPeriod.addEventListener("click", () => {
 // navDropdown 클릭 시, navPeriodText 글자가 바뀌도록.
 
 export const isHTMLElement = (el: unknown): el is HTMLElement => {
+  //  unknown - 모든 타입의 조상이이다. 모든 것을 대입할 수 있다. 제네럴하게 쓰기위해.
   return el instanceof HTMLElement;
 };
 
 navDropdown.addEventListener("click", (e) => {
   // if (!(e.target instanceof HTMLElement)) return;
+
+  // 왜 eventtarget을 주는가? -> 캡쳐링 버블링 때문에 뭐가 잡힐지 모른다. 그래서 베이스인
+  // if (!(e.target instanceof HTMLElement)) return;
   if (!isHTMLElement(e.target)) return;
+  // 타입가드
 
   navPeriodText.innerText = e.target.innerText;
 
-  if (e.target.parentNode === null) return; // 맞나?
+  if (e.target.parentNode === null) return;
 
   Array.from(e.target.parentNode.children).forEach((el) =>
     el.classList.remove("active")
@@ -91,8 +106,11 @@ document.documentElement.setAttribute("color-theme", "light");
 darkModeCheckBox.addEventListener("change", switchTheme);
 
 function switchTheme(e: Event) {
-  const target = e.target as HTMLInputElement;
-  if (target.checked) {
+  // const target = e.target as HTMLInputElement;
+  // input 이어야 한다.
+  if (!(e.target instanceof HTMLInputElement)) return;
+
+  if (e.target.checked) {
     document.documentElement.setAttribute("color-theme", "dark");
 
     localStorage.setItem("theme", "dark");

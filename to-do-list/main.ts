@@ -5,28 +5,35 @@
 // 3. trash btn 클릭시 아이템 제거 ㅇ
 // 4. 오늘 할 일, 내일 할 일 필터링
 
-const inputs = Array.from(
-  document.querySelectorAll("input")
-) as HTMLInputElement[];
-const plusBtns = Array.from(
-  document.querySelectorAll(".plusBtn")
-) as HTMLButtonElement[];
-const items = Array.from(
-  document.querySelectorAll(".todo__items")
-) as HTMLElement[];
-const nav = document.querySelector("nav") as HTMLElement;
-const navBtn = Array.from(
-  document.querySelectorAll("nav > button")
-) as HTMLButtonElement[];
-const todos = Array.from(document.querySelectorAll(".todo")) as HTMLElement[];
+export const $ = (qu: string): HTMLElement => {
+  const $el = document.querySelector(qu);
+
+  if (!($el instanceof HTMLElement)) {
+    throw new Error(`${qu} is not HTMLElement.`);
+  }
+
+  return $el;
+};
+
+const inputs = Array.from(document.querySelectorAll("input"));
+const plusBtns = Array.from(document.querySelectorAll(".plusBtn"));
+const items = Array.from(document.querySelectorAll(".todo__items"));
+const nav = $("nav");
+const navBtn = Array.from(document.querySelectorAll("nav > button"));
+const todos = Array.from(document.querySelectorAll(".todo"));
+
+export const isHTMLElement = (el: unknown): el is HTMLElement => {
+  //  unknown - 모든 타입의 조상이이다. 모든 것을 대입할 수 있다. 제네럴하게 쓰기위해.
+  return el instanceof HTMLElement;
+};
 
 nav.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-  if (target.tagName !== "BUTTON") return;
+  if (!isHTMLElement(e.target)) return;
+  if (e.target.tagName !== "BUTTON") return;
   // nav의 빈 공간을 눌렀을 때는 아무 일이 발생하지 않도록 한다.
 
   // 3가지 버튼의 클릭 결과를 하나의 함수에 넣기 위해 switch 함수를 사용한다.
-  switch (target.className) {
+  switch (e.target.className) {
     case "nav__today":
       todos[0].classList.add("open");
       todos[1].classList.remove("open");
