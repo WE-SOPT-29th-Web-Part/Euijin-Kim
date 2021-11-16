@@ -17,7 +17,7 @@ const Article = () => {
       <Header />
       <StyledWrapper>
         <h1>{title}</h1>
-        <ArticleOption />
+        <ArticleOption id={id} article={article} />
         <StyledInformation>
           <span>김의진</span>
           <span>·</span>
@@ -41,7 +41,7 @@ export default Article;
 
 const StyledRoot = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   margin: auto;
   background-color: ${colors.mainWhite};
 `;
@@ -50,7 +50,6 @@ const StyledWrapper = styled.div`
   max-width: 768px;
   width: 100%;
   margin: auto;
-  background-color: ${colors.mainWhite};
   & > h1 {
     margin: 32px 0;
     font-size: 36px;

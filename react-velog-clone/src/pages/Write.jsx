@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory, useLocation } from "react-router";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";
@@ -9,32 +10,63 @@ import { client } from "../libs/api";
 import { colors } from "../libs/constants/colors";
 
 const Write = () => {
+  const location = useLocation();
+  const history = useHistory();
+  const article = location.state?.article;
+
   const [articleData, setArticleData] = useState({
-    id: "",
-    title: "",
-    body: "",
-    summary: "",
-    tags: [],
-    thumbnail: "",
-    date: "",
+    id: article?.id || "",
+    title: article?.title || "",
+    body: article?.body || "",
+    summary: article?.summary || "",
+    tags: article?.tags || [],
+    thumbnail: article?.thumbnail || "",
+    date: article?.date || "",
   });
 
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
-  const createArticle = async () => {
+  // const createArticle = async () => {
+  //   const { data } = await client.get("/article");
+  //   const newId = data.length + 1;
+  //   const today = getDate();
+  //   const newArticleData = {
+  //     ...articleData,
+  //     id: newId,
+  //     date: today,
+  //     thumbnail: "",
+  //   };
+
+  //   await client.post("/article", newArticleData);
+  // };
+  const createOrUpdateArticle = async () => {
+    if (articleData) {
+      await client.put(`/article/${articleData.id}`, articleData);
+      history.push({
+        pathname: `/article/${article.id}`,
+        state: { article: articleData },
+      });
+      return;
+    }
     const { data } = await client.get("/article");
-    const id = data.length + 1;
+    const newId = data.length + 1;
+    const today = getDate();
+    const newArticleData = {
+      ...articleData,
+      id: newId,
+      date: today,
+      thumbnail: "",
+    };
+    await client.post("/article", newArticleData);
+    history.push("/");
+  };
+
+  const getDate = () => {
     const date = new Date();
     const today = `${date.getFullYear()}년 ${
       date.getMonth() + 1
     }월 ${date.getDate()}일`;
-
-    await client.post("/article", {
-      ...articleData,
-      id: id,
-      date: today,
-      thumbnail: "",
-    });
+    return today;
   };
 
   const handleDataChange = (key, value) => {
@@ -60,7 +92,10 @@ const Write = () => {
   return (
     <StyledRoot>
       <StyledTop>
-        <ArticleTitle handleDataChange={handleDataChange} />
+        <ArticleTitle
+          title={articleData.title}
+          handleDataChange={handleDataChange}
+        />
         <StyledMiddleLine />
         <ArticleTag
           tags={articleData.tags}
@@ -68,12 +103,15 @@ const Write = () => {
           handleArrDataRemove={handleArrDataRemove}
         />
       </StyledTop>
-      <ArticleBody handleDataChange={handleDataChange} />
+      <ArticleBody
+        body={articleData.body}
+        handleDataChange={handleDataChange}
+      />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
       <PublishScreen
         summary={articleData.summary}
         handleDataChange={handleDataChange}
-        createArticle={createArticle}
+        createOrUpdateArticle={createOrUpdateArticle}
         isPublishScreen={isPublishScreen}
         setIsPublishScreen={setIsPublishScreen}
       />

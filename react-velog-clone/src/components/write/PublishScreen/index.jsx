@@ -7,7 +7,7 @@ import PublishRightScreen from "./PublishRightScreen";
 const PublishScreen = ({
   summary,
   handleDataChange,
-  createArticle,
+  createOrUpdateArticle,
   isPublishScreen,
   setIsPublishScreen,
 }) => {
@@ -44,7 +44,7 @@ const PublishScreen = ({
         />
         <StyledCenterLine />
         <PublishRightScreen
-          createArticle={createArticle}
+          createOrUpdateArticle={createOrUpdateArticle}
           setIsPublishScreen={setIsPublishScreen}
         />
       </StyledWrapper>
