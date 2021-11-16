@@ -53,7 +53,8 @@ const StyledWrapper = styled.div`
   width: 100%;
   margin: auto;
   & > h1 {
-    margin: 32px 0;
+    margin-top: 88px;
+    margin-bottom: 32px;
     font-size: 36px;
     font-weight: 800;
   }
