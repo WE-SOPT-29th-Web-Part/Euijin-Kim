@@ -1,17 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import styled from "styled-components";
+import { client } from "../../libs/api";
 import { colors } from "../../libs/constants/colors";
 
 const ArticleOption = ({ id, article }) => {
-  console.log(`article`, article);
+  const history = useHistory();
+
+  const handleDelete = async () => {
+    await client.delete(`article/${id}`);
+    history.push("/");
+  };
+
   return (
     <StyledRoot>
       <button>통계</button>
-      <Link to={{ pathname: `/article/edit/${id}`, state: { article } }}>
-        <button>수정</button>
-      </Link>
-      <button>삭제</button>
+      <button
+        onClick={() =>
+          history.push({ pathname: `/article/edit/${id}`, state: { article } })
+        }
+      >
+        수정
+      </button>
+      <button onClick={handleDelete}>삭제</button>
     </StyledRoot>
   );
 };
