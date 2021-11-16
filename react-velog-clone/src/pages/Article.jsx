@@ -11,7 +11,7 @@ import ImgWrapper from "../components/common/ImgWrapper";
 const Article = () => {
   const location = useLocation();
   const article = location.state.article;
-  const { id, title, body, summary, series, tags, thumbnail, date } = article;
+  const { id, title, body, tags, thumbnail, date } = article;
   return (
     <StyledRoot>
       <Header />
@@ -25,7 +25,9 @@ const Article = () => {
         </StyledInformation>
         <StyledTags>
           {tags &&
-            tags.map((tag) => <StyledArticleTag>{tag}</StyledArticleTag>)}
+            tags.map((tag) => (
+              <StyledArticleTag key={tag}>{tag}</StyledArticleTag>
+            ))}
         </StyledTags>
         {thumbnail && (
           <ImgWrapper thumbnail={thumbnail} ratio="50%" alt="thumbnail" />

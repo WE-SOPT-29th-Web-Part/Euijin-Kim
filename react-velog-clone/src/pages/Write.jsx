@@ -40,7 +40,7 @@ const Write = () => {
   //   await client.post("/article", newArticleData);
   // };
   const createOrUpdateArticle = async () => {
-    if (articleData) {
+    if (articleData.id) {
       await client.put(`/article/${articleData.id}`, articleData);
       history.push({
         pathname: `/article/${article.id}`,

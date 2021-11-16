@@ -6,12 +6,12 @@ import ImgWrapper from "../common/ImgWrapper";
 import { StyledTag } from "../write/ArticleTag";
 
 const ArticleCard = ({ article }) => {
-  const { id, title, body, summary, series, tags, thumbnail, date } = article;
+  const { title, summary, tags, thumbnail, date } = article;
 
   return (
     <StyledRoot>
-      <ImgWrapper thumbnail={thumbnail} ratio="55.356%" alt="thumbnail" />
       <Link to={{ pathname: `article/${article.id}`, state: { article } }}>
+        <ImgWrapper thumbnail={thumbnail} ratio="55.356%" alt="thumbnail" />
         <h3>{title}</h3>
       </Link>
       <p>{summary}</p>
