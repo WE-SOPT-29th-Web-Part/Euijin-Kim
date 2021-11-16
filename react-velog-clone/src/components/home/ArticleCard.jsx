@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
 
@@ -10,7 +11,9 @@ const ArticleCard = ({ article }) => {
       <StyledImgWrapper thumbnail={thumbnail}>
         {thumbnail && <img src={thumbnail} alt="thumbnail" />}
       </StyledImgWrapper>
-      <h3>{title}</h3>
+      <Link to={{ pathname: `article/${article.id}`, state: { article } }}>
+        <h3>{title}</h3>
+      </Link>
       <p>{summary}</p>
       <StyledTag>
         {tags && tags.map((tag) => <span key={tag}>{tag}</span>)}
@@ -30,6 +33,7 @@ const StyledRoot = styled.article`
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 8px;
+    color: ${colors.darkBlack};
   }
   p {
     margin-bottom: 32px;
