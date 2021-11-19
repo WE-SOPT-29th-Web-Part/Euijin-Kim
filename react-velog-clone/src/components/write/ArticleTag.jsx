@@ -19,12 +19,12 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
     <StyledRoot>
       {tags &&
         tags.map((tag) => (
-          <span
+          <StyledTag
             key={tag}
             onClick={(e) => handleArrDataRemove("tags", e.target.innerText)}
           >
             {tag}
-          </span>
+          </StyledTag>
         ))}
       <input
         type="text"
@@ -48,15 +48,16 @@ const StyledRoot = styled.div`
     font-size: 18px;
     margin-bottom: 12px;
   }
-  span {
-    display: inline-block;
-    padding: 0 16px;
-    height: 32px;
-    line-height: 32px;
-    margin: 0 12px 12px 0;
-    background-color: ${colors.tagGray};
-    color: ${colors.subGreen};
-    border-radius: 16px;
-    cursor: pointer;
-  }
+`;
+
+export const StyledTag = styled.span`
+  display: inline-block;
+  padding: 0 16px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 12px 12px 0;
+  background-color: ${colors.tagGray};
+  color: ${colors.subGreen};
+  border-radius: 16px;
+  cursor: pointer;
 `;

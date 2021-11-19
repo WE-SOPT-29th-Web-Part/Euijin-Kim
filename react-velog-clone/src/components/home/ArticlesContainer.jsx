@@ -31,17 +31,23 @@ const ArticlesContainer = () => {
   return (
     <StyledRoot>
       {data &&
-        [...data]
-          // 원본 배열을 건드리지 않고 역순으로 하려면 사본을 만든 다음 반대로 만들고 map을 실행하면 된다.
-          .reverse()
-          .map((article) => <ArticleCard key={article.id} article={article} />)}
+        data.map((article) => (
+          <ArticleCard key={article.id} article={article} />
+        ))}
     </StyledRoot>
   );
 };
 
+// [JavaScript] 단어수세기 구현 (split, 정규식) -> JavaScript-단어수세기-구현-split-정규식
+// 1. 특수문자를 띄어쓰기로 변환
+// 2. 띄어쓰기 자리에 -로 대체
+//
+
 export default ArticlesContainer;
 
 const StyledRoot = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
   & > article + article {
     padding-top: 64px;
     border-top: 1px solid ${colors.lineGray};

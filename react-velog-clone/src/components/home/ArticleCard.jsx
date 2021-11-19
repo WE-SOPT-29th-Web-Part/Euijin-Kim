@@ -1,20 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
+import ImgWrapper from "../common/ImgWrapper";
+import { StyledTag } from "../write/ArticleTag";
 
 const ArticleCard = ({ article }) => {
-  const { id, title, body, summary, series, tags, thumbnail, date } = article;
+  const { title, summary, tags, thumbnail, date } = article;
 
   return (
     <StyledRoot>
-      <StyledImgWrapper thumbnail={thumbnail}>
-        {thumbnail && <img src={thumbnail} alt="thumbnail" />}
-      </StyledImgWrapper>
-      <h3>{title}</h3>
+      <Link to={{ pathname: `article/${article.id}`, state: { article } }}>
+        <ImgWrapper thumbnail={thumbnail} ratio="55.356%" alt="thumbnail" />
+        <h3>{title}</h3>
+      </Link>
       <p>{summary}</p>
-      <StyledTag>
-        {tags && tags.map((tag) => <span key={tag}>{tag}</span>)}
-      </StyledTag>
+      <StyledTags>
+        {tags &&
+          tags.map((tag) => <StyledCardTag key={tag}>{tag}</StyledCardTag>)}
+      </StyledTags>
       <span>{date}</span>
     </StyledRoot>
   );
@@ -30,6 +34,7 @@ const StyledRoot = styled.article`
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 8px;
+    color: ${colors.darkBlack};
   }
   p {
     margin-bottom: 32px;
@@ -40,31 +45,8 @@ const StyledRoot = styled.article`
   }
 `;
 
-const StyledImgWrapper = styled.div`
-  padding-top: ${({ thumbnail }) => (thumbnail ? "52.356%" : "0")};
-  position: relative;
+const StyledTags = styled.div`
   margin-bottom: 16px;
-  & > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `;
 
-const StyledTag = styled.div`
-  margin-bottom: 16px;
-  & > span {
-    display: inline-block;
-    padding: 0 16px;
-    height: 32px;
-    line-height: 32px;
-    margin-right: 14px;
-    background-color: ${colors.tagGray};
-    color: ${colors.subGreen};
-    border-radius: 16px;
-    cursor: pointer;
-  }
-`;
+const StyledCardTag = styled(StyledTag)``;
