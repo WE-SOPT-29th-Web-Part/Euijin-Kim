@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router";
 import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 import { StyledButton } from "../ArticleFooter";

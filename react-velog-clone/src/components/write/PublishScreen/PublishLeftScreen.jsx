@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { client, imageClient } from "../../../libs/api";
 import { colors } from "../../../libs/constants/colors";
 
 const PublishLeftScreen = ({ summary, handleDataChange }) => {
   const MAX_NUM = 150;
+  const [preViewImage, setPreViewImage] = useState();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -24,10 +26,22 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
     handleDataChange("summary", value);
   };
 
+  const handleImageChange = async (e) => {
+    const formData = new FormData();
+    const imageFile = e.target.files[0];
+    formData.append("file", imageFile);
+    const imageKey = await imageClient.post("", formData);
+    console.log(`imageKey`, imageKey);
+    const image = await client.get(`/image/${imageKey}`);
+    console.log(`image`, image);
+    setPreViewImage(image);
+  };
+
   return (
     <StyledRoot>
       <h3>포스트 미리보기</h3>
-      <input type="file" />
+      <input type="file" onChange={handleImageChange} />
+      {preViewImage && <img src={preViewImage} alt="preview" />}
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요."
         value={summary}
