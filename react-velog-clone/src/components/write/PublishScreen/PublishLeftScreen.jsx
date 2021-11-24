@@ -32,9 +32,10 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
     const imageFile = e.target.files[0];
     formData.append("file", imageFile);
     const imageResponse = await imageClient.post("", formData);
-    setPreViewImage(
-      `http://localhost:3000/api/image/${imageResponse.data.key}`
-    );
+    console.log(imageResponse);
+    const imageUrl = imageResponse.data.url;
+    setPreViewImage(imageUrl);
+    handleDataChange("thumbnail", imageUrl);
   };
 
   return (

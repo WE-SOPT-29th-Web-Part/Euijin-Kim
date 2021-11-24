@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { client } from "../../libs/api";
 import { colors } from "../../libs/constants/colors";
 
-const ArticleOption = ({ id, article }) => {
+const ArticleOption = ({ article }) => {
   const history = useHistory();
 
   const handleDelete = async () => {
-    await client.delete(`article/${id}`);
+    await client.delete(`article/${article.id}`);
     history.push("/");
   };
 
@@ -17,7 +17,10 @@ const ArticleOption = ({ id, article }) => {
       <button>통계</button>
       <button
         onClick={() =>
-          history.push({ pathname: `/article/edit/${id}`, state: { article } })
+          history.push({
+            pathname: `/article/edit/${article.id}`,
+            state: { article },
+          })
         }
       >
         수정

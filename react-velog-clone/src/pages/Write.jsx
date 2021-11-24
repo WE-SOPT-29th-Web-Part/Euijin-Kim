@@ -15,58 +15,27 @@ const Write = () => {
   const article = location.state?.article;
 
   const [articleData, setArticleData] = useState({
-    id: article?.id || "",
     title: article?.title || "",
     body: article?.body || "",
     summary: article?.summary || "",
     tags: article?.tags || [],
     thumbnail: article?.thumbnail || "",
-    date: article?.date || "",
   });
 
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
-  // const createArticle = async () => {
-  //   const { data } = await client.get("/article");
-  //   const newId = data.length + 1;
-  //   const today = getDate();
-  //   const newArticleData = {
-  //     ...articleData,
-  //     id: newId,
-  //     date: today,
-  //     thumbnail: "",
-  //   };
-
-  //   await client.post("/article", newArticleData);
-  // };
   const createOrUpdateArticle = async () => {
-    if (articleData.id) {
-      await client.put(`/article/${articleData.id}`, articleData);
+    if (article) {
+      await client.patch(`/article/${article.id}`, articleData);
       history.push({
         pathname: `/article/${article.id}`,
         state: { article: articleData },
       });
       return;
     }
-    const { data } = await client.get("/article");
-    const newId = data.length + 1;
-    const today = getDate();
-    const newArticleData = {
-      ...articleData,
-      id: newId,
-      date: today,
-      thumbnail: "",
-    };
-    await client.post("/article", newArticleData);
-    history.push("/");
-  };
 
-  const getDate = () => {
-    const date = new Date();
-    const today = `${date.getFullYear()}년 ${
-      date.getMonth() + 1
-    }월 ${date.getDate()}일`;
-    return today;
+    await client.post("/article", articleData);
+    history.push("/");
   };
 
   const handleDataChange = (key, value) => {

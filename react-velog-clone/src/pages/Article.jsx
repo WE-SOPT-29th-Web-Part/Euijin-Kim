@@ -17,7 +17,7 @@ const Article = () => {
       <Header />
       <StyledWrapper>
         <h1>{title}</h1>
-        <ArticleOption id={id} article={article} />
+        <ArticleOption article={article} />
         <StyledInformation>
           <span>김의진</span>
           <span>·</span>
