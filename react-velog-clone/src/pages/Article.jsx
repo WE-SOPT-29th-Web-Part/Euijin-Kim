@@ -10,7 +10,6 @@ import ImgWrapper from "../components/common/ImgWrapper";
 
 const Article = () => {
   const location = useLocation();
-  console.log(`location`, location);
   const article = location.state.article;
   const { title, body, tags, thumbnail, date } = article;
   return (
