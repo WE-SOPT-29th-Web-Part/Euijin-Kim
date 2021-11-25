@@ -4,15 +4,15 @@ import styled from "styled-components";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as ArrowDropDownImage } from "../../assets/icons/arrow_drop_down.svg";
 import { colors } from "../../libs/constants/colors";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import profileImg from "../../assets/images/sopt_web.png";
 
 const Header = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <StyledRoot>
-      <StyledLeft onClick={() => history.push("/")}>
+      <StyledLeft onClick={() => navigate("/")}>
         <div></div>
         <span>sopt.log</span>
       </StyledLeft>

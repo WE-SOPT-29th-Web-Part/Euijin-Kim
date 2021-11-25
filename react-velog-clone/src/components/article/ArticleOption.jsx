@@ -1,15 +1,15 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { client } from "../../libs/api";
 import { colors } from "../../libs/constants/colors";
 
 const ArticleOption = ({ article }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
     await client.delete(`article/${article.id}`);
-    history.push("/");
+    navigate("/");
   };
 
   return (
@@ -17,8 +17,7 @@ const ArticleOption = ({ article }) => {
       <button>통계</button>
       <button
         onClick={() =>
-          history.push({
-            pathname: `/article/edit/${article.id}`,
+          navigate(`/article/edit/${article.id}`, {
             state: { article },
           })
         }
