@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";
@@ -11,7 +11,7 @@ import { colors } from "../libs/constants/colors";
 
 const Write = () => {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const article = location.state?.article;
 
   const [articleData, setArticleData] = useState({
@@ -27,15 +27,12 @@ const Write = () => {
   const createOrUpdateArticle = async () => {
     if (article) {
       await client.patch(`/article/${article.id}`, articleData);
-      history.push({
-        pathname: `/article/${article.id}`,
-        state: { article: articleData },
-      });
+      navigate(`/article/${article.id}`, { state: { article: articleData } });
       return;
     }
 
     await client.post("/article", articleData);
-    history.push("/");
+    navigate("/");
   };
 
   const handleDataChange = (key, value) => {

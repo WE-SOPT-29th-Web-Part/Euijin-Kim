@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./libs/utils/ScrollToTop";
 import Article from "./pages/Article";
 import Home from "./pages/Home";
@@ -9,13 +9,12 @@ function App() {
     <>
       <BrowserRouter>
         <ScrollToTop>
-          <Switch>
-            <Route exact path="/write" component={() => <Write />} />
-            <Route path="/article/:id" exact component={() => <Article />} />
-            <Route path="/article/edit/:id" exact component={() => <Write />} />
-            <Route path="/" component={() => <Home />} />
-            <Route component={() => <div>Page Not Found</div>} />
-          </Switch>
+          <Routes>
+            <Route path="/write" element={<Write />} />
+            <Route path="/article/:id" element={<Article />} />
+            <Route path="/article/edit/:id" element={<Write />} />
+            <Route path="/*" element={<Home />} />
+          </Routes>
         </ScrollToTop>
       </BrowserRouter>
     </>
