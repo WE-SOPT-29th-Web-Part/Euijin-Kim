@@ -75,7 +75,7 @@ const Write = () => {
       />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
       <PublishScreen
-        summary={articleData.summary}
+        articleData={articleData}
         handleDataChange={handleDataChange}
         createOrUpdateArticle={createOrUpdateArticle}
         isPublishScreen={isPublishScreen}

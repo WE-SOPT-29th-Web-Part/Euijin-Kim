@@ -5,7 +5,7 @@ import PublishLeftScreen from "./PublishLeftScreen";
 import PublishRightScreen from "./PublishRightScreen";
 
 const PublishScreen = ({
-  summary,
+  articleData,
   handleDataChange,
   createOrUpdateArticle,
   isPublishScreen,
@@ -40,7 +40,7 @@ const PublishScreen = ({
       <StyledWrapper>
         <PublishLeftScreen
           handleDataChange={handleDataChange}
-          summary={summary}
+          articleData={articleData}
         />
         <StyledCenterLine />
         <PublishRightScreen

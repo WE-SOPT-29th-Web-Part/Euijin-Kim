@@ -4,9 +4,10 @@ import { imageClient } from "../../../libs/api";
 import { colors } from "../../../libs/constants/colors";
 import ImgWrapper from "../../common/ImgWrapper";
 
-const PublishLeftScreen = ({ summary, handleDataChange }) => {
+const PublishLeftScreen = ({ articleData, handleDataChange }) => {
   const MAX_NUM = 150;
-  const [preViewImage, setPreViewImage] = useState();
+  const { summary, thumbnail } = articleData;
+  const [preViewImage, setPreViewImage] = useState(thumbnail);
 
   const handleChange = (e) => {
     const value = e.target.value;
