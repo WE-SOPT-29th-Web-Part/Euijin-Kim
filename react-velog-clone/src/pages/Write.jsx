@@ -27,7 +27,7 @@ const Write = () => {
   const createOrUpdateArticle = async () => {
     if (article) {
       await client.patch(`/article/${article.id}`, articleData);
-      navigate(`/article/${article.id}`, { state: { article: articleData } });
+      navigate(`/article/${article.id}`, { state: articleData });
       return;
     }
 

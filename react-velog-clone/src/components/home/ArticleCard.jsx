@@ -12,7 +12,7 @@ const ArticleCard = ({ article }) => {
     <StyledRoot>
       <Link to={`article/${article.id}`} state={article}>
         {thumbnail && (
-          <ImgWrapper ratio="55.356%">
+          <ImgWrapper ratio="56%">
             <img src={thumbnail} alt="thumbnail" />
           </ImgWrapper>
         )}
@@ -20,8 +20,7 @@ const ArticleCard = ({ article }) => {
       </Link>
       <p>{summary}</p>
       <StyledTags>
-        {tags &&
-          tags.map((tag) => <StyledCardTag key={tag}>{tag}</StyledCardTag>)}
+        {tags && tags.map((tag) => <StyledTag key={tag}>{tag}</StyledTag>)}
       </StyledTags>
       <span>{date}</span>
     </StyledRoot>
@@ -52,5 +51,3 @@ const StyledRoot = styled.article`
 const StyledTags = styled.div`
   margin-bottom: 16px;
 `;
-
-const StyledCardTag = styled(StyledTag)``;

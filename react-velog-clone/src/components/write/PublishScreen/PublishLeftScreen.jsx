@@ -43,7 +43,7 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
       <h3>포스트 미리보기</h3>
       <input type="file" onChange={handleImageChange} />
       {preViewImage && (
-        <ImgWrapper ratio="50%">
+        <ImgWrapper ratio="56%">
           <img src={preViewImage} alt="thumbnail" />
         </ImgWrapper>
       )}

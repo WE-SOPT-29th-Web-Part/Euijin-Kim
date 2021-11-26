@@ -24,13 +24,10 @@ const Article = () => {
           <span>{date}</span>
         </StyledInformation>
         <StyledTags>
-          {tags &&
-            tags.map((tag) => (
-              <StyledArticleTag key={tag}>{tag}</StyledArticleTag>
-            ))}
+          {tags && tags.map((tag) => <StyledTag key={tag}>{tag}</StyledTag>)}
         </StyledTags>
         {thumbnail && (
-          <ImgWrapper ratio="50%">
+          <ImgWrapper ratio="56%">
             <img src={thumbnail} alt="thumbnail" />
           </ImgWrapper>
         )}
@@ -79,8 +76,6 @@ const StyledInformation = styled.div`
 const StyledTags = styled.div`
   margin-top: 14px;
 `;
-
-const StyledArticleTag = styled(StyledTag)``;
 
 const StyledContents = styled.div`
   margin-top: 80px;

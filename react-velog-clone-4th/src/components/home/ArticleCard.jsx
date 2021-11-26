@@ -41,7 +41,7 @@ const StyledRoot = styled.article`
 `;
 
 const StyledImgWrapper = styled.div`
-  padding-top: ${({ thumbnail }) => (thumbnail ? "52.356%" : "0")};
+  padding-top: ${({ thumbnail }) => (thumbnail ? "56%" : "0")};
   position: relative;
   margin-bottom: 16px;
   & > img {
