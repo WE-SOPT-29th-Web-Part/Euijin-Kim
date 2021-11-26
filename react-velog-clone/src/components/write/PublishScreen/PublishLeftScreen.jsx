@@ -43,7 +43,9 @@ const PublishLeftScreen = ({ summary, handleDataChange }) => {
       <h3>포스트 미리보기</h3>
       <input type="file" onChange={handleImageChange} />
       {preViewImage && (
-        <ImgWrapper thumbnail={preViewImage} ratio="50%" alt="preview" />
+        <ImgWrapper ratio="50%">
+          <img src={preViewImage} alt="thumbnail" />
+        </ImgWrapper>
       )}
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요."

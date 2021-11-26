@@ -11,7 +11,11 @@ const ArticleCard = ({ article }) => {
   return (
     <StyledRoot>
       <Link to={`article/${article.id}`} state={article}>
-        <ImgWrapper thumbnail={thumbnail} ratio="55.356%" alt="thumbnail" />
+        {thumbnail && (
+          <ImgWrapper ratio="55.356%">
+            <img src={thumbnail} alt="thumbnail" />
+          </ImgWrapper>
+        )}
         <h3>{title}</h3>
       </Link>
       <p>{summary}</p>

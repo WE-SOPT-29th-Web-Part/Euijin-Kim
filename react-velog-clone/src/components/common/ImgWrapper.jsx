@@ -1,18 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const ImgWrapper = ({ thumbnail, ratio, alt }) => {
-  return (
-    <StyledRoot thumbnail={thumbnail} ratio={ratio}>
-      {thumbnail && <img src={thumbnail} alt={alt} />}
-    </StyledRoot>
-  );
+const ImgWrapper = ({ ratio, children }) => {
+  return <StyledRoot ratio={ratio}>{children}</StyledRoot>;
 };
 
 export default ImgWrapper;
 
 const StyledRoot = styled.div`
-  padding-top: ${({ thumbnail, ratio }) => (thumbnail ? ratio : "0")};
+  padding-top: ${({ ratio }) => ratio};
   position: relative;
   margin-bottom: 16px;
   & > img {

@@ -30,7 +30,9 @@ const Article = () => {
             ))}
         </StyledTags>
         {thumbnail && (
-          <ImgWrapper thumbnail={thumbnail} ratio="50%" alt="thumbnail" />
+          <ImgWrapper ratio="50%">
+            <img src={thumbnail} alt="thumbnail" />
+          </ImgWrapper>
         )}
         <StyledContents>{body}</StyledContents>
         <Profile />
