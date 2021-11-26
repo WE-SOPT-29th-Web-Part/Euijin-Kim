@@ -12,7 +12,7 @@ import { colors } from "../libs/constants/colors";
 const Write = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const article = location.state?.article;
+  const article = location.state;
 
   const [articleData, setArticleData] = useState({
     title: article?.title || "",

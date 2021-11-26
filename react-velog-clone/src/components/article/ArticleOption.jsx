@@ -18,7 +18,7 @@ const ArticleOption = ({ article }) => {
       <button
         onClick={() =>
           navigate(`/article/edit/${article.id}`, {
-            state: { article },
+            state: article,
           })
         }
       >
