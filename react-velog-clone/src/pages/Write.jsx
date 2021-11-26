@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";

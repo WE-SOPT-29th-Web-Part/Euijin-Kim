@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { client, imageClient } from "../../../libs/api";
+import { imageClient } from "../../../libs/api";
 import { colors } from "../../../libs/constants/colors";
 import ImgWrapper from "../../common/ImgWrapper";
 
