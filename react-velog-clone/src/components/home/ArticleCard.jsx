@@ -10,7 +10,7 @@ const ArticleCard = ({ article }) => {
 
   return (
     <StyledRoot>
-      <Link to={`article/${article.id}`} state={{ article }}>
+      <Link to={`article/${article.id}`} state={article}>
         <ImgWrapper thumbnail={thumbnail} ratio="55.356%" alt="thumbnail" />
         <h3>{title}</h3>
       </Link>

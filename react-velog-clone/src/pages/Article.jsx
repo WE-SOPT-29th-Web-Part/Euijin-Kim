@@ -10,7 +10,7 @@ import ImgWrapper from "../components/common/ImgWrapper";
 
 const Article = () => {
   const location = useLocation();
-  const article = location.state.article;
+  const article = location.state;
   const { title, body, tags, thumbnail, date } = article;
   return (
     <StyledRoot>
