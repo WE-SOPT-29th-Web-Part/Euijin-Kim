@@ -5,7 +5,7 @@ import { colors } from "../../libs/constants/colors";
 import ArticleCard from "./ArticleCard";
 
 const ArticlesContainer = () => {
-  const [data, setData] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   // const getArticle = async () => {
   //   const { data } = await client.get("article");
@@ -24,14 +24,14 @@ const ArticlesContainer = () => {
     // 그러므로, 충돌이 생겨 에러가 난다.
     (async () => {
       const { data } = await client.get("article");
-      setData(data);
+      setArticles(data);
     })();
   }, []);
 
   return (
     <StyledRoot>
-      {data &&
-        data.map((article) => (
+      {articles &&
+        articles.map((article) => (
           <ArticleCard key={article.id} article={article} />
         ))}
     </StyledRoot>
