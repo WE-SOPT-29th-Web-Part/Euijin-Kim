@@ -50,7 +50,7 @@ const Write = () => {
   const handleArrDataRemove = (key, innerText) => {
     const tempArticleData = { ...articleData };
     tempArticleData[key] = tempArticleData[key].filter(
-      (item) => item !== innerText
+      (el) => el !== innerText
     );
     setArticleData(tempArticleData);
   };
