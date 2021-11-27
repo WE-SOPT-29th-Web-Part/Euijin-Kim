@@ -41,16 +41,39 @@ const Write = () => {
     await createArticle();
   };
 
+  const handleDataChange = (key, value) => {
+    // key: title, body, summary, thumbnail
+    // value : e.target.value
+    const tempArticleData = { ...articleData };
+    // 객체 복사 -> 상태는 불변성을 유지해야한다. 상태 불변성
+    tempArticleData[key] = value;
+    setArticleData(tempArticleData);
+  };
+  // 배열(tags) 를 수정하기 위한
+  const handleArrDataChange = (key, value) => {
+    const tempArticleData = { ...articleData };
+    tempArticleData[key] = [...tempArticleData[key], value];
+    setArticleData(tempArticleData);
+  };
+  const handleArrDataRemove = (key, value) => {
+    const tempArticleData = { ...articleData };
+    // filter
+    tempArticleData[key] = tempArticleData[key].filter((el) => el !== value);
+    // value -> 클릭된 태그 속에 있는 글자
+    setArticleData(tempArticleData);
+  };
+
   return (
     <div>
       <button onClick={handlePost}>POST!</button>
-      <ArticleTitle setArticleData={setArticleData} />
+      <ArticleTitle onDataChange={handleDataChange} />
       <ArticleTags
         tags={articleData.tags}
         articleData={articleData}
-        setArticleData={setArticleData}
+        onArrDataChange={handleArrDataChange}
+        onArrDataRemove={handleArrDataRemove}
       />
-      <ArticleBody setArticleData={setArticleData} />
+      <ArticleBody onDataChange={handleDataChange} />
       <ArticleFooter />
     </div>
   );

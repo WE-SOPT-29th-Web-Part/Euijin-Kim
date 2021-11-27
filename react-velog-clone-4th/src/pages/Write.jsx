@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";
@@ -9,32 +10,33 @@ import { client } from "../libs/api";
 import { colors } from "../libs/constants/colors";
 
 const Write = () => {
-  const [articleData, setArticleData] = useState({
-    id: "",
-    title: "",
-    body: "",
-    summary: "",
-    tags: [],
-    thumbnail: "",
-    date: "",
-  });
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const article = location.state;
+
+  const [articleData, setArticleData] = useState(
+    article ?? {
+      title: "",
+      body: "",
+      summary: "",
+      tags: [],
+      thumbnail: "",
+    }
+  );
 
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
   const createArticle = async () => {
-    const { data } = await client.get("/article");
-    const id = data.length + 1;
-    const date = new Date();
-    const today = `${date.getFullYear()}년 ${
-      date.getMonth() + 1
-    }월 ${date.getDate()}일`;
-
-    await client.post("/article", {
-      ...articleData,
-      id: id,
-      date: today,
-      thumbnail: "",
-    });
+    // 수정 중일때 출간하기를 누르면 update 시키고, -> patch
+    // 새글작성중일때 출간하기를 누르면 post 시킨다.
+    if (article) {
+      await client.patch(`article/${article.id}`, articleData);
+      navigate(`/article/${article.id}`, { state: articleData });
+      return;
+    }
+    await client.post("/article", articleData);
+    navigate("/");
   };
 
   const handleDataChange = (key, value) => {
@@ -60,7 +62,10 @@ const Write = () => {
   return (
     <StyledRoot>
       <StyledTop>
-        <ArticleTitle handleDataChange={handleDataChange} />
+        <ArticleTitle
+          title={articleData.title}
+          handleDataChange={handleDataChange}
+        />
         <StyledMiddleLine />
         <ArticleTag
           tags={articleData.tags}
@@ -68,11 +73,14 @@ const Write = () => {
           handleArrDataRemove={handleArrDataRemove}
         />
       </StyledTop>
-      <ArticleBody handleDataChange={handleDataChange} />
+      <ArticleBody
+        body={articleData.body}
+        handleDataChange={handleDataChange}
+      />
       <ArticleFooter setIsPublishScreen={setIsPublishScreen} />
       <PublishScreen
         summary={articleData.summary}
-        handleDataChange={handleDataChange}
+        onDataChange={handleDataChange}
         createArticle={createArticle}
         isPublishScreen={isPublishScreen}
         setIsPublishScreen={setIsPublishScreen}

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../../libs/constants/colors";
+import { StyledTag } from "../home/ArticleCard";
 
 const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
   const handleSubmit = (e) => {
@@ -17,15 +17,17 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
 
   return (
     <StyledRoot>
-      {tags &&
-        tags.map((tag) => (
-          <span
-            key={tag}
-            onClick={(e) => handleArrDataRemove("tags", e.target.innerText)}
-          >
-            {tag}
-          </span>
-        ))}
+      <StyledTag>
+        {tags &&
+          tags.map((tag) => (
+            <span
+              key={tag}
+              onClick={(e) => handleArrDataRemove("tags", e.target.innerText)}
+            >
+              {tag}
+            </span>
+          ))}
+      </StyledTag>
       <input
         type="text"
         placeholder="태그를 입력하세요."
@@ -47,16 +49,5 @@ const StyledRoot = styled.div`
     width: 200px;
     font-size: 18px;
     margin-bottom: 12px;
-  }
-  span {
-    display: inline-block;
-    padding: 0 16px;
-    height: 32px;
-    line-height: 32px;
-    margin: 0 12px 12px 0;
-    background-color: ${colors.tagGray};
-    color: ${colors.subGreen};
-    border-radius: 16px;
-    cursor: pointer;
   }
 `;

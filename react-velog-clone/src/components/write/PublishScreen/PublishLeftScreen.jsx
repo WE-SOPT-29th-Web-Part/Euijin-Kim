@@ -33,7 +33,6 @@ const PublishLeftScreen = ({ articleData, handleDataChange }) => {
     const imageFile = e.target.files[0];
     formData.append("file", imageFile);
     const imageResponse = await imageClient.post("", formData);
-    console.log(imageResponse);
     const imageUrl = imageResponse.data.url;
     setPreViewImage(imageUrl);
     handleDataChange("thumbnail", imageUrl);

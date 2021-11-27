@@ -1,16 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../libs/constants/colors";
+import ImgWrapper from "../common/ImgWrapper";
 
 const ArticleCard = ({ article }) => {
   const { id, title, body, summary, series, tags, thumbnail, date } = article;
-
   return (
     <StyledRoot>
-      <StyledImgWrapper thumbnail={thumbnail}>
-        {thumbnail && <img src={thumbnail} alt="thumbnail" />}
-      </StyledImgWrapper>
-      <h3>{title}</h3>
+      <Link to={`article/${article.id}`} state={article}>
+        {thumbnail && (
+          <ImgWrapper ratio="56%">
+            <img src={thumbnail} alt="thumbnail" />
+          </ImgWrapper>
+        )}
+        <h3>{title}</h3>
+      </Link>
       <p>{summary}</p>
       <StyledTag>
         {tags && tags.map((tag) => <span key={tag}>{tag}</span>)}
@@ -40,21 +45,7 @@ const StyledRoot = styled.article`
   }
 `;
 
-const StyledImgWrapper = styled.div`
-  padding-top: ${({ thumbnail }) => (thumbnail ? "56%" : "0")};
-  position: relative;
-  margin-bottom: 16px;
-  & > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const StyledTag = styled.div`
+export const StyledTag = styled.div`
   margin-bottom: 16px;
   & > span {
     display: inline-block;
