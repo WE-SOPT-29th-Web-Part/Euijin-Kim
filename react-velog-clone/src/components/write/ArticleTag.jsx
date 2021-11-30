@@ -21,7 +21,7 @@ const ArticleTag = ({ tags, handleArrDataChange, handleArrDataRemove }) => {
         tags.map((tag) => (
           <StyledTag
             key={tag}
-            onClick={(e) => handleArrDataRemove("tags", e.target.innerText)}
+            onClick={(e) => handleArrDataRemove("tags", tag)}
           >
             {tag}
           </StyledTag>

@@ -14,13 +14,15 @@ const Write = () => {
   const navigate = useNavigate();
   const article = location.state;
 
-  const [articleData, setArticleData] = useState({
-    title: article?.title || "",
-    body: article?.body || "",
-    summary: article?.summary || "",
-    tags: article?.tags || [],
-    thumbnail: article?.thumbnail || "",
-  });
+  const [articleData, setArticleData] = useState(
+    article ?? {
+      title: "",
+      body: "",
+      summary: "",
+      tags: [],
+      thumbnail: "",
+    }
+  );
 
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
