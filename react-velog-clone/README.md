@@ -5,7 +5,7 @@
 2. 사용 기술
    - React, axios, styled-components, json-server
 3. 주요개념
-   - json-server (가상서버)를 활용하여 Article을 get, post
+   - CRUD 모두 구현(게시물 생성, 수정, 삭제, 읽기)
    - svg를 ReactComponent로 불러와서 동적으로 색상 변경
    - 중첩 라우팅
    - styled-components로 동적으로 스타일 적용
