@@ -5,9 +5,9 @@
     "moduleResolution": "node",
     "target": "ES6",
     "lib": ["dom", "es2016"],
-    "outDir": "../ts-assignment/ts-velog-clone/dist",
+    "outDir": "../to-do-list/to-do-list-1st/dist",
     "esModuleInterop": true
   },
-  "exclude": ["../ts-assignment/ts-velog-clone/node_modules"],
-  "include": ["../ts-assignment/ts-velog-clone/src/**/*.ts"]
+  "exclude": ["../to-do-list/to-do-list-1st/node_modules"],
+  "include": ["../to-do-list/to-do-list-1st/**/*.ts"]
 }
